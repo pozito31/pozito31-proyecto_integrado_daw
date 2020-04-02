@@ -1,6 +1,6 @@
 <h3>Total Results: {{searchResults.total_count}}</h3>
 <ul>
-  <li>
+  <li *ngFor="let result of searchResults.items" >
     <a [href]="result.html_url">
       <img [src]="result.owner.avatar_url" /> 
       <h4>{{result.name}} 
