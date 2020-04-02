@@ -1,4 +1,4 @@
-<div *ngIf="searchResults;">
+<div *ngIf="searchResults; else elseBlock">
     <h3>Total Results: {{searchResults.total_count}}</h3>
     <ul>
       <li *ngFor="let result of searchResults.items">
@@ -12,3 +12,4 @@
       </li>
     </ul>
   </div>
+  <ng-template #elseBlock>Loading...</ng-template>
