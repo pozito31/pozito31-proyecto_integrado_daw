@@ -7,8 +7,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { GitSearchService } from './git-search.service';
 import { GitUsersService } from './git-users.service';
 import { GitSearchComponent } from './git-search/git-search.component';
+import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+
+const appRoutes: Routes = [
+  { path: '',
+    component: HomePageComponent
+  },
+  { path: 'search',
+    redirectTo: '/search/angular',
+    pathMatch: 'full'
+  },
+  {
+    path: 'search/:query',
+    component: GitSearchComponent,
+    data: {title: 'Git Search'}
+  },
+  { path: '**', component: NotFoundComponent }
+];
 
 @NgModule({
   declarations: [
@@ -22,7 +39,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(
+      appRoutes
+    )
   ],
   providers: [GitSearchService, GitUsersService],
   bootstrap: [AppComponent]
