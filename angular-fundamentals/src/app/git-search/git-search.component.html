@@ -1,6 +1,8 @@
 <h3>{{title}} - {{displayQuery}}</h3>
 <form>
-  <input name="query" placeholder="Enter Search Here" [(ngModel)]="searchQuery" />
+  <div *ngFor="let key of modelKeys">
+      {{key}} <input name="{{key}}" placeholder="Enter {{key}} Here" />
+  </div>
   <button (click)="sendQuery()">Submit</button>
 </form>
 <div *ngIf="searchResults; else elseBlock">
