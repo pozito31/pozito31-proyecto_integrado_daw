@@ -1,15 +1,15 @@
 <div *ngIf="searchResults; else elseBlock">
-    <h3 class="total">Total Results: {{searchResults.total_count}}</h3>
-    <ul class="list">
-      <li class="list_item" *ngFor="let result of searchResults.items">
-        <a [href]="result.html_url">
-          <img class="avatar" [src]="result.owner.avatar_url" /> 
-          <h4 class="title">{{result.name}} 
-            <small> by {{result.owner.login}}</small> 
-          </h4>
-        </a> 
-        <p class="description"> {{result.description}}</p> 
-      </li>
-    </ul>
-  </div>
-  <ng-template #elseBlock>Loading...</ng-template>
+  <h3 class="total">Total Results: {{searchResults.total_count}}</h3>
+  <ul class="list">
+    <li [ngStyle]="{'background-color' : (i % 2 === 0) ? 'silver' : 'white'}" class="list_item" *ngFor="let result of searchResults.items; index as i;">
+      <a [href]="result.html_url">
+        <img class="avatar" [src]="result.owner.avatar_url" /> 
+        <h4 class="title">{{result.name}} 
+          <small> by {{result.owner.login}}</small> 
+        </h4>
+      </a> 
+      <p class="description"> {{result.description}}</p> 
+    </li>
+  </ul>
+</div>
+<ng-template #elseBlock>Loading...</ng-template>
