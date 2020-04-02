@@ -1,7 +1,7 @@
 export interface GitSearch {
-    "total_count": 282772,
-    "incomplete_results": false,
-    "items": [
+    "total_count": number,
+    "incomplete_results": boolean,
+    "items": Array<
     {
       "id": 24195339,
       "name": "angular",
@@ -92,5 +92,5 @@ export interface GitSearch {
       "default_branch": "master",
       "score": 135.76045
     }
-  ]
+  >
 }
