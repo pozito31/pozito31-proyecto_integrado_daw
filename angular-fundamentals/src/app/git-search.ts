@@ -84,7 +84,7 @@ export interface GitSearch {
       "has_wiki": boolean,
       "has_pages": boolean,
       "forks_count": number,
-      "mirror_url": string,
+      "mirror_url": null,
       "open_issues_count": number,
       "forks": number,
       "open_issues": number,
