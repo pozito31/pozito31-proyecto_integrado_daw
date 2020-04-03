@@ -37,12 +37,12 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    ReactiveFormsModule
   ],
   providers: [GitSearchService, GitUsersService],
   bootstrap: [AppComponent]
