@@ -3,6 +3,7 @@ import { GitSearchService } from '../git-search.service'
 import { GitSearch } from '../git-search'
 import { ActivatedRoute, ParamMap, Router } from '@angular/router'
 import { AdvancedSearchModel } from '../advanced-search-model'
+import { FormControl, FormGroup } from '@angular/forms'
 @Component({
   selector: 'app-git-search',
   templateUrl: './git-search.component.html',
