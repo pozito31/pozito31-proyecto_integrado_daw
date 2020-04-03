@@ -16,7 +16,11 @@ export class GitSearchComponent implements OnInit {
   title: string;
   form: FormGroup;
   formControls = {};
-  constructor(private GitSearchService: GitSearchService, private route: ActivatedRoute, private router: Router ) { }
+  constructor(private GitSearchService: GitSearchService, private route: ActivatedRoute, private router: Router ) {
+    this.modelKeys.forEach( (key) => {
+      this.formControls[key] = new FormControl();
+    })
+  }
 
   model = new AdvancedSearchModel('', '', '', null, null, '');
   modelKeys = Object.keys(this.model);
