@@ -14,6 +14,8 @@ export class GitSearchComponent implements OnInit {
   searchQuery: string;
   displayQuery: string;
   title: string;
+  form: FormGroup;
+  formControls = {};
   constructor(private GitSearchService: GitSearchService, private route: ActivatedRoute, private router: Router ) { }
 
   model = new AdvancedSearchModel('', '', '', null, null, '');
