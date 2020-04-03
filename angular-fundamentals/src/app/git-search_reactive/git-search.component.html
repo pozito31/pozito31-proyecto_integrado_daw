@@ -3,8 +3,9 @@
   <div *ngFor="let key of modelKeys">
     {{key}}
     <input name="{{key}}" placeholder="Enter {{key}} Here" [(ngModel)]="model[key]" required *ngIf="key === 'q'"/>
-    <input name="{{key}}" placeholder="Enter {{key}} Here" [(ngModel)]="model[key]" *ngIf="key !== 'q'" />
- </div>
+    <input name="{{key}}" placeholder="Enter {{key}} Here" [(ngModel)]="model[key]" minlength='2' maxlength='4' *ngIf="key === 'stars'"/>
+    <input name="{{key}}" placeholder="Enter {{key}} Here" [(ngModel)]="model[key]" *ngIf="key !== 'q' && key !== 'stars'" />
+  </div>
   <button type="submit" [disabled]="!form.valid">Submit</button>
 </form>
 <div *ngIf="searchResults; else elseBlock">
