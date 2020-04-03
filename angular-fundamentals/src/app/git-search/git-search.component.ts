@@ -32,6 +32,16 @@ export class GitSearchComponent implements OnInit {
   model = new AdvancedSearchModel('', '', '', null, null, '');
   modelKeys = Object.keys(this.model);
 
+  noSpecialChars(c: FormControl) {
+    let REGEXP = new RegExp(/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/);
+
+    return REGEXP.test(c.value) ? {
+        validateEmail: {
+        valid: false
+        }
+    } : null;
+  }
+  
   ngOnInit() {
     this.route.paramMap.subscribe( (params: ParamMap) => {
       this.searchQuery = params.get('query');
