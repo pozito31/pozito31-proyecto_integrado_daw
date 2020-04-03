@@ -23,10 +23,12 @@ export class GitSearchComponent implements OnInit {
           validators.push(Validators.required);
       }
       if (key === 'stars') {
-          validators.push(Validators.maxLength(4))
+          validators.push(Validators.maxLength(4));
       }
+      validators.push(this.noSpecialChars);
       this.formControls[key] = new FormControl(this.model[key], validators);
     })
+    this.form = new FormGroup(this.formControls);
   }
 
   model = new AdvancedSearchModel('', '', '', null, null, '');
@@ -41,7 +43,7 @@ export class GitSearchComponent implements OnInit {
         }
     } : null;
   }
-  
+
   ngOnInit() {
     this.route.paramMap.subscribe( (params: ParamMap) => {
       this.searchQuery = params.get('query');
