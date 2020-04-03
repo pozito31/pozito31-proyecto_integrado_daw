@@ -1,7 +1,7 @@
 <h3>{{title}} - {{displayQuery}}</h3>
-<form (ngSubmit)="sendQuery()">
+<form (ngSubmit)="sendQuery()" [formGroup]="form">
   <div *ngFor="let key of modelKeys">
-     {{key}}<input name="{{key}}" placeholder="Enter {{key}} Here" [(ngModel)]="model[key]" />
+     {{key}}<input placeholder="Enter {{key}} Here" formControlName="{{key}}" />
   </div>
   <button type="submit" >Submit</button>
 </form>
