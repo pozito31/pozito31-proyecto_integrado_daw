@@ -22,9 +22,9 @@
 .description {
     font-size:18px;
 }
-.ng-valid:not(form)  {
+.ng-valid  {
     border: 2px solid #42A948; /* green */
-  }
+}
   
 .ng-invalid:not(form)  {
     border: 2px solid #a94442; /* red */
