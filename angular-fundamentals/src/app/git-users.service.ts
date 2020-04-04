@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { GitUsers } from './git-users';
 import { GitSearch } from './git-search'
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable({
   providedIn: 'root'

@@ -14,7 +14,7 @@ export class GitSearchService {
       
    }
 
-   gitSearch = (query: string): Promise<GitSearch> => {
+   gitSearch : Function = (query: string) : Observable<GitSearch> => {
     let promise = new Promise<GitSearch>((resolve, reject) => {
         if (this.cachedValues[query]) {
             resolve(this.cachedValues[query])
