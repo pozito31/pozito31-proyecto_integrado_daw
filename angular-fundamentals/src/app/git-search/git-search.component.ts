@@ -36,8 +36,12 @@ export class GitSearchComponent implements OnInit {
       alert("Error: " + error.statusText)
     })
   }
+  checkType = (key) => {
+    return typeof key === 'string' ? 'text' : typeof key;
+  }
 
-  sendQuery = () => {
+  sendQuery = (f) => {
+    console.log(f)
     this.searchResults = null;
     let search : string = this.model.q;
     let params : string = "";
@@ -51,10 +55,10 @@ export class GitSearchComponent implements OnInit {
     })
     this.searchQuery = search;
     if (params !== '') {
-        this.searchQuery = search + '+' + params;
+        this.searchQuery = search + params;
     }
     this.displayQuery = this.searchQuery;
     this.gitSearch();
-}
+  }
 
 }
