@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GitSearchService } from './git-search.service';
+import { GitCodeSearchService } from './git-code-search.service';
 import { GitSearchComponent } from './git-search_reactive/git-search.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NoSpecialCharsDirective } from './no-special-chars.directive';
 
 
 const appRoutes: Routes = [
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     AppComponent,
     GitSearchComponent,
     HomePageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NoSpecialCharsDirective
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [GitSearchService],
+  providers: [GitSearchService, GitCodeSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
