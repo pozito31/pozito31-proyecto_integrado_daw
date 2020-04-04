@@ -1,4 +1,5 @@
 export class AdvancedSearchModel {
+
     constructor(
         public q: string,
         public language?: string,
@@ -6,6 +7,5 @@ export class AdvancedSearchModel {
         public size?: number,
         public stars?: number,
         public topic?: string
-    ) { }
-
+    ) {  }
 }
