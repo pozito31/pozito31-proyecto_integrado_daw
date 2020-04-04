@@ -33,7 +33,7 @@ export class GitSearchService {
     return this.search;
   }
 
-  gitUsers = (query: string): Promise<GitUsers> => {
+  gitUsers = (query: string) : Promise<GitUsers> => {
     let promise = new Promise<GitUsers>((resolve, reject) => {
         if (this.cachedUsers[query]) {
             resolve(this.cachedUsers[query])
