@@ -1,9 +1,8 @@
-<h3>{{title}} - {{displayQuery}}</h3>
+<h3>{{ title }}</h3>
 <form (ngSubmit)="sendQuery()" [formGroup]="form">
   <div *ngFor="let key of modelKeys; let i=index" class="form-item">
-      {{key}}
-      <div>
-        <input placeholder="Enter {{key}} Here" formControlName="{{key}}" type="{{type[i]}}" />
+      <div>{{key}}</div>
+      <div><input placeholder="Enter {{key}} Here" formControlName="{{key}}" type="{{type[i]}}" />
         <div *ngIf="form.controls[key].touched && form.controls[key].invalid && form.controls[key].errors.required">
           {{key}} field is required
         </div>
