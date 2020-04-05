@@ -56,7 +56,7 @@ export class GitSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.route.paramMap.subscribe((params: ParamMap) => {
+    this.route.paramMap.subscribe((params: ParamMap) => {
       this.searchQuery = params.get('query');
       this.displayQuery = params.get('query');
       this.pagina = +params.get('page');
@@ -77,6 +77,7 @@ export class GitSearchComponent implements OnInit {
   gitSearch = () => {
     this.GitSearchService.gitSearch(this.searchQuery, this.pagina).then((response) => {
       this.searchResults = response;
+      console.log(response);
     }, (error) => {
       alert("Error: " + error.statusText)
     })
