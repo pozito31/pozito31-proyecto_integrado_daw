@@ -29,10 +29,3 @@
 .ng-invalid:not(form)  {
     border: 2px solid #a94442; /* red */
 }
-.oculto {
-    display : hidden;
-}
-
-.visible {
-    display : visible;
-}
