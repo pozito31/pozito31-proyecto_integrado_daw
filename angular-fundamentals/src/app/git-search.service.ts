@@ -3,12 +3,12 @@ import { GitSearch } from './git-search'
 import { GitUsers } from './git-users';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/publishReplay';
+import { exhaustMap, scan, mapTo, map, publishReplay, startWith, refCount, first, filter, switchMap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class GitSearchService {
+  private cadenahttp: string;
   cachedValue: string;
     search: Observable<GitSearch>;
   cachedUsers: Array<{
@@ -18,17 +18,20 @@ export class GitSearchService {
       
    }
 
-   gitSearch : Function = (query: string) : Observable<GitSearch> => {
-    if (!this.search) {
-        this.search = this.http.get<GitSearch>('https://api.github.com/search/repositories?q=' + query)
-        .publishReplay(1)
-        .refCount();
-        this.cachedValue = query;
+   gitSearch: Function = (query: string, page: number): Observable<GitSearch> => {
+
+    if (page === null) {
+      this.cadenahttp = query;
     }
-    else if (this.cachedValue !== query) {
-        this.search = null;
-        this.gitSearch(query);
+    else {
+      this.cadenahttp = query + '&page=' + page;
     }
+
+      this.search = this.http.get<GitSearch>('https://api.github.com/search/repositories?q=' + this.cadenahttp).pipe(        
+        publishReplay(1),
+        refCount());
+      this.cachedValue = query;      
+    
     return this.search;
   }
 
