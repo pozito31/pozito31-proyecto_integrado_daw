@@ -22,12 +22,20 @@
 .description {
     font-size:18px;
 }
-.silver {
+
+.FondoPlateado {
     background-color: silver;
 }
 
-.white {
+.FondoBlanco {
     background-color: white;
+}
+
+.capaFlex {
+    display:flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 }
 .ng-valid:not(form)  {
     border: 2px solid #42A948; /* green */
@@ -35,4 +43,12 @@
   
 .ng-invalid:not(form)  {
     border: 2px solid #a94442; /* red */
+}
+
+.oculto {
+    display : hidden;
+}
+
+.visible {
+    display : visible;
 }

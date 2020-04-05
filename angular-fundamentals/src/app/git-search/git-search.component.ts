@@ -18,16 +18,20 @@ export class GitSearchComponent implements OnInit {
  
   }
   model = new AdvancedSearchModel('', '', '', null, null, '');
+  // Creamos un array con los atributos del objeto 'model' para procesarlo con *ngFor
   modelKeys = Object.keys(this.model);
+  // Creamos un array que almacene el tipo de dato para los inputs
   tiposCampoFormulario: Array<any> = [];
   ngOnInit() {
+    
     this.modelKeys.forEach((key) => {      
       if (typeof (this.model[key]) === 'string'){
         this.tiposCampoFormulario.push('text');
       } else 
         this.tiposCampoFormulario.push('number');    
     });
-      this.route.paramMap.subscribe( (params: ParamMap) => {
+
+    this.route.paramMap.subscribe( (params: ParamMap) => {
       this.searchQuery = params.get('query');
       this.displayQuery = params.get('query');
       this.pagina = +params.get('page');
@@ -35,6 +39,7 @@ export class GitSearchComponent implements OnInit {
       {
         this.pagina=1;
       }
+
       this.gitSearch();        
     })
     this.route.data.subscribe( (result) => {
@@ -50,7 +55,9 @@ export class GitSearchComponent implements OnInit {
     })
   }
 
-  sendQuery = () => { 
+  sendQuery = () => {
+
+   // this.searchResults = null;  
     this.pagina=1;  
     this.searchResults = null;
     let search : string = this.model.q;
@@ -70,4 +77,5 @@ export class GitSearchComponent implements OnInit {
     this.displayQuery = this.searchQuery;
     this.gitSearch();   
   }
+
 }

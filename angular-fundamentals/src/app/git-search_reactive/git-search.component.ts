@@ -16,6 +16,7 @@ export class GitSearchComponent implements OnInit {
   displayQuery: string;
   title: string;
   pagina: number;
+  // Objeto que contendrá todos los campos del formulario
   form: FormGroup;
   formControls = {};
   type: Array<any> = [];
@@ -43,6 +44,7 @@ export class GitSearchComponent implements OnInit {
   }
 
   model = new AdvancedSearchModel('', '', '', null, null, '');
+  // Creamos un array con los atributos del objeto 'model' para procesarlo con *ngFor
   modelKeys = Object.keys(this.model);
 
   noSpecialChars(c: FormControl) {
@@ -63,6 +65,7 @@ export class GitSearchComponent implements OnInit {
       if (this.pagina == 0) {
         this.pagina = 1;
       }
+
       this.gitSearch();
     })
     this.route.data.subscribe((result) => {
@@ -84,6 +87,8 @@ export class GitSearchComponent implements OnInit {
   }
 
   sendQuery = () => {
+
+    // this.searchResults = null;  
     this.pagina = 1;
     this.searchResults = null;
     let search: string = this.form.value['q'];
@@ -103,4 +108,5 @@ export class GitSearchComponent implements OnInit {
     this.displayQuery = this.searchQuery;
     this.gitSearch();
   }
+
 }

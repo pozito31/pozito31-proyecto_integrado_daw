@@ -79,19 +79,48 @@ formulario con un ejemplo uitilizando el componente FormGroup -->
   <button type="submit" [disabled]="!myForm.valid">Submit</button>
 </form>
 <div *ngIf="searchResults; else elseBlock">
+  <div class="capaFlex">
+    <!-- En sentido inverso row-reverse -->
+    <a [routerLink]="['/search', searchQuery, pagina + 1]"
+      >Página siguiente <img src="assets/img/fderecha.png"
+    /></a>
+    <a *ngIf="pagina > 1" [routerLink]="['/search', searchQuery, pagina - 1]"
+      ><img src="assets/img/fizquierda.png" />Página anterior</a
+    >
+  </div>
   <div *ngIf="searchResults.total_count > 0; else sinResultados">
     <h3 class="total">Total Results: {{ searchResults.total_count }}</h3>
     <ul class="list">
-      <li [ngClass]="{ silver: i % 2 === 0, white: i % 2 != 0 }" class="list_item" *ngFor="let result of searchResults.items; index as i">
+      <li
+        [ngClass]="{ FondoPlateado: i % 2 === 0, FondoBlanco: i % 2 != 0 }"
+        class="list_item"
+        *ngFor="let result of searchResults.items; index as i"
+      >
         <a [href]="result.html_url">
           <img class="avatar" [src]="result.owner.avatar_url" />
-          <h4 class="title">{{ result.name }}<small> by {{ result.owner.login | uppercase }}</small></h4>
+          <h4 class="title">
+            {{ result.name }}
+            <small> by {{ result.owner.login | uppercase }}</small>
+          </h4>
         </a>
         <p class="description">{{ result.description }}</p>
         <p>Created On: {{ result.created_at | date: "fullDate" }}</p>
       </li>
     </ul>
   </div>
+
+  <div class="capaFlex">
+    <!-- En sentido inverso row-reverse -->
+    <a [routerLink]="['/search', searchQuery, pagina + 1]"
+      >Página siguiente <img src="assets/img/fderecha.png"
+    /></a>
+    <a *ngIf="pagina > 1" [routerLink]="['/search', searchQuery, pagina - 1]"
+      ><img src="assets/img/fizquierda.png" />Página anterior</a
+    >
+  </div>
 </div>
-<ng-template #sinResultados>No hay resultados para la cadena de búsqueda</ng-template>
+
+<ng-template #sinResultados>
+  <div><h2>No hay resultados para la cadena de búsqueda</h2></div>
+</ng-template>
 <ng-template #elseBlock>Loading...</ng-template>
