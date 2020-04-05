@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GitSearchService } from '../git-search.service'
+import { UnifiedSearchService } from '../unified-search.service'
 import { GitSearch } from '../git-search'
 import { ActivatedRoute, ParamMap, Router } from '@angular/router'
 import { AdvancedSearchModel } from '../advanced-search-model'
