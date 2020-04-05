@@ -30,7 +30,7 @@
       </div>
      </div>
   </div>
-  <button type="submit" [disabled]="!form.valid">Submit</button>
+  <button type="submit" [disabled]="!myForm.valid">Submit</button>
 </form>
 <div *ngIf="searchResults; else elseBlock">
   <div *ngIf="searchResults.total_count > 0; else sinResultados">
