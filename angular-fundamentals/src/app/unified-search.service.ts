@@ -9,5 +9,8 @@ import { GitCodeSearchService } from './git-code-search.service'
 })
 export class UnifiedSearchService {
 
-  constructor() { }
+  constructor(private searchService : GitSearchService, private codeSearchService : GitCodeSearchService) { }
+  unifiedSearch : Function = (query: string) : Observable<UnifiedSearch> => {
+
+  }
 }
