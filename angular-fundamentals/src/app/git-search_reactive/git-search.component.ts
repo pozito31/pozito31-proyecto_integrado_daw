@@ -14,8 +14,10 @@ export class GitSearchComponent implements OnInit {
   searchQuery: string;
   displayQuery: string;
   title: string;
+  pagina: number;
   form: FormGroup;
   formControls = {};
+  type: Array<any> = [];
   constructor(private GitSearchService: GitSearchService, private route: ActivatedRoute, private router: Router ) {
     this.modelKeys.forEach( (key) => {
       let validators = [];
@@ -25,6 +27,11 @@ export class GitSearchComponent implements OnInit {
       if (key === 'stars') {
           validators.push(Validators.maxLength(4));
       }
+      if (typeof (this.model[key]) === 'string'){
+        this.type.push('text');
+      } else 
+        this.type.push('number');
+
       validators.push(this.noSpecialChars);
       this.formControls[key] = new FormControl(this.model[key], validators);
     })
@@ -45,14 +52,22 @@ export class GitSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe( (params: ParamMap) => {
+      this.route.paramMap.subscribe( (params: ParamMap) => {
       this.searchQuery = params.get('query');
       this.displayQuery = params.get('query');
+      this.pagina = +params.get('page');
+      if (this.pagina == 0) {
+        this.pagina = 1;
+      }
       this.gitSearch();  
     })
     this.route.data.subscribe( (result) => {
       this.title = result.title
     });
+  }
+
+  checkType = (key) => {
+    return typeof key === 'string' ? 'text' : typeof key;
   }
 
   gitSearch = () => {
@@ -64,6 +79,7 @@ export class GitSearchComponent implements OnInit {
   }
 
   sendQuery = () => {
+    this.pagina = 1;
     this.searchResults = null;
     let search : string = this.form.value['q'];
     let params : string = "";
