@@ -14,9 +14,7 @@ export class GitSearchComponent implements OnInit {
   displayQuery: string;
   title: string;
   pagina: number;  
-  constructor(private GitSearchService: GitSearchService, private route: ActivatedRoute, private router: Router ) { 
- 
-  }
+  constructor(private UnifiedSearchService: UnifiedSearchService, private route: ActivatedRoute, private router: Router ) { }
   model = new AdvancedSearchModel('', '', '', null, null, '');
   modelKeys = Object.keys(this.model);
   tiposCampoFormulario: Array<any> = [];
@@ -43,8 +41,9 @@ export class GitSearchComponent implements OnInit {
   }
 
   gitSearch = () => {
-    this.GitSearchService.gitSearch(this.searchQuery, this.pagina).subscribe( (response) => {
-      this.searchResults = response;
+    this.UnifiedSearchService.unifiedSearch(this.searchQuery).subscribe( (response) => {
+      console.log(response);
+      this.searchResults = response.repositories;
     }, (error) => {
       alert("Error: " + error.statusText)
     })
