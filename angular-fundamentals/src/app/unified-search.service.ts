@@ -8,9 +8,7 @@ import { GitCodeSearch } from './git-code-search';
 import 'rxjs/add/operator/forkJoin';
 import 'rxjs/add/operator/map';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UnifiedSearchService {
 
   constructor(private searchService : GitSearchService, private codeSearchService : GitCodeSearchService) { }
