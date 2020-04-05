@@ -1,22 +1,20 @@
 <h3>{{ title }}</h3>
 <form (ngSubmit)="sendQuery()" [formGroup]="form">
   <div *ngFor="let key of modelKeys; let i=index" class="form-item">
-      <div>{{key}}</div>
-      <div><input placeholder="Enter {{key}} Here" formControlName="{{key}}" type="{{type[i]}}" />
-        <div *ngIf="form.controls[key].touched && form.controls[key].invalid && form.controls[key].errors.required">
-          {{key}} field is required
-        </div>
-        <div *ngIf="form.controls[key].invalid && form.controls[key].errors.validateEmail">
+    <div>{{key}}</div>
+    <div><input placeholder="Enter {{key}} Here" formControlName="{{key}}" type="{{type[i]}}" />
+      <div *ngIf="form.controls[key].touched && form.controls[key].invalid 
+                  && form.controls[key].errors.required">{{key}} field is required</div>
+      <div *ngIf="form.controls[key].invalid && form.controls[key].errors.validateEmail">
           No special chars
         </div>
-        <div *ngIf="key === 'stars' && stars.invalid && stars.errors.maxlength">
-          Maxlength should be 4
-        </div>
-        <div *ngIf="key === 'stars' && stars.invalid && stars.errors.minlength">
-          Minlength should be 2
-        </div>
+      <div *ngIf="key === 'stars' && stars.invalid && stars.errors.maxlength">
+        Maxlength should be 4
       </div>
-  </div>
+      <div *ngIf="key === 'stars' && stars.invalid && stars.errors.minlength">
+          Minlength should be 2
+      </div>
+    </div>
   <button type="submit" [disabled]="!form.valid">Submit</button>
 </form>
 <div *ngIf="searchResults; else elseBlock">
