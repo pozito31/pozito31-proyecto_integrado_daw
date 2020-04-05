@@ -1,10 +1,34 @@
 <h3>{{title}} - {{displayQuery}}</h3>
 <form #myForm="ngForm" (ngSubmit)="sendQuery()">
-  <div *ngFor="let key of modelKeys">
+  <div *ngFor="let key of modelKeys; let i = index">
       {{key}}
-      <input name="{{key}}" placeholder="Enter {{key}} Here" [(ngModel)]="model[key]" required *ngIf="key === 'q'" appNoSpecialChars />
-      <input name="{{key}}" placeholder="Enter {{key}} Here" [(ngModel)]="model[key]" minlength='2' maxlength='4' *ngIf="key === 'stars'" appNoSpecialChars />
-      <input name="{{key}}" placeholder="Enter {{key}} Here" [(ngModel)]="model[key]" *ngIf="key !== 'q' && key !== 'stars'" appNoSpecialChars />
+      <div *ngIf="key === 'q'">
+        <input #campoQ="ngModel" name="campoQ" placeholder="Enter {{ key }} Here" [(ngModel)]="model[key]" required appNoSpecialChars type="{{ tiposCampoFormulario[i] }}"/>
+        <div [hidden]="!(campoQ.invalid && campoQ.errors.required)" class="alert alert-danger">
+          Field 'q' is required
+        </div>
+        <div [hidden]="!(campoQ.invalid && campoQ.errors.hasSpecialChars)" class="alert alert-danger">
+          No special chars
+        </div>
+      </div>
+      <div *ngIf="key === 'stars'">
+        <input #campoStars="ngModel" name="campoStars" placeholder="Enter {{ key }} Here" [(ngModel)]="model[key]" minlength="2" maxlength="4" appNoSpecialChars type="{{ tiposCampoFormulario[i] }}"/>
+        <div *ngIf="key === 'stars' && campoStars.invalid && campoStars.errors.maxlength">
+          Maxlength should be 4
+        </div>
+        <div *ngIf="key === 'stars' && campoStars.invalid && campoStars.errors.minlength">
+          Minlength should be 2
+        </div>
+        <div [hidden]="!(campoStars.invalid && campoStars.errors.hasSpecialChars)" class="alert alert-danger">
+          No special chars
+        </div>
+      </div>
+      <div *ngIf="key !== 'q' && key !== 'stars'">
+        <input name="{{ key }}" #campo="ngModel" placeholder="Enter {{ key }} Here" [(ngModel)]="model[key]" appNoSpecialChars type="{{ tiposCampoFormulario[i] }}"/>
+        <div [hidden]="!(campo.invalid && campo.errors.hasSpecialChars)" class="alert alert-danger">
+          No special chars
+        </div>
+      </div>
   </div>
   <button type="submit" [disabled]="!myForm.valid">Submit</button>
 </form>
