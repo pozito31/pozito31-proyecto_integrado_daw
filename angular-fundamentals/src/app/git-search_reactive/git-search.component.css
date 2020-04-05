@@ -23,19 +23,12 @@
     font-size:18px;
 }
 
-.FondoPlateado {
+.gris {
     background-color: silver;
 }
 
-.FondoBlanco {
+.blanco {
     background-color: white;
-}
-
-.capaFlex {
-    display:flex;
-    width: 100%;
-    justify-content: space-between;
-    flex-direction: row-reverse;
 }
 .ng-valid  {
     border: 2px solid #42A948; /* green */
