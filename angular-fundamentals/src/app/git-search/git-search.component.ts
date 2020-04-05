@@ -13,16 +13,32 @@ export class GitSearchComponent implements OnInit {
   searchQuery: string;
   displayQuery: string;
   title: string;
-  constructor(private GitSearchService: GitSearchService, private route: ActivatedRoute, private router: Router ) { }
+  pagina: number;  
+  constructor(private GitSearchService: GitSearchService, private route: ActivatedRoute, private router: Router ) { 
+ 
+  }
 
   model = new AdvancedSearchModel('', '', '', null, null, '');
   modelKeys = Object.keys(this.model);
+  tiposCampoFormulario: Array<any> = [];
 
   ngOnInit() {
+    
+    this.modelKeys.forEach((key) => {      
+      if (typeof (this.model[key]) === 'string'){
+        this.tiposCampoFormulario.push('text');
+      } else 
+        this.tiposCampoFormulario.push('number');    
+    });
+
     this.route.paramMap.subscribe( (params: ParamMap) => {
       this.searchQuery = params.get('query');
       this.displayQuery = params.get('query');
-      this.gitSearch();  
+      this.pagina = +params.get('page');
+      if (this.pagina == 0){
+        this.pagina=1;
+      }
+      this.gitSearch();        
     })
     this.route.data.subscribe( (result) => {
       this.title = result.title
@@ -30,19 +46,15 @@ export class GitSearchComponent implements OnInit {
   }
 
   gitSearch = () => {
-    this.GitSearchService.gitSearch(this.searchQuery).subscribe( (response) => {
+    this.GitSearchService.gitSearch(this.searchQuery, this.pagina).subscribe( (response) => {
       this.searchResults = response;
     }, (error) => {
       alert("Error: " + error.statusText)
     })
   }
 
-  checkType = (key) => {
-    return typeof key === 'string' ? 'text' : typeof key;
-  }
-
-  sendQuery = (f) => {
-    console.log(f)
+  sendQuery = () => {
+    this.pagina=1;  
     this.searchResults = null;
     let search : string = this.model.q;
     let params : string = "";
@@ -56,10 +68,10 @@ export class GitSearchComponent implements OnInit {
     })
     this.searchQuery = search;
     if (params !== '') {
-        this.searchQuery = search + params;
+        this.searchQuery = search + '+' + params;
     }
     this.displayQuery = this.searchQuery;
-    this.gitSearch();
+    this.gitSearch();   
   }
 
 }
