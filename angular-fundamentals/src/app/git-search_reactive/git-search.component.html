@@ -13,7 +13,7 @@
       </div>
       <div *ngIf="key === 'stars' && stars.invalid && stars.errors.minlength">
           Minlength should be 2
-      </div>
+        </div>
     </div>
   <button type="submit" [disabled]="!form.valid">Submit</button>
 </form>
@@ -31,6 +31,5 @@
       </li>
     </ul>
   </div>
-</div>
-<ng-template #sinResultados>No hay resultados para la busqueda.</ng-template>
+<ng-template #sinResultados>No hay resultados para la cadena de búsqueda</ng-template>
 <ng-template #elseBlock>Loading...</ng-template>
