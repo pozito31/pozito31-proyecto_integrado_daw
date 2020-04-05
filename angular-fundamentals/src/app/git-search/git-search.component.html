@@ -1,36 +1,9 @@
 <h3>{{title}} - {{displayQuery}}</h3>
-<form #myForm="ngForm" (ngSubmit)="sendQuery()">
-  <div *ngFor="let key of modelKeys; let i = index">
-      {{key}}
-      <div *ngIf="key === 'q'">
-        <input #campoQ="ngModel" name="campoQ" placeholder="Enter {{ key }} Here" [(ngModel)]="model[key]" required appNoSpecialChars type="{{ tiposCampoFormulario[i] }}"/>
-        <div [hidden]="!(campoQ.invalid && campoQ.errors.required)" class="alert alert-danger">
-          Field 'q' is required
-        </div>
-        <div [hidden]="!(campoQ.invalid && campoQ.errors.hasSpecialChars)" class="alert alert-danger">
-          No special chars
-        </div>
-      </div>
-      <div *ngIf="key === 'stars'">
-        <input #campoStars="ngModel" name="campoStars" placeholder="Enter {{ key }} Here" [(ngModel)]="model[key]" minlength="2" maxlength="4" appNoSpecialChars type="{{ tiposCampoFormulario[i] }}"/>
-        <div *ngIf="key === 'stars' && campoStars.invalid && campoStars.errors.maxlength">
-          Maxlength should be 4
-        </div>
-        <div *ngIf="key === 'stars' && campoStars.invalid && campoStars.errors.minlength">
-          Minlength should be 2
-        </div>
-        <div [hidden]="!(campoStars.invalid && campoStars.errors.hasSpecialChars)" class="alert alert-danger">
-          No special chars
-        </div>
-      </div>
-      <div *ngIf="key !== 'q' && key !== 'stars'">
-        <input name="{{ key }}" #campo="ngModel" placeholder="Enter {{ key }} Here" [(ngModel)]="model[key]" appNoSpecialChars type="{{ tiposCampoFormulario[i] }}"/>
-        <div [hidden]="!(campo.invalid && campo.errors.hasSpecialChars)" class="alert alert-danger">
-          No special chars
-        </div>
-      </div>
+<form (ngSubmit)="sendQuery()" [formGroup]="form">
+  <div *ngFor="let key of modelKeys">
+     {{key}}<input placeholder="Enter {{key}} Here" formControlName="{{key}}" />
   </div>
-  <button type="submit" [disabled]="!myForm.valid">Submit</button>
+  <button type="submit" [disabled]="!form.valid">Submit</button>
 </form>
 <div *ngIf="searchResults; else elseBlock">
   <h3 class="total">Total Results: {{searchResults.total_count}}</h3>
