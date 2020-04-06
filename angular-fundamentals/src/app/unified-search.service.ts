@@ -5,7 +5,7 @@ import { GitSearchService } from './git-search.service';
 import { GitCodeSearchService } from './git-code-search.service';
 import { GitSearch } from './git-search';
 import { GitCodeSearch } from './git-code-search';
-import 'rxjs/add/operator/forkJoin';
+import {forkJoin, of } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 @Injectable()
