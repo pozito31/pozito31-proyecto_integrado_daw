@@ -13,7 +13,8 @@
   <div *ngIf="searchResults.total_count > 0; else sinResultados">
     <h3 class="total">Total Results: {{searchResults.total_count}}</h3>
     <ul class="list">
-    
+      <app-repository-display [searchResults]="searchResults.repositories" *ngIf="searchResults.repositories"></app-repository-display>
+      <app-code-display [searchResults]="searchResults.code" *ngIf="searchResults.code"></app-code-display>
     </ul>
   </div>
 </div>
