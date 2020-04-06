@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 export class UnifiedSearchService {
 
   constructor(private searchService : GitSearchService, private codeSearchService : GitCodeSearchService) { }
-  unifiedSearch : Function = (query: string) : Observable<UnifiedSearch> => {
+  combineLatest : Function = (query: string) : Observable<UnifiedSearch> => {
     return concat(this.searchService.gitSearch(query), this.codeSearchService.codeSearch(query)).pipe(
       map( (response : [GitSearch, GitCodeSearch]) =>{
         return {
