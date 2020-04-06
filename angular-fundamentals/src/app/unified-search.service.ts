@@ -12,5 +12,13 @@ import { map, filter } from 'rxjs/operators';
 export class UnifiedSearchService {
 
   constructor(private searchService : GitSearchService, private codeSearchService : GitCodeSearchService) { }
-  
+  unifiedSearch : Function = (query: string) => {
+    forkJoin(this.searchService.gitSearch(query), this.codeSearchService.codeSearch(query))
+    map( (response : [GitSearch, GitCodeSearch]) => {
+      return {
+        'repositories' : response[0],
+        'code': response[1]
+      }
+    })
+  } 
 }
