@@ -2,7 +2,7 @@
   <div *ngIf="searchResults.total_count > 0; else sinResultados">
     <h3 class="total">Total Results: {{searchResults.total_count}}</h3>
     <ul class="list">
-      <app-repository-display></app-repository-display>
+      <app-repository-display [searchResults]="searchResults.repositories"></app-repository-display>
     </ul>
   </div>
 </div>
