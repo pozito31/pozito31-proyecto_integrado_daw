@@ -41,7 +41,7 @@ export class GitSearchComponent implements OnInit {
   }
 
   gitSearch = () => {
-    this.UnifiedSearchService.unifiedSearch(this.searchQuery).subscribe( (response) => {
+    this.UnifiedSearchService.combineLatest(this.searchQuery).subscribe( (response) => {
       console.log(response);
       this.searchResults = response.repositories;
     }, (error) => {
