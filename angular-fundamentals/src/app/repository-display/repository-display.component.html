@@ -1,11 +1,6 @@
 <div *ngIf="searchResults; else elseBlock">
-  <div *ngIf="searchResults.total_count > 0; else sinResultados">
-    <h3 class="total">Total Results: {{searchResults.total_count}}</h3>
-    <ul class="list">
-      <app-repository-display [searchResults]="searchResults.repositories" *ngIf="searchResults.repositories"></app-repository-display>
-    </ul>
-  </div>
+  <h3 class="total">Total Results: {{searchResults.total_count}}</h3>
+  <ul class="list">
+    <app-repository-display [searchResults]="searchResults.repositories" *ngIf="searchResults.repositories"></app-repository-display>
+  </ul>
 </div>
-
-<ng-template #sinResultados>No hay resultados para la cadena de búsqueda</ng-template>
-<ng-template #elseBlock>Loading...</ng-template>
