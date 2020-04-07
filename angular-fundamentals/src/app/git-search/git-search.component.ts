@@ -10,7 +10,6 @@ import { AdvancedSearchModel } from '../advanced-search-model'
 })
 export class GitSearchComponent implements OnInit { 
   searchResults: GitSearch;
-  repositories: GitSearch;
   searchQuery: string;
   displayQuery: string;
   title: string;
