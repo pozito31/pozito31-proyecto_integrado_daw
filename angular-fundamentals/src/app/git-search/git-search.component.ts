@@ -13,6 +13,7 @@ export class GitSearchComponent implements OnInit {
   searchQuery: string;
   displayQuery: string;
   title: string;
+  repositories: any;
   constructor(private UnifiedSearchService: UnifiedSearchService, private route: ActivatedRoute, private router: Router ) { }
 
   model = new AdvancedSearchModel('', '', '', null, null, '');
