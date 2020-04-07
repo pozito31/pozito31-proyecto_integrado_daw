@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GitCodeSearch } from '../git-code-search'
+import { GitSearch } from '../git-search';
+
 
 @Component({
   selector: 'app-repository-display',
@@ -7,7 +8,7 @@ import { GitCodeSearch } from '../git-code-search'
   styleUrls: ['./repository-display.component.css']
 })
 export class RepositoryDisplayComponent implements OnInit {
-  @Input() searchResults : GitCodeSearch;
+  @Input() searchResults : GitSearch;
   constructor() { }
 
   ngOnInit() {
