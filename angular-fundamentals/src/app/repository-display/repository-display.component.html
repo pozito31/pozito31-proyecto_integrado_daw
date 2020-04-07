@@ -8,3 +8,10 @@
   <p class="description"> {{result.repository.description}}</p> 
   <p> Path: {{result.path}} </p>
 </li>
+
+<div *ngIf="searchResults; else elseBlock">
+  <h3 class="total">Total Results: {{searchResults.total_count}}</h3>
+  <ul class="list">
+    <app-repository-display [searchResults]="searchResults.repositories" *ngIf="searchResults.repositories"></app-repository-display>
+  </ul>
+</div>
