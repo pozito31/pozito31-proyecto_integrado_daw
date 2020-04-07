@@ -7,7 +7,7 @@ import { GitSearch } from '../git-search';
   styleUrls: ['./repository-display.component.css']
 })
 export class RepositoryDisplayComponent implements OnInit {
-
+  @Input() searchResults: GitSearch
   constructor() { }
 
   ngOnInit() {
