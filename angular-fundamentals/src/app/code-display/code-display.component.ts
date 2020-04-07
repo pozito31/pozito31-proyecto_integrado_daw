@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GitCodeSearch } from '../git-code-search';
+import { GitCodeSearch } from '../git-code-search'
+
 @Component({
   selector: 'app-code-display',
   templateUrl: './code-display.component.html',
