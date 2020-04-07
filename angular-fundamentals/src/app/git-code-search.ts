@@ -84,6 +84,3 @@
         items: Item[];
     }
 
-export interface GitCodeSearch {
-
-}
