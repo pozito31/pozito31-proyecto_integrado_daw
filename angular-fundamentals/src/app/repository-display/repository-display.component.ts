@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GitSearch } from '../git-search';
+import { GitSearch } from '../git-search'
 
 @Component({
   selector: 'app-repository-display',
