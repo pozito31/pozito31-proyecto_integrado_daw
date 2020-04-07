@@ -42,7 +42,7 @@ export class GitSearchComponent implements OnInit {
     return typeof key === 'string' ? 'text' : typeof key;
   }
   
-  /*sendQuery = (f) => {
+  sendQuery = (f) => {
     console.log(f)
     this.searchResults = null;
     let search : string = this.model.q;
@@ -61,5 +61,5 @@ export class GitSearchComponent implements OnInit {
     }
     this.displayQuery = this.searchQuery;
     this.gitSearch();
-  }*/
+  }
 }
