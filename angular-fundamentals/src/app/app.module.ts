@@ -28,11 +28,6 @@ const appRoutes: Routes = [
     component: GitSearchComponent,
     data: {title: 'Git Search'}
   },
-  {
-    path: 'search/:query/:page',
-    component: GitSearchComponent,
-    data: {title: 'Git Search'}
-  },
   { path: '**', component: NotFoundComponent }
 ];
 
