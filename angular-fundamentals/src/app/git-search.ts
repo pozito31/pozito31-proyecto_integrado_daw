@@ -20,6 +20,7 @@ export interface GitSearch {
         "subscriptions_url": string,
         "organizations_url": string,
         "repos_url": string,
+        "searchResults.repositories": string,
         "events_url": string,
         "received_events_url": string,
         "type": string,
