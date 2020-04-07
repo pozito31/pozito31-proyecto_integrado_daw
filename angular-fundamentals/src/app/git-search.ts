@@ -1,7 +1,7 @@
 export interface GitSearch {
-    "total_count": number,
-    "incomplete_results": boolean,
-    "items": Array<
+  "total_count": number,
+  "incomplete_results": boolean,
+  "items": Array<
     {
       "id": number,
       "name": string,
@@ -92,5 +92,5 @@ export interface GitSearch {
       "default_branch": string,
       "score": number
     }
-  >
+   >
 }
