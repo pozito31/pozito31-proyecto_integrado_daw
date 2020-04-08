@@ -1,0 +1,126 @@
+<h3>{{ title }}</h3>
+
+<!-- Una forma más trabajada y eficiente se describe en el manual de Angulare en 
+https://angular.io/guide/dynamic-form la creación dinámica de
+formulario con un ejemplo uitilizando el componente FormGroup -->
+
+<form #myForm="ngForm" (ngSubmit)="sendQuery()">
+  <div *ngFor="let key of modelKeys; let i = index">
+    {{ key }}
+    <!-- IMPORTANTE, si utilizamos la nomenclatura #campo="ngModel"
+         para conseguir una variable que nos permita hacer validaciones. Tenemos
+        que tener presente que esa variable que nos permite acceder al elemento sólo
+      es accesible dentro del template. El problema es que si usamos un *ngIf o *ngFor
+      se crea un template en esa zona y hace inaccesible la variable fuera. Por eso debemos
+    crear un div para los campos especiales  -->
+
+    <div *ngIf="key === 'q'">
+      <input
+        #campoQ="ngModel"
+        name="campoQ"
+        placeholder="Enter {{ key }} Here"
+        [(ngModel)]="model[key]"
+        required
+        appNoSpecialChars
+        type="{{ tiposCampoFormulario[i] }}"
+      />
+      <div [hidden]="!(campoQ.invalid && campoQ.errors.required)" class="alert alert-danger">
+        Field 'q' is required
+      </div>
+      <div [hidden]="!(campoQ.invalid && campoQ.errors.hasSpecialChars)" class="alert alert-danger">
+        No special chars
+      </div>
+    </div>
+
+    <div *ngIf="key === 'stars'">
+      <input
+        #campoStars="ngModel"
+        name="campoStars"
+        placeholder="Enter {{ key }} Here"
+        [(ngModel)]="model[key]"
+        minlength="2"
+        maxlength="4"
+        appNoSpecialChars
+        type="{{ tiposCampoFormulario[i] }}"
+      />
+      <div
+        *ngIf="
+          key === 'stars' && campoStars.invalid && campoStars.errors.maxlength
+        "
+      >
+        Maxlength should be 4
+      </div>
+      <div
+        *ngIf="
+          key === 'stars' && campoStars.invalid && campoStars.errors.minlength
+        "
+      >
+        Minlength should be 2
+      </div>
+      <div [hidden]="!(campoStars.invalid && campoStars.errors.hasSpecialChars)" class="alert alert-danger">
+        No special chars
+      </div>
+    </div>
+
+    <div *ngIf="key !== 'q' && key !== 'stars'">
+      <input
+        name="{{ key }}"
+        #campo="ngModel"
+        placeholder="Enter {{ key }} Here"
+        [(ngModel)]="model[key]"
+        appNoSpecialChars
+        type="{{ tiposCampoFormulario[i] }}"
+      />
+      <div [hidden]="!(campo.invalid && campo.errors.hasSpecialChars)" class="alert alert-danger">
+        No special chars
+      </div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>
+<div *ngIf="searchResults; else elseBlock">
+  <div class="capaFlex">
+    <!-- En sentido inverso row-reverse -->
+    <a [routerLink]="['/search', searchQuery, pagina + 1]"
+      >Página siguiente <img src="assets/img/fderecha.png"
+    /></a>
+    <a *ngIf="pagina > 1" [routerLink]="['/search', searchQuery, pagina - 1]"
+      ><img src="assets/img/fizquierda.png" />Página anterior</a
+    >
+  </div>
+  <div *ngIf="searchResults.total_count > 0; else sinResultados">
+    <h3 class="total">Total Results: {{ searchResults.total_count }}</h3>
+    <ul class="list">
+      <li
+        [ngClass]="{ FondoPlateado: i % 2 === 0, FondoBlanco: i % 2 != 0 }"
+        class="list_item"
+        *ngFor="let result of searchResults.items; index as i"
+      >
+        <a [href]="result.html_url">
+          <img class="avatar" [src]="result.owner.avatar_url" />
+          <h4 class="title">
+            {{ result.name }}
+            <small> by {{ result.owner.login | uppercase }}</small>
+          </h4>
+        </a>
+        <p class="description">{{ result.description }}</p>
+        <p>Created On: {{ result.created_at | date: "fullDate" }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="capaFlex">
+    <!-- En sentido inverso row-reverse -->
+    <a [routerLink]="['/search', searchQuery, pagina + 1]"
+      >Página siguiente <img src="assets/img/fderecha.png"
+    /></a>
+    <a *ngIf="pagina > 1" [routerLink]="['/search', searchQuery, pagina - 1]"
+      ><img src="assets/img/fizquierda.png" />Página anterior</a
+    >
+  </div>
+</div>
+
+<ng-template #sinResultados>
+  <div><h2>No hay resultados para la cadena de búsqueda</h2></div>
+</ng-template>
+<ng-template #elseBlock>Loading...</ng-template>

@@ -1,0 +1,65 @@
+<h3>{{ title }}</h3>
+<form (ngSubmit)="sendQuery()" [formGroup]="form">
+  <div *ngFor="let key of modelKeys; let i=index" class="form-item">
+    <div>{{key}}</div>
+    <div><input placeholder="Enter {{key}} Here" formControlName="{{key}}" type="{{type[i]}}" />
+      <div *ngIf="form.controls[key].touched && form.controls[key].invalid 
+                  && form.controls[key].errors.required">{{key}} field is required</div>
+      <div *ngIf="form.controls[key].invalid && form.controls[key].errors.validateEmail">
+          No special chars
+        </div>
+      <div *ngIf="key === 'stars' && stars.invalid && stars.errors.maxlength">
+        Maxlength should be 4
+      </div>
+      <div *ngIf="key === 'stars' && stars.invalid && stars.errors.minlength">
+          Minlength should be 2
+        </div>
+    </div>
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
+<div *ngIf="searchResults; else elseBlock">
+  <div class="capaFlex">
+    <!-- En sentido inverso row-reverse -->
+    <a [routerLink]="['/search', searchQuery, pagina + 1]"
+      >Página siguiente <img src="assets/img/fderecha.png"
+    /></a>
+    <a *ngIf="pagina > 1" [routerLink]="['/search', searchQuery, pagina - 1]"
+      ><img src="assets/img/fizquierda.png" />Página anterior</a
+    >
+  </div>
+  <div *ngIf="searchResults.total_count > 0; else sinResultados">
+    <h3 class="total">Total Results: {{ searchResults.total_count }}</h3>
+    <ul class="list">
+      <li
+        [ngClass]="{ FondoPlateado: i % 2 === 0, FondoBlanco: i % 2 != 0 }"
+        class="list_item"
+        *ngFor="let result of searchResults.items; index as i"
+      >
+        <a [href]="result.html_url">
+          <img class="avatar" [src]="result.owner.avatar_url" />
+          <h4 class="title">
+            {{ result.name }}
+            <small> by {{ result.owner.login | uppercase }}</small>
+          </h4>
+        </a>
+        <p class="description">{{ result.description }}</p>
+        <p>Created On: {{ result.created_at | date: "fullDate" }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="capaFlex">
+    <!-- En sentido inverso row-reverse -->
+    <a [routerLink]="['/search', searchQuery, pagina + 1]"
+      >Página siguiente <img src="assets/img/fderecha.png"
+    /></a>
+    <a *ngIf="pagina > 1" [routerLink]="['/search', searchQuery, pagina - 1]"
+      ><img src="assets/img/fizquierda.png" />Página anterior</a
+    >
+  </div>
+</div>
+
+<ng-template #sinResultados>
+  <div><h2>No hay resultados para la cadena de búsqueda</h2></div>
+</ng-template>
+<ng-template #elseBlock>Loading...</ng-template>
