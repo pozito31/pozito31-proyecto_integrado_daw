@@ -16,3 +16,10 @@
 .description {
     font-size:18px;
 }
+.favorite_icon {
+    position: relative;
+    float: right;
+    bottom: 95px;
+    font-size: 36px;
+    cursor: pointer;
+}
