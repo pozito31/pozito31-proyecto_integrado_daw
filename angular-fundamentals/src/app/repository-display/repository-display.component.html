@@ -5,8 +5,8 @@
       <small> by {{result.owner.login | uppercase}}</small> 
     </h4>
   </a> 
-  <span class='favorite_icon'>&star;</span>
-  <span class='favorite_icon favorited'>&#9733;</span>
+  <span class='favorite_icon' *ngIf="!result.favorited">&star;</span>
+  <span class='favorite_icon favorited' *ngIf="result.favorited">&#9733;</span>
   <p class="description"> {{result.description}}</p> 
   <p> Created On: {{result.created_at | date:'fullDate'}} </p>
 </li>
