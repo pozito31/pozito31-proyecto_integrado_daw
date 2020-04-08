@@ -5,8 +5,6 @@
       <small> by {{result.repository.owner.login | uppercase}}</small> 
     </h4>
   </a> 
-  <span class='favorite_icon' *ngIf="!result.favorited">&star;</span>
-  <span class='favorite_icon favorited' *ngIf="result.favorited">&#9733;</span>
   <p class="description"> {{result.repository.description}}</p> 
   <p> Path: {{result.path}} </p>
 </li>
