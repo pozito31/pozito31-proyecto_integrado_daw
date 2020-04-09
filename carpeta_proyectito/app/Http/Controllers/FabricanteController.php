@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 
 class FabricanteController extends Controller
@@ -13,7 +16,8 @@ class FabricanteController extends Controller
      */
     public function index()
     {
-        //
+        // Devolverá todos los fabricantes.
+		return "Mostrando todos los fabricantes de la base de datos.";
     }
 
     /**
@@ -24,6 +28,7 @@ class FabricanteController extends Controller
     public function create()
     {
         //
+        return "Se muestra formulario para crear un fabricante.";
     }
 
     /**
@@ -46,6 +51,7 @@ class FabricanteController extends Controller
     public function show($id)
     {
         //
+        return "Se muestra Fabricante con id: $id";
     }
 
     /**
@@ -57,6 +63,7 @@ class FabricanteController extends Controller
     public function edit($id)
     {
         //
+        return "Se muestra formulario para editar Fabricante con id: $id";
     }
 
     /**
