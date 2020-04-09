@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 
 class FabricanteAvionController extends Controller
@@ -11,9 +14,10 @@ class FabricanteAvionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($idFabricante)
     {
-        //
+        // Devolverá todos los aviones.
+		return "Mostrando los aviones del fabricante con Id $idFabricante";
     }
 
     /**
@@ -21,9 +25,10 @@ class FabricanteAvionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($idFabricante)
     {
         //
+        return "Se muestra formulario para crear un avión del fabricante $idFabricante.";
     }
 
     /**
@@ -43,9 +48,10 @@ class FabricanteAvionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idFabricante,$idAvion)
     {
         //
+        return "Se muestra avión $idAvion del fabricante $idFabricante";
     }
 
     /**
@@ -54,9 +60,10 @@ class FabricanteAvionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idFabricante,$idAvion)
     {
         //
+        return "Se muestra formulario para editar el avión $idAvion del fabricante $idFabricante";
     }
 
     /**
@@ -66,7 +73,7 @@ class FabricanteAvionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idFabricante,$idAvion)
     {
         //
     }
@@ -77,7 +84,7 @@ class FabricanteAvionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idFabricante,$idAvion)
     {
         //
     }
