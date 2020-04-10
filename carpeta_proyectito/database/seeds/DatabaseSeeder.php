@@ -3,20 +3,29 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
+// Hacemos uso del modelo User.
+use App\User;
 
-class DatabaseSeeder extends Seeder
-{
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        Model::unguard();
+class DatabaseSeeder extends Seeder {
 
-        $this->call('FabricanteSeeder');
-	   	$this->call('AvionSeeder');
-		$this->call('UserTableSeeder');
-    }
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		Model::unguard();
+
+		$this->call('FabricanteSeeder');
+		$this->call('AvionSeeder');
+
+		// Solo queremos un único usuario en la tabla, así que truncamos primero la tabla
+		// Para luego rellenarla con los registros.
+		User::truncate();
+
+		// LLamamos al seeder de Users.
+		$this->call('UserSeeder');
+	}
+
 }
