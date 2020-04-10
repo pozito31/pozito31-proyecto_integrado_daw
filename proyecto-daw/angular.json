@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "proyecto-daw"
+    }
+  },
+  "defaultProject": "proyecto-daw",
+  "cli": {
+    "analytics": "2cc73ffd-d031-480f-8e10-0446cf0d1c14"
+  }
 }
