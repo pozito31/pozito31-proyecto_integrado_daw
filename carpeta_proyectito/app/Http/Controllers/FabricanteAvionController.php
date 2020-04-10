@@ -15,7 +15,7 @@ class FabricanteAvionController extends Controller {
 	// pero solamente para los métodos de crear, actualizar y borrar.
 	public function __construct()
 	{
-		$this->middleware('auth.basic',['only'=>['store','update','destroy']]);
+		/*$this->middleware('auth.basic',['only'=>['store','update','destroy']]);*/
 	}
 
 	/**
