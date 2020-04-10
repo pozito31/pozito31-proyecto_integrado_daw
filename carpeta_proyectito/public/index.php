@@ -103,6 +103,12 @@ $response = $kernel->handle(
 
  
 
+ 
+
+ 
+
+ 
+
 );
 
  
@@ -113,7 +119,27 @@ $response = $kernel->handle(
 
  
 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
 $response->send();
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
 
  
 
