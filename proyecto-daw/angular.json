@@ -28,14 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "assets/css/bootstrap.min.css"
+              "src/styles.scss"
             ],
             "scripts": [
-              "assets/js/bootstrap.min.js",
-              "assets/js/moment.js",
-              "assets/js/estilos.js",
-              "assets/js/manifest.webmanifest.json"
             ]
           },
           "configurations": {
@@ -98,14 +93,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "assets/css/bootstrap.min.css"
+              "src/styles.scss"
             ],
             "scripts": [
-              "assets/js/bootstrap.min.js",
-              "assets/js/moment.js",
-              "assets/js/estilos.js",
-              "assets/js/manifest.webmanifest.json"
             ]
           }
         },
