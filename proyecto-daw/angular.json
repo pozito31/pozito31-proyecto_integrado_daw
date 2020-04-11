@@ -28,9 +28,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "assets/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "assets/js/jquery-3.4.1.min.js",
+              "assets/js/bootstrap.min.js",
+              "assets/js/moment.js",
+              "assets/js/estilos.js",
+              "assets/js/manifest.webmanifest.json"
+            ]
           },
           "configurations": {
             "production": {
@@ -92,9 +99,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "assets/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "assets/js/jquery-3.4.1.min.js",
+              "assets/js/bootstrap.min.js",
+              "assets/js/moment.js",
+              "assets/js/estilos.js",
+              "assets/js/manifest.webmanifest.json"
+            ]
           }
         },
         "lint": {
