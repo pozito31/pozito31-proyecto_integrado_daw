@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
+use App\Fabricante;
+use App\Avion;
 
 class FabricanteAvionController extends Controller
 {
-   /**
+  
+	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -17,7 +17,18 @@ class FabricanteAvionController extends Controller
 	public function index($idFabricante)
 	{
 		// Devolverá todos los aviones.
-		return "Mostrando los aviones del fabricante con Id $idFabricante";
+		//return "Mostrando los aviones del fabricante con Id $idFabricante";
+		$fabricante=Fabricante::find($idFabricante);
+
+		if (! $fabricante)
+		{
+			// Se devuelve un array errors con los errores encontrados y cabecera HTTP 404.
+			// En code podríamos indicar un código de error personalizado de nuestra aplicación si lo deseamos.
+			return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un fabricante con ese código.'])],404);
+		}
+
+		return response()->json(['status'=>'ok','data'=>$fabricante->aviones()->get()],200);
+		//return response()->json(['status'=>'ok','data'=>$fabricante->aviones],200);
 	}
 
 	/**
