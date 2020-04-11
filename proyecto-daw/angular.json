@@ -34,7 +34,10 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.slim.min.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "assets/moment.js",
+              "assets/estilos.js",
+              "assets/manifest.webmanifest.json"
             ]
           },
           "configurations": {
@@ -103,7 +106,10 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.slim.min.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "assets/moment.js",
+              "assets/estilos.js",
+              "assets/manifest.webmanifest.json"
             ]
           }
         },
