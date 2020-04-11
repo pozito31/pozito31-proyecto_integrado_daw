@@ -16,11 +16,20 @@
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
   <link rel="icon" href="assets/images/logotipo.ico">
   <link rel="apple-touch-icon" href="assets/images/virgencita.png">
+  <link rel="manifest" href="assets/js/manifest.webmanifest.json">
 </head>
 <body>
   <app-root></app-root>
   <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/js/moment.js"></script>
+  <script src="assets/js/estilos.js"></script>
+  <script type="text/javascript">
+    let calendar = new Calendar('calendar');
+    calendar.getElement().addEventListener('change', e => {
+        console.log(calendar.value().format('LLL'));
+    });
+  </script>
 </body>
 </html>
