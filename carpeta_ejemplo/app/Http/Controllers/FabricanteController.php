@@ -9,8 +9,7 @@ use App\Fabricante;
 
 class FabricanteController extends Controller
 {
-    
-	/**
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -28,26 +27,36 @@ class FabricanteController extends Controller
 		return response()->json(['status'=>'ok','data'=>Fabricante::all()], 200);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		// 
-		return "Se muestra formulario para crear un fabricante.";
-
-	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+
+	// Pasamos como parámetro al método store todas las variables recibidas de tipo Request
+	// utilizando inyección de dependencias
+	// Para acceder a Request necesitamos asegurarnos que está cargado use Illuminate\Http\Request;
+	// Información sobre Request en: http://laravel.com/docs/5.0/requests 
+	// Ejemplo de uso de Request:  $request->input('name');
+	public function store(Request $request)
 	{
-		//
+
+		// Primero comprobaremos si estamos recibiendo todos los campos.
+		if (!$request->input('nombre') || !$request->input('direccion') || !$request->input('telefono'))
+		{
+			// Se devuelve un array errors con los errores encontrados y cabecera HTTP 422 Unprocessable Entity – [Entidad improcesable] Utilizada para errores de validación.
+			// En code podríamos indicar un código de error personalizado de nuestra aplicación si lo deseamos.
+			return response()->json(['errors'=>array(['code'=>422,'message'=>'Faltan datos necesarios para el proceso de alta.'])],422);
+		}
+
+		// Insertamos una fila en Fabricante con create pasándole todos los datos recibidos.
+		// En $request->all() tendremos todos los campos del formulario recibidos.
+		$nuevoFabricante=Fabricante::create($request->all());
+
+        // Más información sobre respuestas en http://jsonapi.org/format/
+        // Devolvemos el código HTTP 201 Created – [Creada] Respuesta a un POST que resulta en una creación. Debería ser combinado con un encabezado Location, apuntando a la ubicación del nuevo recurso.
+        return response()->json(['data'=>$nuevoFabricante], 201)->header('Location',  url('/api/v1/').'/fabricantes/'.$nuevoFabricante->id);
 	}
 
 	/**
@@ -75,17 +84,7 @@ class FabricanteController extends Controller
 
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-		return "Se muestra formulario para editar Fabricante con id: $id";
-	}
+
 
 	/**
 	 * Update the specified resource in storage.
