@@ -30,25 +30,47 @@ class FabricanteAvionController extends Controller
 		//return response()->json(['status'=>'ok','data'=>$fabricante->aviones],200);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create($idFabricante)
-	{
-		//
-		return "Se muestra formulario para crear un avión del fabricante $idFabricante.";
-	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request,$idFabricante)
 	{
-		//
+		/* Necesitaremos el fabricante_id que lo recibimos en la ruta
+		 #Serie (auto incremental)
+		Modelo
+		Longitud
+		Capacidad
+		Velocidad
+		Alcance */
+
+		// Primero comprobaremos si estamos recibiendo todos los campos.
+		if ( !$request->input('modelo') || !$request->input('longitud') || !$request->input('capacidad') || !$request->input('velocidad') || !$request->input('alcance') )
+		{
+			// Se devuelve un array errors con los errores encontrados y cabecera HTTP 422 Unprocessable Entity – [Entidad improcesable] Utilizada para errores de validación.
+			return response()->json(['errors'=>array(['code'=>422,'message'=>'Faltan datos necesarios para el proceso de alta.'])],422);
+		}
+
+		// Buscamos el Fabricante.
+		$fabricante= Fabricante::find($idFabricante);
+
+		// Si no existe el fabricante que le hemos pasado mostramos otro código de error de no encontrado.
+		if (!$fabricante)
+		{
+			// Se devuelve un array errors con los errores encontrados y cabecera HTTP 404.
+			// En code podríamos indicar un código de error personalizado de nuestra aplicación si lo deseamos.
+			return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un fabricante con ese código.'])],404);
+		}
+
+		// Si el fabricante existe entonces lo almacenamos.
+		// Insertamos una fila en Aviones con create pasándole todos los datos recibidos.
+		$nuevoAvion=$fabricante->aviones()->create($request->all());
+
+        // Más información sobre respuestas en http://jsonapi.org/format/
+        // Devolvemos el código HTTP 201 Created – [Creada] Respuesta a un POST que resulta en una creación. Debería ser combinado con un encabezado Location, apuntando a la ubicación del nuevo recurso.
+        return response()->json(['data'=>$nuevoAvion], 201)->header('Location',  url('/api/v1/').'/aviones/'.$nuevoAvion->serie);
 	}
 
 	/**
@@ -61,18 +83,6 @@ class FabricanteAvionController extends Controller
 	{
 		//
 		return "Se muestra avión $idAvion del fabricante $idFabricante";
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($idFabricante,$idAvion)
-	{
-		//
-		return "Se muestra formulario para editar el avión $idAvion del fabricante $idFabricante";
 	}
 
 	/**
@@ -96,4 +106,5 @@ class FabricanteAvionController extends Controller
 	{
 		//
 	}
+
 }
