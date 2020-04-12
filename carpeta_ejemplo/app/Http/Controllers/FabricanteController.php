@@ -9,7 +9,7 @@ use App\Fabricante;
 
 class FabricanteController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -177,6 +177,45 @@ class FabricanteController extends Controller
      */
     public function destroy($id)
     {
-       //
+        // Primero eliminaremos todos los aviones de un fabricante y luego el fabricante en si mismo.
+        // Comprobamos si el fabricante que nos están pasando existe o no.
+        $fabricante=Fabricante::find($id);
+
+        // Si no existe ese fabricante devolvemos un error.
+        if (!$fabricante)
+        {
+            // Se devuelve un array errors con los errores encontrados y cabecera HTTP 404.
+            // En code podríamos indicar un código de error personalizado de nuestra aplicación si lo deseamos.
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un fabricante con ese código.'])],404);
+        }
+
+        // El fabricante existe entonces buscamos todos los aviones asociados a ese fabricante.
+        $aviones = $fabricante->aviones; // Sin paréntesis obtenemos el array de todos los aviones.
+
+        // Comprobamos si tiene aviones ese fabricante.
+        if (sizeof($aviones) > 0)
+        {
+
+            // ! Ésta solución no sería el standard !
+            /*
+            foreach($aviones as $avion)
+            {
+                $avion->delete();
+            }
+            */
+
+            // Lo correcto en la API REST sería ésto:
+
+            // Devolveremos un código 409 Conflict - [Conflicto] Cuando hay algún conflicto al procesar una petición, por ejemplo en PATCH, POST o DELETE.
+            return response()->json(['code'=>409,'message'=>'Este fabricante posee aviones y no puede ser eliminado.'],409);
+        }
+
+        // Procedemos por lo tanto a eliminar el fabricante.
+        $fabricante->delete();
+
+        // Se usa el código 204 No Content – [Sin Contenido] Respuesta a una petición exitosa que no devuelve un body (como una petición DELETE)
+        // Este código 204 no devuelve body así que si queremos que se vea el mensaje tendríamos que usar un código de respuesta HTTP 200.
+        return response()->json(['code'=>204,'message'=>'Se ha eliminado el fabricante correctamente.'],204);
+
     }
 }
