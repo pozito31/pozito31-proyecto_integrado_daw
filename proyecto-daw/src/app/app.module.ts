@@ -7,6 +7,7 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { MenuComponent } from './menu/menu.component';
 import { CuerpoComponent } from './cuerpo/cuerpo.component';
 import { PieComponent } from './pie/pie.component';
+import { HistoriaComponent } from './historia/historia.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PieComponent } from './pie/pie.component';
     CabeceraComponent,
     MenuComponent,
     CuerpoComponent,
-    PieComponent
+    PieComponent,
+    HistoriaComponent
   ],
   imports: [
     BrowserModule,
