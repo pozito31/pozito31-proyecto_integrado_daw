@@ -8,7 +8,7 @@ use App\Avion;
 
 class FabricanteAvionController extends Controller
 {
-  /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -224,8 +224,35 @@ class FabricanteAvionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($idFabricante,$idAvion)
     {
-        //
+        // Comprobamos si el fabricante que nos están pasando existe o no.
+        $fabricante=Fabricante::find($idFabricante);
+
+        // Si no existe ese fabricante devolvemos un error.
+        if (!$fabricante)
+        {
+            // Se devuelve un array errors con los errores encontrados y cabecera HTTP 404.
+            // En code podríamos indicar un código de error personalizado de nuestra aplicación si lo deseamos.
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un fabricante con ese código.'])],404);
+        }
+
+        // El fabricante existe entonces buscamos el avion que queremos borrar asociado a ese fabricante.
+        $avion = $fabricante->aviones()->find($idAvion);
+
+        // Si no existe ese avión devolvemos un error.
+        if (!$avion)
+        {
+            // Se devuelve un array errors con los errores encontrados y cabecera HTTP 404.
+            // En code podríamos indicar un código de error personalizado de nuestra aplicación si lo deseamos.
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un avión con ese código asociado a ese fabricante.'])],404);
+        }
+
+        // Procedemos por lo tanto a eliminar el avión.
+        $avion->delete();
+
+        // Se usa el código 204 No Content – [Sin Contenido] Respuesta a una petición exitosa que no devuelve un body (como una petición DELETE)
+        // Este código 204 no devuelve body así que si queremos que se vea el mensaje tendríamos que usar un código de respuesta HTTP 200.
+        return response()->json(['code'=>204,'message'=>'Se ha eliminado el avión correctamente.'],204);
     }
 }
