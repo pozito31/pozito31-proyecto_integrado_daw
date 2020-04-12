@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HistoriaComponent} from './historia/historia.component';
 
 const routes: Routes = [
-  { path: 'historia', component: HistoriaComponent}
+  { path: 'historia/historia.component.html', component: HistoriaComponent}
 ];
 
 @NgModule({
