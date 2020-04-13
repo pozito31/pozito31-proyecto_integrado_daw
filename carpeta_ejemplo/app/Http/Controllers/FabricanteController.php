@@ -26,15 +26,57 @@ class FabricanteController extends Controller
 	 */
 	public function index()
 	{
-		// Devolverá todos los fabricantes.
-		// return "Mostrando todos los fabricantes de la base de datos.";
-		// return Fabricante::all();  No es lo más correcto por que se devolverían todos los registros. Se recomienda usar Filtros.
-		// Se debería devolver un objeto con una propiedad como mínimo data y el array de resultados en esa propiedad.
-		// A su vez también es necesario devolver el código HTTP de la respuesta.
-		//php http://elbauldelprogramador.com/buenas-practicas-para-el-diseno-de-una-api-RESTful-pragmatica/
+		 // Devolverá todos los fabricantes.
+        // return "Mostrando todos los fabricantes de la base de datos.";
+        // return Fabricante::all();  No es lo más correcto por que se devolverían todos los registros. Se recomienda usar Filtros.
+        // Se debería devolver un objeto con una propiedad como mínimo data y el array de resultados en esa propiedad.
+        // A su vez también es necesario devolver el código HTTP de la respuesta.
+        // php http://elbauldelprogramador.com/buenas-practicas-para-el-diseno-de-una-api-RESTful-pragmatica/
 		// https://cloud.google.com/storage/docs/json_api/v1/status-codes
+		
+		$consulta = Fabricante::query();
 
-		return response()->json(['status'=>'ok','data'=>Fabricante::all()], 200);
+		// El formato utilizado para las solicitudes de filtrado es /aviones?sort=model,-velocidad    
+        // debemos procesar todos los parámetros pasados. El 
+        
+        if ($request->filled('sort'))
+        {
+
+          $CamposOrdenacion = array_filter(explode (',', $request->input('sort','')));        
+
+          if (!(empty($CamposOrdenacion)))
+          {         
+        
+            foreach ($CamposOrdenacion as $campo) {                
+               $sentidoOrdenacion = Str::startsWith($campo,'-')? 'desc' : 'asc';
+               $NombreCampo = ltrim($campo,'-');          
+               $consulta->orderBy($NombreCampo,$sentidoOrdenacion);
+           }
+          }
+        }   
+
+        // El formato utilizado para las solicitudes de filtrado es /aviones?filter=model:Falcon,velocidad=12
+        if ($request->filled('filter'))
+        {
+
+            $CamposFiltrados = array_filter(explode (',', $request->input('filter','')));        
+            foreach ($CamposFiltrados as $campoFiltro)
+            {
+                [$criterio,$valor] = explode(':',$campoFiltro);
+
+                // FDGA 31/03/2020 La sentencia ->where hace una comparaciónde igualdad con los campos con lo que si
+                // queremos una búsqueda por LIKE deberemos personalizarla. En la siguiente
+                // instrucción hacemos que podamos buscar por LIKE en el modelo
+                if ($criterio=='modelo')
+                {$consulta->where($criterio,'LIKE', '%'.$valor.'%');}
+                else
+                {$consulta->where($criterio, $valor);}
+
+            }
+        
+        }
+        return response()->json(['status'=>'ok','data'=>$consulta->get()], 200)
+                         ->header('X-Saludos-de-Jessica',1000);
 	}
 
 
