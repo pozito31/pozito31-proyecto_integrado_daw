@@ -36,8 +36,8 @@ class FabricanteController extends Controller
 		
 		$consulta = Fabricante::query();
 
-		// El formato utilizado para las solicitudes de filtrado es /aviones?sort=model,-velocidad    
-        // debemos procesar todos los parámetros pasados. El 
+		// El formato utilizado para las solicitudes de filtrado es /fabricantes?sort=model,-velocidad    
+        // debemos procesar todos los parámetros pasados.
         
         if ($request->filled('sort'))
         {
