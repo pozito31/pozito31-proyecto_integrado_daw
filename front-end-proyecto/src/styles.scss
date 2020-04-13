@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+//Variables a crear para utilizar sass y poder elegir el color a los elementos
+$colornav: #00662a;
+$colornavbar-toggler: #fff;
+$nav-link: #fff;
+$dropdown: #00662a;
+$dropdown-item:#fff;
+$lines-menu: #000;
+$sidebar-menu: #000;
+$skip-link: #000;
+$footer: #00662a;
+
+
+
+//Estilos por defecto a todas las paginas
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+//Estilos principales de la página de inicio
+header .logo{
+    padding: 20px;
+}
+header .texto{
+    padding: 20px;
+    text-align: right;
+}
