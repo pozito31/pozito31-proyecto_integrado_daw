@@ -64,7 +64,7 @@ class FabricanteController extends Controller
             {
                 [$criterio,$valor] = explode(':',$campoFiltro);
 
-                // FDGA 31/03/2020 La sentencia ->where hace una comparaciónde igualdad con los campos con lo que si
+                // La sentencia ->where hace una comparaciónde igualdad con los campos con lo que si
                 // queremos una búsqueda por LIKE deberemos personalizarla. En la siguiente
                 // instrucción hacemos que podamos buscar por LIKE en el modelo
                 if ($criterio=='modelo')
