@@ -25,27 +25,71 @@
                             <hr>
                             <div class="form-group">
                                 <label for="titulo">Titulo Noticia</label>
-                                <input type="text" class="form-control" name="titulo" id="titulo" aria-describedby="titulo">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="titulo" 
+                                       id="titulo"
+                                       placeholder="titulo"
+                                       formControlName="titulo"
+                                       [class.is-invalid]="tituloNoValido" 
+                                       aria-describedby="titulo">
+                                <small *ngIf="tituloNoValido" class="text-danger">
+                                    Ingrese el titulo 
+                                </small>
                             </div>
                             <div class="form-group">
                                 <label for="descripcion">Descripcion Noticia</label>
-                                <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="descripcion">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="descripcion" 
+                                       id="descripcion"
+                                       placeholder="descripcion"
+                                       formControlName="descripcion"
+                                       [class.is-invalid]="descripcionNoValida"
+                                       aria-describedby="descripcion">
+                                <small *ngIf="descripcionNoValida" class="text-danger">
+                                    Ingrese la descripcion 
+                                </small>
                             </div>
                             <div class="form-group">
                                 <label for="texto">Texto</label>
-                                <textarea class="form-control" name="texto" id="texto" aria-describedby="texto" cols="45" rows="5"></textarea>
+                                <textarea class="form-control" 
+                                          name="texto" 
+                                          id="texto"
+                                          placeholder="texto"
+                                          formControlName="texto"
+                                          [class.is-invalid]="textoNoValido"
+                                          aria-describedby="texto" 
+                                          cols="45" 
+                                          rows="5">
+                                </textarea>
+                                <small *ngIf="textoNoValido" class="text-danger">
+                                    Ingrese el texto 
+                                </small>
                             </div>
                             <div class="form-group">
                                 <label for="imagen">Imagen</label>
                                 <input type="hidden" name="MAX_FILE_SIZE" value="102400">
-                                <input type="file" class="form-control-file" name="imagen" id="imagen" aria-describedby="imagen" size="44">
+                                <input type="file" 
+                                       class="form-control-file" 
+                                       name="imagen" 
+                                       id="imagen"
+                                       placeholder="imagen"
+                                       formControlName="imagen"
+                                       [class.is-invalid]="imagenNoValida"
+                                       aria-describedby="imagen" 
+                                       size="44">
+                                <small *ngIf="imagenNoValida" class="text-danger">
+                                    Inserte la imagen 
+                                </small>
                             </div>
                         </fieldset>
-                        <button type="submit" class="btn btn-primary" name="insertar" id="insertar" value="insertar" onclick="validarNoticias();">Insertar</button>
+                        <button type="submit" class="btn btn-primary" name="insertar" id="insertar" value="insertar">Insertar</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <br>
 </body>
 </html>
