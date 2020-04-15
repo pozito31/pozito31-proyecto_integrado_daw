@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-noticias',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticiasComponent implements OnInit {
 
-  constructor() { }
+  forma: FormGroup;
+
+  constructor( private fb: FormBuilder) {
+
+    this.crearFormulario();
+
+   }
 
   ngOnInit(): void {
+  }
+
+  crearFormulario(){
+    
+    this.forma = this.fb.group({
+      titulo: [''],
+      descripcion: [''],
+      texto: [''],
+      imagen: ['']
+    });
+  }
+
+  insertar(){
+    console.log( this.forma );
   }
 
 }
