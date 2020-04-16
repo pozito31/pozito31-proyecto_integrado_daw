@@ -12,20 +12,33 @@ export class NoticiasComponent implements OnInit {
 
   constructor() {}
 
-  ContactoFormulario: FormGroup;
+  NoticiasFormulario: FormGroup;
 
   ngOnInit(): void {
-    this.ContactoFormulario = new FormGroup({
-      'email': new FormControl('', [
+    this.NoticiasFormulario = new FormGroup({
+      'titulo': new FormControl('', [
          Validators.required
       ]),
-      'nombre': new FormControl('', [
+      'descripcion': new FormControl('', [
         Validators.required
       ]),
-      'mensaje': new FormControl('', [
+      'texto': new FormControl('', [
+        Validators.required
+      ]),
+      'imagen': new FormControl('', [
         Validators.required
       ])
     });
+  }
+
+  get titulo() { return this.NoticiasFormulario.get('titulo') }
+  get descripcion() { return this.NoticiasFormulario.get('descripcion') }
+  get texto() { return this.NoticiasFormulario.get('texto') }
+  get imagen() { return this.NoticiasFormulario.get('imagen') }
+
+  onSubmit() {
+    const valor = this.NoticiasFormulario;
+    console.log(valor);
   }
 
 }
