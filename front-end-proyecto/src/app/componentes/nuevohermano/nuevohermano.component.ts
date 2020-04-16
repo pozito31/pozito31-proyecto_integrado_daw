@@ -29,6 +29,10 @@ export class NuevohermanoComponent implements OnInit {
       'dni': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
+      ]),
+      'correoelectronico': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
       ])
     });
   }
@@ -37,6 +41,7 @@ export class NuevohermanoComponent implements OnInit {
   get primerapellido() { return this.NuevoHermanoFormulario.get('primerapellido') }
   get segundoapellido() { return this.NuevoHermanoFormulario.get('segundoapellido') }
   get dni() { return this.NuevoHermanoFormulario.get('dni') }
+  get correoelectronico() { return this.NuevoHermanoFormulario.get('correoelectronico') }
 
   onSubmit() {
     const valor = this.NuevoHermanoFormulario;

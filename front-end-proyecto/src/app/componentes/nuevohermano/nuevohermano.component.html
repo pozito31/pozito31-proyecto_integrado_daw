@@ -124,8 +124,20 @@
                                 <input type="email" 
                                        class="form-control" 
                                        name="correoelectronico" 
-                                       id="correoelectronico" 
+                                       id="correoelectronico"
+                                       formControlName="correoelectronico"
+                                       required
+                                       size="30"
                                        aria-describedby="correoelectronico">
+
+                                <div *ngIf="correoelectronico.invalid && (correoelectronico.dirty || correoelectronico.touched)" class="alert alert-danger">
+                                    <div *ngIf="correoelectronico.errors.required">
+                                        Debe indicar el correo electronico.
+                                    </div>
+                                    <div *ngIf="correoelectronico.errors.minlength">
+                                        El correo electronico debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="nacimiento">Fecha de Nacimiento</label>
