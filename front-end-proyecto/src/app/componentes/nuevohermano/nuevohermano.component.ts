@@ -20,13 +20,18 @@ export class NuevohermanoComponent implements OnInit {
       ]),
       'primerapellido': new FormControl('', [
         Validators.required,
-        Validators.minLength(6)
+        Validators.minLength(4)
+      ]),
+      'segundoapellido': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
       ])
     });
   }
 
   get nombre() { return this.NuevoHermanoFormulario.get('nombre') }
   get primerapellido() { return this.NuevoHermanoFormulario.get('primerapellido') }
+  get segundoapellido() { return this.NuevoHermanoFormulario.get('segundoapellido') }
 
   onSubmit() {
     const valor = this.NuevoHermanoFormulario;
