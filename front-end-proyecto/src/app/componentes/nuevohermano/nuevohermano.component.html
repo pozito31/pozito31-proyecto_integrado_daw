@@ -32,46 +32,107 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <form action="" method="post" name="miFormulario" enctype="multipart/form-data">
-                        <h2 class="titulo">Nueva solicitud de hermano</h2>
+                    <form action="" [formGroup]="NuevoHermanoFormulario" #formDir="ngForm" (ngSubmit)="onSubmit()" method="post" enctype="multipart/form-data">
+                        <div [hidden]="formDir.submitted">
+                            <div class="cross-validation" [class.cross-validation-error]="NuevoHermanoFormulario.errors?.identityRevealed && (NuevoHermanoFormulario.touched || NuevoHermanoFormulario.dirty)">
+                                <h2 class="titulo">Nueva solicitud de hermano</h2>
                         <fieldset>
                             <legend>Datos principales</legend>
                             <hr>
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="nombre">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="nombre" 
+                                       id="nombre"
+                                       formControlName="nombre"
+                                       required
+                                       size="30"
+                                       aria-describedby="nombre">
+
+                                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+                                    <div *ngIf="nombre.errors.required">
+                                        Debe indicar el nombre.
+                                    </div>
+                                    <div *ngIf="nombre.errors.minlength">
+                                        El nombre debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="primerapellido">Primer Apellido</label>
-                                <input type="text" class="form-control" name="primerapellido" id="primerapellido" aria-describedby="primerapellido">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="primerapellido" 
+                                       id="primerapellido"
+                                       formControlName="primerapellido"
+                                       required
+                                       size="30"
+                                       aria-describedby="primerapellido">
+
+                                <div *ngIf="primerapellido.invalid && (primerapellido.dirty || primerapellido.touched)" class="alert alert-danger">
+                                    <div *ngIf="primerapellido.errors.required">
+                                            Debe indicar el primer apellido.
+                                    </div>
+                                    <div *ngIf="primerapellido.errors.minlength">
+                                        El primer apellido debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="segundoapellido">Segundo Apellido</label>
-                                <input type="text" class="form-control" name="segundoapellido" id="segundoapellido" aria-describedby="segundoapellido">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="segundoapellido" 
+                                       id="segundoapellido" 
+                                       aria-describedby="segundoapellido">
                             </div>
                             <div class="form-group">
                                 <label for="dni">DNI</label>
-                                <input type="text" class="form-control" name="dni" id="dni" aria-describedby="dni">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="dni" 
+                                       id="dni" 
+                                       aria-describedby="dni">
                             </div>
                             <div class="form-group">
                                 <label for="correoelectronico">Correo electrónico</label>
-                                <input type="email" class="form-control" name="correoelectronico" id="correoelectronico" aria-describedby="correoelectronico">
+                                <input type="email" 
+                                       class="form-control" 
+                                       name="correoelectronico" 
+                                       id="correoelectronico" 
+                                       aria-describedby="correoelectronico">
                             </div>
                             <div class="form-group">
                                 <label for="nacimiento">Fecha de Nacimiento</label>
-                                <input type="text" class="form-control" name="nacimiento" id="nacimiento" aria-describedby="nacimiento">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="nacimiento" 
+                                       id="nacimiento" 
+                                       aria-describedby="nacimiento">
                             </div>
                             <div class="form-group">
                                 <label for="provincianacimiento">Provincia Nacimiento</label>
-                                <input type="text" class="form-control" name="provincianacimiento" id="provincianacimiento" aria-describedby="provincianacimiento">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="provincianacimiento" 
+                                       id="provincianacimiento" 
+                                       aria-describedby="provincianacimiento">
                             </div>
                             <div class="form-group">
                                 <label for="poblacionnacimiento">Poblacion Nacimiento</label>
-                                <input type="text" class="form-control" name="poblacionnacimiento" id="poblacionnacimiento" aria-describedby="poblacionnacimiento">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="poblacionnacimiento" 
+                                       id="poblacionnacimiento" 
+                                       aria-describedby="poblacionnacimiento">
                             </div>
                             <div class="form-group">
                                 <label for="genero">Genero</label>
-                                <select class="form-control" name="genero" id="genero" aria-describedby="genero">
+                                <select class="form-control" 
+                                        name="genero" 
+                                        id="genero" 
+                                        aria-describedby="genero">
                                     <option value="0">Seleciona el genero</option>
                                     <option value="1">Mujer</option>
                                     <option value="2">Hombre</option>
@@ -79,7 +140,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="estado">Estado</label>
-                                <select class="form-control" name="estado" id="estado" aria-describedby="estado">
+                                <select class="form-control" 
+                                        name="estado" 
+                                        id="estado" 
+                                        aria-describedby="estado">
                                     <option value="0">Seleciona el estado</option>
                                     <option value="1">Soltero</option>
                                     <option value="2">Casado</option>
@@ -88,27 +152,51 @@
                             </div>
                             <div class="form-group">
                                 <label for="presentado1">Presentado(1)</label>
-                                <input type="text" class="form-control" name="presentado1" id="presentado1" aria-describedby="presentado1">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="presentado1" 
+                                       id="presentado1" 
+                                       aria-describedby="presentado1">
                             </div>
                             <div class="form-group">
                                 <label for="presentado2">Presentado(2)</label>
-                                <input type="text" class="form-control" name="presentado2" id="presentado2" aria-describedby="presentado2">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="presentado2" 
+                                       id="presentado2" 
+                                       aria-describedby="presentado2">
                             </div>
                             <div class="form-group">
                                 <label for="telefonoprincipal">Telefono Principal</label>
-                                <input type="text" class="form-control" name="telefonoprincipal" id="telefonoprincipal" aria-describedby="telefonoprincipal">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="telefonoprincipal" 
+                                       id="telefonoprincipal" 
+                                       aria-describedby="telefonoprincipal">
                             </div>
                             <div class="form-group">
                                 <label for="telefonosecundario">Telefono Secundario</label>
-                                <input type="text" class="form-control" name="telefonosecundario" id="telefonosecundario" aria-describedby="telefonosecundario">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="telefonosecundario" 
+                                       id="telefonosecundario" 
+                                       aria-describedby="telefonosecundario">
                             </div>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" name="correo" id="correo" aria-describedby="correo">
+                                <input type="checkbox" 
+                                       class="form-check-input" 
+                                       name="correo" 
+                                       id="correo" 
+                                       aria-describedby="correo">
                                 <label class="form-check-label" for="correo">Subscripción correo</label>
                             </div>
                             <div class="form-group">
                                 <label for="profesion">Profesion</label>
-                                <input type="text" class="form-control" name="profesion" id="profesion" aria-describedby="profesion">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="profesion" 
+                                       id="profesion" 
+                                       aria-describedby="profesion">
                             </div>
                         </fieldset>
                         <fieldset>
@@ -895,7 +983,9 @@
                                 <label class="form-check-label" for="acepto">He leido y acepto las condiciones</label>
                             </div>
                         </fieldset>
-                        <button type="submit" class="btn btn-primary" name="enviar" id="enviar" value="enviar" onclick="validarHermano();">Enviar</button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="enviar" id="enviar" value="enviar" [disabled]="NuevoHermanoFormulario.invalid">Enviar</button>
                     </form>
                 </div>
             </div>
