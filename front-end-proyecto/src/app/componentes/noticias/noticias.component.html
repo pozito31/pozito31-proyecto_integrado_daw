@@ -18,57 +18,104 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <h2 class="titulo">Insertar Noticias</h2>
-                        <fieldset>
-                            <legend>Noticia</legend>
-                            <hr>
-                            <div class="form-group">
-                                <label for="titulo">Titulo Noticia</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="titulo" 
-                                       id="titulo"
-                                       placeholder="titulo"
-                                       formControlName="titulo"
-                                       aria-describedby="titulo">
+                    <form action="" [formGroup]="NoticiasFormulario" #formDir="ngForm" (ngSubmit)="onSubmit()" method="post" enctype="multipart/form-data">
+                        <div [hidden]="formDir.submitted">
+                            <div class="cross-validation" [class.cross-validation-error]="NoticiasFormulario.errors?.identityRevealed && (NoticiasFormulario.touched || NoticiasFormulario.dirty)">
+                                <h2 class="titulo">Insertar Noticias</h2>
+                                <fieldset>
+                                    <legend>Noticia</legend>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label for="titulo">Titulo Noticia</label>
+                                        <input type="text" 
+                                               class="form-control" 
+                                               name="titulo" 
+                                               id="titulo"
+                                               placeholder="titulo"
+                                               formControlName="titulo"
+                                               required
+                                               size="30"
+                                               aria-describedby="titulo">
+
+                                        <div *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="alert alert-danger">
+                                            <div *ngIf="titulo.errors.required">
+                                                Debe indicar el titulo.
+                                            </div>
+                                            <div *ngIf="titulo.errors.minlength">
+                                                El titulo debe tener como mínimo 4 caractéres.
+                                            </div>            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="descripcion">Descripcion Noticia</label>
+                                        <input type="text" 
+                                               class="form-control" 
+                                               name="descripcion" 
+                                               id="descripcion"
+                                               placeholder="descripcion"
+                                               formControlName="descripcion"
+                                               required
+                                               size="30"
+                                               aria-describedby="descripcion">
+
+                                        <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="alert alert-danger">
+                                            <div *ngIf="descripcion.errors.required">
+                                                Debe indicar la descripción.
+                                            </div>
+                                            <div *ngIf="descripcion.errors.minlength">
+                                                La descripción debe tener como mínimo 4 caractéres.
+                                            </div>            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="texto">Texto</label>
+                                        <textarea class="form-control" 
+                                                  name="texto" 
+                                                  id="texto"
+                                                  placeholder="texto"
+                                                  formControlName="texto"
+                                                  required
+                                                  size="30"
+                                                  aria-describedby="texto" 
+                                                  cols="45" 
+                                                  rows="5">
+                                        </textarea>
+
+                                        <div *ngIf="texto.invalid && (texto.dirty || texto.touched)" class="alert alert-danger">
+                                            <div *ngIf="texto.errors.required">
+                                                Debe indicar el texto.
+                                            </div>
+                                            <div *ngIf="texto.errors.minlength">
+                                                El texto debe tener como mínimo 4 caractéres.
+                                            </div>            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="imagen">Imagen</label>
+                                        <input type="hidden" name="MAX_FILE_SIZE" value="102400">
+                                        <input type="file" 
+                                               class="form-control-file" 
+                                               name="imagen" 
+                                               id="imagen"
+                                               placeholder="imagen"
+                                               formControlName="imagen"
+                                               required
+                                               aria-describedby="imagen" 
+                                               size="44">
+
+                                        <div *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)" class="alert alert-danger">
+                                            <div *ngIf="imagen.errors.required">
+                                                Debe indicar la imagen.
+                                            </div>
+                                            <div *ngIf="imagen.errors.minlength">
+                                                La imagen debe tener como mínimo 4 caractéres.
+                                            </div>            
+                                        </div>
+                                    </div>
+                                </fieldset> 
                             </div>
-                            <div class="form-group">
-                                <label for="descripcion">Descripcion Noticia</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="descripcion" 
-                                       id="descripcion"
-                                       placeholder="descripcion"
-                                       formControlName="descripcion"
-                                       aria-describedby="descripcion">
-                            </div>
-                            <div class="form-group">
-                                <label for="texto">Texto</label>
-                                <textarea class="form-control" 
-                                          name="texto" 
-                                          id="texto"
-                                          placeholder="texto"
-                                          formControlName="texto"
-                                          aria-describedby="texto" 
-                                          cols="45" 
-                                          rows="5">
-                                </textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="imagen">Imagen</label>
-                                <input type="hidden" name="MAX_FILE_SIZE" value="102400">
-                                <input type="file" 
-                                       class="form-control-file" 
-                                       name="imagen" 
-                                       id="imagen"
-                                       placeholder="imagen"
-                                       formControlName="imagen"
-                                       aria-describedby="imagen" 
-                                       size="44">
-                            </div>
-                        </fieldset>
-                        <button type="submit" class="btn btn-primary" name="insertar" id="insertar" value="insertar">Insertar</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="insertar" id="insertar" value="insertar" [disabled]="NoticiasFormulario.invalid">Insertar</button>
                     </form>
                 </div>
             </div>
