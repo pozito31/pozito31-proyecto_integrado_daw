@@ -22,6 +22,55 @@ $footer: #00662a;
     box-sizing: border-box;
 }
 
+//Estilos para los formularios del login y registro del login
+body.fondo{
+    background-color: #008b9b;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+.card {
+    width: 35%;
+    margin-top: 10%;
+}
+
+.brand {
+    color: #b48608; 
+    font-family: 'Bangers', cursive;
+    font-size: 2.7em; 
+    font-weight: 500;
+    text-align: center;
+}
+
+.card-body, .card-footer {
+    background: lightgrey;
+}
+
+form {
+    margin-bottom: 5%;
+}
+
+.btn {
+    width: min-content;
+    padding: 2% 10% 2% 10%;
+}
+
+.form-control:focus {
+    background-color: lightyellow;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(33, 37, 41);
+    font-weight: 100;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: red;
+}
 //Estilos principales de la página de inicio
 header .logo{
     padding: 20px;
