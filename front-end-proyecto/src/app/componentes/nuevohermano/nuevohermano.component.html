@@ -169,25 +169,55 @@
                                        required
                                        size="30"
                                        aria-describedby="provincianacimiento">
+
+                                <div *ngIf="provincianacimiento.invalid && (provincianacimiento.dirty || provincianacimiento.touched)" class="alert alert-danger">
+                                    <div *ngIf="provincianacimiento.errors.required">
+                                        Debe indicar la provincia de nacimiento.
+                                    </div>
+                                    <div *ngIf="provincianacimiento.errors.minlength">
+                                        La provincia de nacimiento debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="poblacionnacimiento">Poblacion Nacimiento</label>
                                 <input type="text" 
                                        class="form-control" 
                                        name="poblacionnacimiento" 
-                                       id="poblacionnacimiento" 
+                                       id="poblacionnacimiento"
+                                       formControlName="poblacionnacimiento"
+                                       required
+                                       size="30"
                                        aria-describedby="poblacionnacimiento">
+
+                                <div *ngIf="poblacionnacimiento.invalid && (poblacionnacimiento.dirty || poblacionnacimiento.touched)" class="alert alert-danger">
+                                    <div *ngIf="poblacionnacimiento.errors.required">
+                                        Debe indicar la población de nacimiento.
+                                    </div>
+                                    <div *ngIf="poblacionnacimiento.errors.minlength">
+                                        La población de nacimiento debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="genero">Genero</label>
                                 <select class="form-control" 
                                         name="genero" 
-                                        id="genero" 
+                                        id="genero"
+                                        formControlName="genero"
+                                        required
+                                        size="30"
                                         aria-describedby="genero">
                                     <option value="0">Seleciona el genero</option>
                                     <option value="1">Mujer</option>
                                     <option value="2">Hombre</option>
                                 </select>
+
+                                <div *ngIf="genero.invalid && (genero.dirty || genero.touched)" class="alert alert-danger">
+                                    <div *ngIf="genero.errors.required">
+                                        Debes seleccionar el genero.
+                                    </div>         
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="estado">Estado</label>
