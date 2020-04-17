@@ -17,13 +17,16 @@ export class NoticiasComponent implements OnInit {
   ngOnInit(): void {
     this.NoticiasFormulario = new FormGroup({
       'titulo': new FormControl('', [
-         Validators.required
+         Validators.required,
+         Validators.minLength(4)
       ]),
       'descripcion': new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(4)
       ]),
       'texto': new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(4)
       ]),
       'imagen': new FormControl('', [
         Validators.required

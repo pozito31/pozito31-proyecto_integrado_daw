@@ -75,7 +75,6 @@
                                                   placeholder="texto"
                                                   formControlName="texto"
                                                   required
-                                                  size="30"
                                                   aria-describedby="texto" 
                                                   cols="45" 
                                                   rows="5">
@@ -106,10 +105,7 @@
                                         <div *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)" class="alert alert-danger">
                                             <div *ngIf="imagen.errors.required">
                                                 Debe indicar la imagen.
-                                            </div>
-                                            <div *ngIf="imagen.errors.minlength">
-                                                La imagen debe tener como mínimo 4 caractéres.
-                                            </div>            
+                                            </div>           
                                         </div>
                                     </div>
                                 </fieldset> 
