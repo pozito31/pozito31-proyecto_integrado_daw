@@ -149,13 +149,25 @@
                                        required
                                        size="30"
                                        aria-describedby="nacimiento">
+
+                                <div *ngIf="nacimiento.invalid && (nacimiento.dirty || nacimiento.touched)" class="alert alert-danger">
+                                    <div *ngIf="nacimiento.errors.required">
+                                        Debe indicar la fecha de nacimiento.
+                                    </div>
+                                    <div *ngIf="nacimiento.errors.minlength">
+                                        La fecha de nacimiento debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="provincianacimiento">Provincia Nacimiento</label>
                                 <input type="text" 
                                        class="form-control" 
                                        name="provincianacimiento" 
-                                       id="provincianacimiento" 
+                                       id="provincianacimiento"
+                                       formControlName="provincianacimiento"
+                                       required
+                                       size="30"
                                        aria-describedby="provincianacimiento">
                             </div>
                             <div class="form-group">
