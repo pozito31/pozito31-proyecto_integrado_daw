@@ -16,13 +16,15 @@ export class ContactoComponent implements OnInit {
     this.ContactoFormulario = new FormGroup({
       'email': new FormControl('', [
          Validators.required,
-         Validators.minLength(6) 
+         Validators.minLength(4) 
       ]),
       'nombre': new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(4)
       ]),
       'mensaje': new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(4)
       ])
     });
   }
