@@ -59,6 +59,21 @@ export class NuevohermanoComponent implements OnInit {
       'presentado2': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
+      ]),
+      'telefonoprincipal': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
+      ]),
+      'telefonosecundario': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
+      ]),
+      'correo': new FormControl('', [
+        Validators.required
+      ]),
+      'profesion': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
       ])
     });
   }
@@ -75,6 +90,10 @@ export class NuevohermanoComponent implements OnInit {
   get estado() { return this.NuevoHermanoFormulario.get('estado') }
   get presentado1() { return this.NuevoHermanoFormulario.get('presentado1') }
   get presentado2() { return this.NuevoHermanoFormulario.get('presentado2') }
+  get telefonoprincipal() { return this.NuevoHermanoFormulario.get('telefonoprincipal') }
+  get telefonosecundario() { return this.NuevoHermanoFormulario.get('telefonosecundario') }
+  get correo() { return this.NuevoHermanoFormulario.get('correo') }
+  get profesion() { return this.NuevoHermanoFormulario.get('profesion') }
 
   onSubmit() {
     const valor = this.NuevoHermanoFormulario;

@@ -281,23 +281,55 @@
                                 <input type="text" 
                                        class="form-control" 
                                        name="telefonoprincipal" 
-                                       id="telefonoprincipal" 
+                                       id="telefonoprincipal"
+                                       formControlName="telefonoprincipal"
+                                       required
+                                       size="30"
                                        aria-describedby="telefonoprincipal">
+
+                                <div *ngIf="telefonoprincipal.invalid && (telefonoprincipal.dirty || telefonoprincipal.touched)" class="alert alert-danger">
+                                    <div *ngIf="telefonoprincipal.errors.required">
+                                        Debe indicar el telefono principal.
+                                    </div>
+                                    <div *ngIf="telefonoprincipal.errors.minlength">
+                                        El telefono principal debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="telefonosecundario">Telefono Secundario</label>
                                 <input type="text" 
                                        class="form-control" 
                                        name="telefonosecundario" 
-                                       id="telefonosecundario" 
+                                       id="telefonosecundario"
+                                       formControlName="telefonosecundario"
+                                       required
+                                       size="30"
                                        aria-describedby="telefonosecundario">
+
+                                <div *ngIf="telefonosecundario.invalid && (telefonosecundario.dirty || telefonosecundario.touched)" class="alert alert-danger">
+                                    <div *ngIf="telefonosecundario.errors.required">
+                                        Debe indicar el telefono secundario.
+                                    </div>
+                                    <div *ngIf="telefonosecundario.errors.minlength">
+                                        El telefono secundario debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" 
                                        class="form-check-input" 
                                        name="correo" 
-                                       id="correo" 
+                                       id="correo"
+                                       formControlName="correo"
+                                       required
                                        aria-describedby="correo">
+
+                                <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="alert alert-danger">
+                                    <div *ngIf="correo.errors.required">
+                                        Debes seleccionar el checkbox de correo.
+                                    </div>         
+                                </div>
                                 <label class="form-check-label" for="correo">Subscripción correo</label>
                             </div>
                             <div class="form-group">
@@ -305,8 +337,20 @@
                                 <input type="text" 
                                        class="form-control" 
                                        name="profesion" 
-                                       id="profesion" 
+                                       id="profesion"
+                                       formControlName="profesion"
+                                       required
+                                       size="30"
                                        aria-describedby="profesion">
+
+                                <div *ngIf="profesion.invalid && (profesion.dirty || profesion.touched)" class="alert alert-danger">
+                                    <div *ngIf="profesion.errors.required">
+                                        Debe indicar la profesión.
+                                    </div>
+                                    <div *ngIf="profesion.errors.minlength">
+                                        La profesion debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                         </fieldset>
                         <fieldset>
