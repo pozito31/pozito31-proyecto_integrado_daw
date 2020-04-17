@@ -48,6 +48,17 @@ export class NuevohermanoComponent implements OnInit {
       ]),
       'genero': new FormControl('', [
         Validators.required
+      ]),
+      'estado': new FormControl('', [
+        Validators.required
+      ]),
+      'presentado1': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
+      ]),
+      'presentado2': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
       ])
     });
   }
@@ -61,6 +72,9 @@ export class NuevohermanoComponent implements OnInit {
   get provincianacimiento() { return this.NuevoHermanoFormulario.get('provincianacimiento') }
   get poblacionnacimiento() { return this.NuevoHermanoFormulario.get('poblacionnacimiento') }
   get genero() { return this.NuevoHermanoFormulario.get('genero') }
+  get estado() { return this.NuevoHermanoFormulario.get('estado') }
+  get presentado1() { return this.NuevoHermanoFormulario.get('presentado1') }
+  get presentado2() { return this.NuevoHermanoFormulario.get('presentado2') }
 
   onSubmit() {
     const valor = this.NuevoHermanoFormulario;

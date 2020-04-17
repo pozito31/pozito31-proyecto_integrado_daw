@@ -206,9 +206,7 @@
                                         id="genero"
                                         formControlName="genero"
                                         required
-                                        size="30"
                                         aria-describedby="genero">
-                                    <option value="0">Seleciona el genero</option>
                                     <option value="1">Mujer</option>
                                     <option value="2">Hombre</option>
                                 </select>
@@ -223,29 +221,60 @@
                                 <label for="estado">Estado</label>
                                 <select class="form-control" 
                                         name="estado" 
-                                        id="estado" 
+                                        id="estado"
+                                        formControlName="estado"
+                                        required
                                         aria-describedby="estado">
-                                    <option value="0">Seleciona el estado</option>
                                     <option value="1">Soltero</option>
                                     <option value="2">Casado</option>
                                     <option value="3">Divorciado</option>
                                 </select>
+
+                                <div *ngIf="estado.invalid && (estado.dirty || estado.touched)" class="alert alert-danger">
+                                    <div *ngIf="estado.errors.required">
+                                        Debes seleccionar el estado.
+                                    </div>         
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="presentado1">Presentado(1)</label>
                                 <input type="text" 
                                        class="form-control" 
                                        name="presentado1" 
-                                       id="presentado1" 
+                                       id="presentado1"
+                                       formControlName="presentado1"
+                                       required
+                                       size="30"
                                        aria-describedby="presentado1">
+
+                                <div *ngIf="presentado1.invalid && (presentado1.dirty || presentado1.touched)" class="alert alert-danger">
+                                    <div *ngIf="presentado1.errors.required">
+                                        Debe indicar el nombre de presentado1.
+                                    </div>
+                                    <div *ngIf="presentado1.errors.minlength">
+                                        El nombre de presentado1 debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="presentado2">Presentado(2)</label>
                                 <input type="text" 
                                        class="form-control" 
                                        name="presentado2" 
-                                       id="presentado2" 
+                                       id="presentado2"
+                                       formControlName="presentado2"
+                                       required
+                                       size="30"
                                        aria-describedby="presentado2">
+
+                                <div *ngIf="presentado2.invalid && (presentado2.dirty || presentado2.touched)" class="alert alert-danger">
+                                    <div *ngIf="presentado2.errors.required">
+                                        Debe indicar el nombre de presentado2.
+                                    </div>
+                                    <div *ngIf="presentado2.errors.minlength">
+                                        El nombre de presentado2 debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="telefonoprincipal">Telefono Principal</label>
