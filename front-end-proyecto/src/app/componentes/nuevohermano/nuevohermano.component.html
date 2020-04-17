@@ -358,39 +358,139 @@
                             <hr>
                             <div class="form-group">
                                 <label for="metododepago">Metodo de pago</label>
-                                <select class="form-control" name="metododepago" id="metododepago" aria-describedby="metododepago">
-                                    <option value="0">Seleciona el metodo de pago</option>
+                                <select class="form-control" 
+                                        name="metododepago" 
+                                        id="metododepago"
+                                        formControlName="profesion"
+                                        required
+                                        aria-describedby="metododepago">
                                     <option value="1">Banco</option>
                                     <option value="2">Carta de pago</option>
                                 </select>
+
+                                <div *ngIf="metododepago.invalid && (metododepago.dirty || metododepago.touched)" class="alert alert-danger">
+                                    <div *ngIf="metododepago.errors.required">
+                                        Debes seleccionar el metodo de pago.
+                                    </div>         
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="iban">IBAN</label>
-                                <input type="text" class="form-control" name="iban" id="iban" aria-describedby="iban">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="iban" 
+                                       id="iban"
+                                       formControlName="iban"
+                                       required
+                                       size="30"
+                                       aria-describedby="iban">
+
+                                <div *ngIf="iban.invalid && (iban.dirty || iban.touched)" class="alert alert-danger">
+                                    <div *ngIf="iban.errors.required">
+                                        Debe indicar el iban.
+                                    </div>
+                                    <div *ngIf="iban.errors.minlength">
+                                        El iban debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="tipodecuota">Tipo de cuota</label>
-                                <select class="form-control" name="tipodecuota" id="tipodecuota" aria-describedby="tipodecuota">
-                                    <option value="0">Seleciona el tipo de cuota</option>
+                                <select class="form-control" 
+                                        name="tipodecuota" 
+                                        id="tipodecuota"
+                                        formControlName="tipodecuota"
+                                        required
+                                        aria-describedby="tipodecuota">
                                     <option value="1">Anual</option>
                                     <option value="2">Trimestral</option>
                                 </select>
+
+                                <div *ngIf="tipodecuota.invalid && (tipodecuota.dirty || tipodecuota.touched)" class="alert alert-danger">
+                                    <div *ngIf="tipodecuota.errors.required">
+                                        Debes seleccionar el tipo de cuota.
+                                    </div>         
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="nombredeltitularbancario">Nombre del titular bancario</label>
-                                <input type="text" class="form-control" name="nombredeltitularbancario" id="nombredeltitularbancario" aria-describedby="nombredeltitularbancario">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="nombredeltitularbancario" 
+                                       id="nombredeltitularbancario"
+                                       formControlName="nombredeltitularbancario"
+                                       required
+                                       size="30"
+                                       aria-describedby="nombredeltitularbancario">
+
+                                <div *ngIf="nombredeltitularbancario.invalid && (nombredeltitularbancario.dirty || nombredeltitularbancario.touched)" class="alert alert-danger">
+                                    <div *ngIf="nombredeltitularbancario.errors.required">
+                                        Debe indicar el nombre del titular bancario.
+                                    </div>
+                                    <div *ngIf="nombredeltitularbancario.errors.minlength">
+                                        El nombre del titular bancario debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="domiciliodeltitular">Domicilio del titular</label>
-                                <input type="text" class="form-control" name="domiciliodeltitular" id="domiciliodeltitular" aria-describedby="domiciliodeltitular">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="domiciliodeltitular" 
+                                       id="domiciliodeltitular"
+                                       formControlName="domiciliodeltitular"
+                                       required
+                                       size="30"
+                                       aria-describedby="domiciliodeltitular">
+
+                                <div *ngIf="domiciliodeltitular.invalid && (domiciliodeltitular.dirty || domiciliodeltitular.touched)" class="alert alert-danger">
+                                    <div *ngIf="domiciliodeltitular.errors.required">
+                                        Debe indicar el domicilio del titular.
+                                    </div>
+                                    <div *ngIf="domiciliodeltitular.errors.minlength">
+                                        El domicilio del titular debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="dnideltitular">Dni del titular</label>
-                                <input type="text" class="form-control" name="dnideltitular" id="dnideltitular" aria-describedby="dnideltitular">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="dnideltitular" 
+                                       id="dnideltitular"
+                                       formControlName="dnideltitular"
+                                       required
+                                       size="30"
+                                       aria-describedby="dnideltitular">
+
+                                <div *ngIf="dnideltitular.invalid && (dnideltitular.dirty || dnideltitular.touched)" class="alert alert-danger">
+                                    <div *ngIf="dnideltitular.errors.required">
+                                        Debe indicar el dni del titular.
+                                    </div>
+                                    <div *ngIf="dnideltitular.errors.minlength">
+                                        El dni del titular debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="titulardelatarjetadecredito">Titular de la tarjeta de crédito</label>
-                                <input type="text" class="form-control" name="titulardelatarjetadecredito" id="titulardelatarjetadecredito" aria-describedby="titulardelatarjetadecredito">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="titulardelatarjetadecredito" 
+                                       id="titulardelatarjetadecredito"
+                                       formControlName="titulardelatarjetadecredito"
+                                       required
+                                       size="30"
+                                       aria-describedby="titulardelatarjetadecredito">
+
+                                <div *ngIf="titulardelatarjetadecredito.invalid && (titulardelatarjetadecredito.dirty || titulardelatarjetadecredito.touched)" class="alert alert-danger">
+                                    <div *ngIf="titulardelatarjetadecredito.errors.required">
+                                        Debe indicar el titular de la tarjeta de credito.
+                                    </div>
+                                    <div *ngIf="titulardelatarjetadecredito.errors.minlength">
+                                        El titular de la tarjeta de credito debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -398,25 +498,63 @@
                             <hr>
                             <div class="form-group">
                                 <label for="pais">País</label>
-                                <select class="form-control" name="pais" id="pais" aria-describedby="pais">
+                                <select class="form-control" 
+                                        name="pais" 
+                                        id="pais"
+                                        formControlName="pais"
+                                        required 
+                                        aria-describedby="pais">
                                     <option value="1" selected="selected">España</option>
                                 </select>
+
+                                <div *ngIf="pais.invalid && (pais.dirty || pais.touched)" class="alert alert-danger">
+                                    <div *ngIf="pais.errors.required">
+                                        Debes seleccionar el país.
+                                    </div>         
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="comunidadoestado">Comunidad o estado</label>
-                                <select class="form-control" name="comunidadoestado" id="comunidadoestado" aria-describedby="comunidadoestado">
+                                <select class="form-control" 
+                                        name="comunidadoestado" 
+                                        id="comunidadoestado"
+                                        formControlName="comunidadoestado"
+                                        required  
+                                        aria-describedby="comunidadoestado">
                                     <option value="1" selected="selected">Andalucia </option>
                                 </select>
+
+                                <div *ngIf="comunidadoestado.invalid && (comunidadoestado.dirty || comunidadoestado.touched)" class="alert alert-danger">
+                                    <div *ngIf="comunidadoestado.errors.required">
+                                        Debes seleccionar la comunidad o estado.
+                                    </div>         
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="provincia">Provincia</label>
-                                <select class="form-control" name="provincia" id="provincia" aria-describedby="provincia">
+                                <select class="form-control" 
+                                        name="provincia" 
+                                        id="provincia"
+                                        formControlName="provincia"
+                                        required
+                                        aria-describedby="provincia">
                                     <option value="1" selected="selected">Almeria </option>
                                 </select>
+
+                                <div *ngIf="provincia.invalid && (provincia.dirty || provincia.touched)" class="alert alert-danger">
+                                    <div *ngIf="provincia.errors.required">
+                                        Debes seleccionar la provincia.
+                                    </div>         
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="poblacion">Población</label>
-                                <select class="form-control" name="poblacion" id="poblacion" aria-describedby="poblacion">
+                                <select class="form-control" 
+                                        name="poblacion" 
+                                        id="poblacion"
+                                        formControlName="poblacion"
+                                        required
+                                        aria-describedby="poblacion">
                                     <option value="1" selected="selected">Abejuela </option>
                                     <option value="2">Abla </option> 
                                     <option value="3">Abriojal </option> 
@@ -1114,14 +1252,52 @@
                                     <option value="695">Zoilos, Los </option> 
                                     <option value="696">Zurgena </option> 
                                 </select>
+
+                                <div *ngIf="poblacion.invalid && (poblacion.dirty || poblacion.touched)" class="alert alert-danger">
+                                    <div *ngIf="poblacion.errors.required">
+                                        Debes seleccionar la población.
+                                    </div>         
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="direccion">Dirección</label>
-                                <input type="text" class="form-control" name="direccion" id="direccion" aria-describedby="direccion">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="direccion" 
+                                       id="direccion"
+                                       formControlName="direccion"
+                                       required
+                                       size="30"
+                                       aria-describedby="direccion">
+
+                                <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" class="alert alert-danger">
+                                    <div *ngIf="direccion.errors.required">
+                                        Debe indicar la dirección.
+                                    </div>
+                                    <div *ngIf="direccion.errors.minlength">
+                                       La dirección debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="codigopostal">Código Postal</label>
-                                <input type="text" class="form-control" name="codigopostal" id="codigopostal" aria-describedby="codigopostal">
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="codigopostal" 
+                                       id="codigopostal"
+                                       formControlName="codigopostal"
+                                       required
+                                       size="30" 
+                                       aria-describedby="codigopostal">
+
+                                <div *ngIf="codigopostal.invalid && (codigopostal.dirty || codigopostal.touched)" class="alert alert-danger">
+                                    <div *ngIf="codigopostal.errors.required">
+                                        Debe indicar el codigo postal.
+                                    </div>
+                                    <div *ngIf="codigopostal.errors.minlength">
+                                        El codigo postal debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -1130,10 +1306,35 @@
                             <div class="form-group">
                                 <label for="foto">Foto</label>
                                 <input type="hidden" name="MAX_FILE_SIZE" value="102400">
-                                <input type="file" class="form-control-file" name="foto" id="foto" aria-describedby="foto" size="44">
+                                <input type="file" 
+                                       class="form-control-file" 
+                                       name="foto" 
+                                       id="foto"
+                                       formControlName="foto"
+                                       required
+                                       aria-describedby="foto" 
+                                       size="44">
+
+                                <div *ngIf="foto.invalid && (foto.dirty || foto.touched)" class="alert alert-danger">
+                                    <div *ngIf="foto.errors.required">
+                                        Debes seleccionar la foto.
+                                    </div>         
+                                </div>
                             </div>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" name="acepto" id="acepto" aria-describedby="acepto">
+                                <input type="checkbox" 
+                                       class="form-check-input" 
+                                       name="acepto" 
+                                       id="acepto"
+                                       formControlName="acepto"
+                                       required 
+                                       aria-describedby="acepto">
+
+                                <div *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)" class="alert alert-danger">
+                                    <div *ngIf="acepto.errors.required">
+                                        Debes seleccionar el checkbox He leido y acepto las condiciones.
+                                    </div>         
+                                </div>
                                 <label class="form-check-label" for="acepto">He leido y acepto las condiciones</label>
                             </div>
                         </fieldset>
