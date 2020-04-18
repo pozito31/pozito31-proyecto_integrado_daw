@@ -17,6 +17,7 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 const routes: Routes = [
   {path: '', component: TableroComponent},
   {path: 'login', component: LoginComponent},
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'registro', component: RegistroComponent},
   {path: 'historia', component: HistoriaComponent},
   {path: 'hermanomayor', component: HermanomayorComponent},
