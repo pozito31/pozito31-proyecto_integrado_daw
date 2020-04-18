@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <form [formGroup]="NoticiasFormulario" #formDir="ngForm" (ngSubmit)="onSubmit()" method="post" enctype="multipart/form-data">
+                    <form [formGroup]="NoticiasFormulario" #formDir="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
                         <div [hidden]="formDir.submitted">
                             <div class="cross-validation" [class.cross-validation-error]="NoticiasFormulario.errors?.identityRevealed && (NoticiasFormulario.touched || NoticiasFormulario.dirty)">
                                 <h2 class="titulo">Insertar Noticias</h2>
