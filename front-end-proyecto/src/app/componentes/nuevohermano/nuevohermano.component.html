@@ -32,7 +32,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <form action="" [formGroup]="NuevoHermanoFormulario" #formDir="ngForm" (ngSubmit)="onSubmit()" method="post" enctype="multipart/form-data">
+                    <form [formGroup]="NuevoHermanoFormulario" #formDir="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
                         <div [hidden]="formDir.submitted">
                             <div class="cross-validation" [class.cross-validation-error]="NuevoHermanoFormulario.errors?.identityRevealed && (NuevoHermanoFormulario.touched || NuevoHermanoFormulario.dirty)">
                                 <h2 class="titulo">Nueva solicitud de hermano</h2>
