@@ -19,5 +19,9 @@ class Usuarios extends Model
     //Aqui ponemos los campos que no queremos que se devuelvan en las consultas.
     protected $hidden = ['created_at', 'updated_at'];
 
-
+    //Relación de Usuarios con Pagos:
+    public function pagos()
+    {
+        return $this->hasMany('App\Pagos');
+    }
 }
