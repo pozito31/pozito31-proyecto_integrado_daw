@@ -36,10 +36,4 @@ class Usuarios extends Model
      {
          return $this->hasMany('App\Noticias');
      }
-
-      //Relación de Usuarios con imagenes:
-      public function imagenes()
-      {
-          return $this->hasMany('App\imagenes');
-      }
 }

@@ -20,11 +20,11 @@ class ImagenesMigration extends Migration
 
             //Añadimos la clave foránea con Usuario. usuario_id_usuario
            //Acordarse de añadir al array protected $fillable del fichero de modelo "Imagenes.php" la nueva columna:
-           //protected $fillable = array('descripcion', 'directorio_foto', 'noticias_id_noticia', 'usuarios_id_usuario');
-           $table->integer('noticias_id_noticia', 'usuarios_id_usuario')->unsigned();
+           //protected $fillable = array('descripcion', 'directorio_foto', 'noticias_id_noticia');
+           $table->integer('noticias_id_noticia')->unsigned();
 
            // Indicamos cual es la clave foránea de esta tabla:
-            $table->foreign('noticias_id_noticia', 'usuarios_id_usuario')->references('id_noticia', 'id_usuario')->on('noticias', 'usuarios');
+            $table->foreign('noticias_id_noticia')->references('id_noticia')->on('noticias');
 
             // Para que también cree automáticamente los campos timestamps (created_at, updated_at)
             $table->timestamps();
