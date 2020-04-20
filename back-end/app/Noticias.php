@@ -24,4 +24,10 @@ class Noticias extends Model
     {
         return $this->belongsTo('App\Usuarios');
     }
+
+    //Relación de Noticias con Imagenes:
+    public function imagenes()
+    {
+        return $this->hasMany('App\Imagenes');
+    }
 }
