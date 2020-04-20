@@ -21,7 +21,7 @@ class PagosMigration extends Migration
 
            //Añadimos la clave foránea con Usuario. usuario_id_usuario
            //Acordarse de añadir al array protected $fillable del fichero de modelo "Pagos.php" la nueva columna:
-           //protected $fillable = array('estado', 'tipo', 'nombre', 'situacion', usuarios_id_usuario);
+           //protected $fillable = array('estado', 'tipo', 'nombre', 'situacion', 'usuarios_id_usuario');
            $table->integer('usuarios_id_usuario')->unsigned();
 
            // Indicamos cual es la clave foránea de esta tabla:
