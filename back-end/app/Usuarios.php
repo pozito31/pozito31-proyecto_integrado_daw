@@ -30,4 +30,10 @@ class Usuarios extends Model
     {
         return $this->hasMany('App\Roles');
     }
+
+     //Relación de Usuarios con Noticias:
+     public function noticias()
+     {
+         return $this->hasMany('App\Noticias');
+     }
 }
