@@ -21,4 +21,10 @@ class Imagenes extends Model
      {
          return $this->belongsTo('App\Noticias');
      }
+
+      //Relación de Imagenes con Usuarios:
+      public function usuarios()
+      {
+          return $this->belongsTo('App\Usuarios');
+      }
 }

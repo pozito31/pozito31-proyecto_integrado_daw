@@ -20,7 +20,7 @@ class NoticiasMigration extends Migration
 
             //Añadimos la clave foránea con Usuario. usuario_id_usuario
            //Acordarse de añadir al array protected $fillable del fichero de modelo "Noticias.php" la nueva columna:
-           //protected $fillable = array('descripcion', 'directorio_noticia', usuarios_id_usuario);
+           //protected $fillable = array('descripcion', 'directorio_noticia', 'usuarios_id_usuario');
             $table->integer('usuarios_id_usuario')->unsigned();
 
            // Indicamos cual es la clave foránea de esta tabla:

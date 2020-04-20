@@ -14,7 +14,19 @@ class ImagenesMigration extends Migration
     public function up()
     {
         Schema::create('imagenes', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_imagen');
+            $table->string('descripcion');
+            $table->string('directorio_foto');
+
+            //Añadimos la clave foránea con Usuario. usuario_id_usuario
+           //Acordarse de añadir al array protected $fillable del fichero de modelo "Imagenes.php" la nueva columna:
+           //protected $fillable = array('descripcion', 'directorio_foto', 'noticias_id_noticia', 'usuarios_id_usuario');
+           $table->integer('noticias_id_noticia', 'usuarios_id_usuario')->unsigned();
+
+           // Indicamos cual es la clave foránea de esta tabla:
+            $table->foreign('noticias_id_noticia', 'usuarios_id_usuario')->references('id_noticia', 'id_usuario')->on('noticias', 'usuarios');
+
+            // Para que también cree automáticamente los campos timestamps (created_at, updated_at)
             $table->timestamps();
         });
     }
