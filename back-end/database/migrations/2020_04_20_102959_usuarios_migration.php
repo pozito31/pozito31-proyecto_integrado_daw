@@ -14,8 +14,16 @@ class UsuariosMigration extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_usuario');
+            $table->string('nombre');
+            $table->string('apellidos');
+            $table->string('fecha_alta');
+            $table->string('usuario');
+            $table->string('password');
+
+            // Para que también cree automáticamente los campos timestamps (created_at, updated_at)
             $table->timestamps();
+            
         });
     }
 
