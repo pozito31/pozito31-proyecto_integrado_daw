@@ -24,4 +24,10 @@ class Usuarios extends Model
     {
         return $this->hasMany('App\Pagos');
     }
+
+    //Relación de Usuarios con Roles:
+    public function roles()
+    {
+        return $this->hasMany('App\Roles');
+    }
 }
