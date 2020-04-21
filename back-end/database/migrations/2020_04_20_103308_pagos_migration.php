@@ -17,7 +17,7 @@ class PagosMigration extends Migration
            $table->increments('id_pago');
            $table->string('cantidad');
            $table->string('realizar_pago');
-           $table->string('fecha_transaccion');
+           $table->date('fecha_transaccion');
 
            //Añadimos la clave foránea con Usuario. usuario_id_usuario
            //Acordarse de añadir al array protected $fillable del fichero de modelo "Pagos.php" la nueva columna:
