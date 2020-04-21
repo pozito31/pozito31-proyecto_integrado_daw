@@ -35,8 +35,8 @@ class PagosSeeder extends Seeder
             //Se está creando una nueva fila en la tabla.
             Pagos::create(
                 [
-                    'cantidad'=>$faker->randomFloat(2,20,160),
-                    'realizar_pago'=>$faker->randomFloat(2,20,160),
+                    'cantidad'=>$faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
+                    'realizar_pago'=>$faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
                     'fecha_transaccion'=>$faker->date(),
                     'usuarios_id_usuario'=>$faker->numberBetween(1,$cuantos)
                 ]

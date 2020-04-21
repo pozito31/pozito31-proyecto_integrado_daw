@@ -15,8 +15,8 @@ class PagosMigration extends Migration
     {
         Schema::create('pagos', function (Blueprint $table) {
            $table->increments('id_pago');
-           $table->float('cantidad');
-           $table->float('realizar_pago');
+           $table->decimal('cantidad');
+           $table->decimal('realizar_pago');
            $table->date('fecha_transaccion');
 
            //Añadimos la clave foránea con Usuario. usuario_id_usuario
