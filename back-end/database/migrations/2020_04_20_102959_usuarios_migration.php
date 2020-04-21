@@ -17,7 +17,7 @@ class UsuariosMigration extends Migration
             $table->increments('id_usuario');
             $table->string('nombre');
             $table->string('apellidos');
-            $table->string('fecha_alta');
+            $table->date('fecha_alta');
             $table->string('usuario');
             $table->string('password');
 
