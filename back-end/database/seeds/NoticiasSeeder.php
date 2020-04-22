@@ -24,7 +24,7 @@ class NoticiasSeeder extends Seeder
         //Creamos una instancia de Faker
         $faker = Faker::create();
 
-        //Para cubrir los pagos tenemos que tener en cuenta que usuarios tenemos.
+        //Para cubrir las noticias tenemos que tener en cuenta que usuarios tenemos.
         //Para que la clave foránea no nos de problemas.
         //Averiguamos cuantos usuarios hay en la tabla.
         $cuantos= Usuarios::all()->count();
