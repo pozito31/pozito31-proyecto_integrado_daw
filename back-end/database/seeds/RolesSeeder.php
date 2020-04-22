@@ -30,7 +30,7 @@ class RolesSeeder extends Seeder
         $cuantos= Usuarios::all()->count();
 
         //Creamos un bucle para cubrir 5 roles:
-        for ($i=0; $i<=20; $i++){
+        for ($i=0; $i<=5; $i++){
             //Cuando llamamos al método create del modelo de Roles
             //Se está creando una nueva fila en la tabla.
             Roles::create(
