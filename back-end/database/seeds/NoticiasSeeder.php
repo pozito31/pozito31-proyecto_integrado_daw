@@ -36,7 +36,7 @@ class NoticiasSeeder extends Seeder
             Noticias::create(
                 [
                     'descripcion'=>$faker->name(),
-                    'directorio_noticia'=>$faker->firstName(),
+                    'directorio_noticia'=>$faker->file(),
                     'usuarios_id_usuario'=>$faker->numberBetween(1,$cuantos)
                 ]
             );
