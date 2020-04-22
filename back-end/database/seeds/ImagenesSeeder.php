@@ -29,7 +29,7 @@ class ImagenesSeeder extends Seeder
         //Averiguamos cuantos usuarios hay en la tabla.
         $cuantos= Noticias::all()->count();
 
-        //Creamos un bucle para cubrir 10 noticias:
+        //Creamos un bucle para cubrir 30 noticias:
         for ($i=0; $i<=30; $i++){
             //Cuando llamamos al método create del modelo de Imagenes
             //Se está creando una nueva fila en la tabla.
