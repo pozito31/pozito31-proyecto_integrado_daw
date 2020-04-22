@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'imagenes', component: ImagenesComponent},
   {path: 'videos', component: VideosComponent},
   {path: 'contacto', component: ContactoComponent},
-  {path:'**', pathMatch:'full', redirectTo:'login'}
+  {path: '', pathMatch: 'full', redirectTo: '/login'}
 ];
 
 @NgModule({
