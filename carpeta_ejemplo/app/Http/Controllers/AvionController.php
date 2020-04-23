@@ -14,6 +14,10 @@ class AvionController extends Controller
 	 * @return Response
 	 */
 
+    public function __construct()
+	{
+		//$this->middleware('auth.basic',['only'=>['store','update','destroy']]);
+	}
 	public function index(Request $request)
 	{
 		// Devolverá todos los fabricantes.
