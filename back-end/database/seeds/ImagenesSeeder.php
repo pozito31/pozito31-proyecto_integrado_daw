@@ -36,7 +36,7 @@ class ImagenesSeeder extends Seeder
             Imagenes::create(
                 [
                     'descripcion'=>$faker->name(),
-                    'directorio_foto'=>$faker->image(),
+                    'directorio_foto'=>$faker->firstName(),
                     'noticias_id_noticia'=>$faker->numberBetween(1,$cuantos)
                 ]
             );
