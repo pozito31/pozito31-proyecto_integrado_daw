@@ -41,7 +41,7 @@ class Avion extends Model
  */
 
     // Atributos que se pueden asignar de manera masiva.
-    protected $fillable = array('modelo','longitud','capacidad','velocidad','alcance');
+    protected $fillable = array('modelo','longitud','capacidad','velocidad','alcance', 'fabricante_id');
 
     // Aquí ponemos los campos que no queremos que se devuelvan en las consultas.
     protected $hidden = ['created_at','updated_at'];
