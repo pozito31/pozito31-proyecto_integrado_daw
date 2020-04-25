@@ -101,9 +101,9 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_usuario)
+    public function show($id)
     {
-        $usuarios=Usuarios::find($id_usuario);
+        $usuarios=Usuarios::find($id);
 
         if (!$usuarios){
              // Se devuelve un array errors con los errores encontrados y cabecera HTTP 404.
@@ -119,7 +119,7 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_usuario)
+    public function edit($id)
     {
         //
     }
@@ -131,10 +131,10 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_usuario)
+    public function update(Request $request, $id)
     {
         //comprobamos si el usuario que nos están pasando existe o no 
-        $usuarios=Usuarios::find($id_usuario);
+        $usuarios=Usuarios::find($id);
 
         //Si no existe ese usuario devolvemos un error.
         if (!$usuarios){
@@ -223,11 +223,11 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_usuario)
+    public function destroy($id)
     {
         //Primero eliminaremos todos los pagos de un usuario y luego el usuario en i mismo.
         //Comprobamos si el usuario que nos están pasando existo o no 
-        $usuarios=Usuarios::find($id_usuario);
+        $usuarios=Usuarios::find($id);
 
         //Si no existe ese usuario devolvemos un error
         if (!$usuarios){
