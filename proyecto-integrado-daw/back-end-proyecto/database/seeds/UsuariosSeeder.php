@@ -44,7 +44,6 @@ class UsuariosSeeder extends Seeder
             ]);
 
             $newUser;
-            $newUser->attachRole($userRole);
         }
     }
 }
