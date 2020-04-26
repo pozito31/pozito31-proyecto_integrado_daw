@@ -32,5 +32,19 @@ class UsuariosSeeder extends Seeder
                 ]
             );
         }
+
+        if (Usuarios::where('usuario', '=', 'usuario')->first() === null){
+            $newUser = Usuarios::create([
+                'id_usuario' => 7,
+                'nombre' => 'jessica',
+                'apellidos' => 'pozo martin',
+                'fecha_alta' => '2020-04-26',
+                'usuario' => 'usuario',
+                'password' => bcrypt('usuario'),
+            ]);
+
+            $newUser;
+            $newUser->attachRole($userRole);
+        }
     }
 }
