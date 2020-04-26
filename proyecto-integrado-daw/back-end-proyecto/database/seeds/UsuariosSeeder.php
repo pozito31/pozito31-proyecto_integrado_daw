@@ -45,5 +45,18 @@ class UsuariosSeeder extends Seeder
 
             $newUser;
         }
+
+        if (Usuarios::where('usuario', '=', 'administrador')->first() === null){
+            $newUser = Usuarios::create([
+                'id_usuario' => 8,
+                'nombre' => 'administrador',
+                'apellidos' => 'administrador administrador',
+                'fecha_alta' => '2020-04-26',
+                'usuario' => 'administrador',
+                'password' => bcrypt('administrador'),
+            ]);
+
+            $newUser;
+        }
     }
 }
