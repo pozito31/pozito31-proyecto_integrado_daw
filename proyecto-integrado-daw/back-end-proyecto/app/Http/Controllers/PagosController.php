@@ -79,7 +79,7 @@ class PagosController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id_pago)
+    public function show($id_usuario)
     {
         //
         // return "Se muestra Usuarios con id: $id_usuario";
