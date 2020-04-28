@@ -15,6 +15,7 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 
 
 const routes: Routes = [
+  /*{path: '', redirectTo: '/login', pathMatch: 'full'},*/
   {path: '', component: TableroComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
@@ -26,8 +27,7 @@ const routes: Routes = [
   {path: 'nuevohermano', component: NuevohermanoComponent},
   {path: 'imagenes', component: ImagenesComponent},
   {path: 'videos', component: VideosComponent},
-  {path: 'contacto', component: ContactoComponent},
-  {path: '', pathMatch: 'full', redirectTo: '/login'}
+  {path: 'contacto', component: ContactoComponent}
 ];
 
 @NgModule({
