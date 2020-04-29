@@ -274,6 +274,14 @@ class UsuariosController extends Controller
             return response()->json(['code'=>409,'message'=>'Este usuario posee roles y no puede ser eliminado.'],409);
         }
 
+        if (sizeof($noticias) > 0)
+        {
+            // Lo correcto en la API REST sería ésto:
+
+            // Devolveremos un código 409 Conflict - [Conflicto] Cuando hay algún conflicto al procesar una petición, por ejemplo en PATCH, POST o DELETE.
+            return response()->json(['code'=>409,'message'=>'Este usuario posee noticias y no puede ser eliminado.'],409);
+        }
+
         // Procedemos por lo tanto a eliminar el usuario.
         $usuario->delete();
 
