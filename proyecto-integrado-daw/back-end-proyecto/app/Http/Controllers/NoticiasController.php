@@ -200,7 +200,7 @@ class NoticiasController extends Controller
 
     public function destroy($id_usuario)
     {
-        // Primero eliminaremos todos los pagos de un usuario y luego el usuario en si mismo.
+        // Primero eliminaremos todos las noticias de una noticia y luego el usuario en si mismo.
         // Comprobamos si el usuario que nos están pasando existe o no 
         $noticias=Noticias::find($id_usuario);
 
@@ -210,6 +210,17 @@ class NoticiasController extends Controller
             // Se devuelve un array errors con los errores encontrados y cabecera HTTP 404.
             // En code podríamos indicar un código de error personalizado de nuestra aplicación si lo deseamos.
             return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un modelo de noticias con ese código.'])],404);
+        }
+
+        // La noticia existe entonces buscamos todos las imagenes asociados a esa noticia.
+        $imagenes = $noticias->imagenes; // Sin paréntesis obtenemos el array de todas las imagenes.
+
+        if (sizeof($imagenes) > 0)
+        {
+            // Lo correcto en la API REST sería ésto:
+
+            // Devolveremos un código 409 Conflict - [Conflicto] Cuando hay algún conflicto al procesar una petición, por ejemplo en PATCH, POST o DELETE.
+            return response()->json(['code'=>409,'message'=>'Esta noticia posee imagenes y no puede ser eliminado.'],409);
         }
 
         // Procedemos por lo tanto a eliminar el usuario.

@@ -256,6 +256,8 @@ class UsuariosController extends Controller
 
         // El usuario existe entonces buscamos todos los pagos asociados a ese usuario.
         $pagos = $usuario->pagos; // Sin paréntesis obtenemos el array de todos los pagos.
+        $roles = $usuario->roles;
+        $noticias = $usuario->noticias;
 
         // Comprobamos si tiene pagos ese usuario
         if (sizeof($pagos) > 0)
