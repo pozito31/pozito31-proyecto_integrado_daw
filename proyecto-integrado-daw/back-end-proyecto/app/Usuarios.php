@@ -2,7 +2,11 @@
 
 namespace App;
 
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 // Generalmente cada vez que creamos una clase tenemos que indicar el espacio de nombres
 // dónde la estamos creando y suele coincidir con el nombre del directorio.
@@ -11,8 +15,10 @@ use Illuminate\Database\Eloquent\Model;
 // Para más información ver contenido clase Model.php (CTRL + P en Sublime) de Eloquent para ver los atributos disponibles.
 // Documentación completa de Eloquent ORM en: https://laravel.com/docs/7.x/eloquent
 
-class Usuarios extends Model
+class Usuarios extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
+    use Authenticatable, CanResetPassword;
+    
     // Nombre de la tabla en MySQL.
     protected $table='usuarios';
 
