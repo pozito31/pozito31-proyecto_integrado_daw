@@ -24,15 +24,15 @@ class ValidaLogin extends FormRequest
     public function rules()
     {
         return [
-            'form_usuario' => 'required|string|min:1|max:250',
-            'form_password' => 'required|string|min:1|max:250'
+            'usuario' => 'required|string|min:1|max:250',
+            'password' => 'required|string|min:1|max:250'
         ];
     }
     public function messages()
     {
         return [
-            'form_usuario.required' => 'Nombre de Usuario Requerido',
-            'form_password.required' => 'Password de Usuario Requerido'
+            'usuario.required' => 'Nombre de Usuario Requerido',
+            'password.required' => 'Password de Usuario Requerido'
         ];
     }
 }
