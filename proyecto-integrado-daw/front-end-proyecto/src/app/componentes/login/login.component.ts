@@ -5,6 +5,7 @@ import { UserInterface } from "../../interfaces/user-interface";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { isError } from 'util';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +41,16 @@ export class LoginComponent implements OnInit {
   get password() { return this.LoginFormulario.get('password') }
 
   onSubmit() {    
-   
+      return this.LoginService
+        .loginUser(this.user.usuario, this.user.password)
+        .subscribe(
+        data => {
+          this.LoginService.setUser(data.user);
+          const token = data.id;
+          this.LoginService.setToken(token);
+          this.router.navigate(['/login/tablero']);
+          location.reload();
+        }
+        );
   }
-
 }
