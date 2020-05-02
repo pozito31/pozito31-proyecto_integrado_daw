@@ -15,7 +15,7 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 
 
 const routes: Routes = [
-  /*{path: '', redirectTo: '/login', pathMatch: 'full'},*/
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: '', component: TableroComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
