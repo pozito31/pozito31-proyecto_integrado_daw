@@ -5,7 +5,6 @@ import { UserInterface } from "../../interfaces/user-interface";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { isError } from 'util';
 
 @Component({
   selector: 'app-login',
