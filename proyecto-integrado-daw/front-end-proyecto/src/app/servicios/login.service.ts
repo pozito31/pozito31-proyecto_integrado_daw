@@ -17,7 +17,7 @@ export class LoginService {
   });
 
   registroUser(nombre: string, apellidos: string, usuario: string, password: string){
-    const url_api = "";
+    const url_api = " http://127.0.0.1:8000";
     return this.http
     .post<UserInterface>(
       url_api,
@@ -31,7 +31,7 @@ export class LoginService {
   }
 
   loginUser(usuario: string, password: string): Observable<any> {
-    const url_api = "";
+    const url_api = " http://127.0.0.1:8000";
     return this.http
       .post<UserInterface>(
         url_api,
@@ -67,7 +67,7 @@ export class LoginService {
 
   logoutUser() {
     let accessToken = localStorage.getItem("accessToken");
-    const url_api = "";
+    const url_api = "http://127.0.0.1:8000";
     localStorage.removeItem("accessToken");
     localStorage.removeItem("currentUser");
     return this.http.post<UserInterface>(url_api, { headers: this.headers });
