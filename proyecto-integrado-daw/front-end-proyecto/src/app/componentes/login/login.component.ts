@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from "../../servicios/login.service";
+import { UserInterface } from "../../interfaces/user-interface";
 import { HttpClient } from '@angular/common/http';
 
 @Component({
