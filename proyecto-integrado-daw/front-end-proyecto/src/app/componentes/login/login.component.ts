@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from "../../servicios/login.service";
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +10,7 @@ import { Location } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpClient, private LoginService: LoginService,  private router: Router, private location: Location) { }
+  constructor(private http: HttpClient, private LoginService: LoginService) { }
 
 
   LoginFormulario: FormGroup;
@@ -35,5 +33,10 @@ export class LoginComponent implements OnInit {
   get password() { return this.LoginFormulario.get('password') }
 
   onSubmit() {    
+    const val = this.LoginFormulario.value;
+    console.log(val);
+    if (val.usuario && val.password){
+      this.LoginService.login(val.usuario, val.password);
+    }
   }
 }
