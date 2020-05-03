@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
 import { LoginService } from "../../servicios/login.service";
 import { HttpClient } from '@angular/common/http';
 
@@ -9,8 +11,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  public errorMessage;
+  public identity;
+  public token;
 
-  constructor(private http: HttpClient, private LoginService: LoginService) { }
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute, private LoginService: LoginService) { }
 
 
   LoginFormulario: FormGroup;
