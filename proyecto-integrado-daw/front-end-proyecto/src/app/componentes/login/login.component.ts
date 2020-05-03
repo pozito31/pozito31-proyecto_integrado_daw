@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from "../../servicios/login.service";
-import { UserInterface } from "../../interfaces/user-interface";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -15,10 +14,6 @@ export class LoginComponent implements OnInit {
 
   constructor(private http: HttpClient, private LoginService: LoginService,  private router: Router, private location: Location) { }
 
-  private user: UserInterface = {
-    usuario: "",
-    password: ""
-  };
 
   LoginFormulario: FormGroup;
 
@@ -40,16 +35,5 @@ export class LoginComponent implements OnInit {
   get password() { return this.LoginFormulario.get('password') }
 
   onSubmit() {    
-      return this.LoginService
-        .loginUser(this.user.usuario, this.user.password)
-        .subscribe(
-        data => {
-          this.LoginService.setUser(data.user);
-          const token = data.id;
-          this.LoginService.setToken(token);
-          this.router.navigate(['/login/tablero']);
-          location.reload();
-        }
-        );
   }
 }
