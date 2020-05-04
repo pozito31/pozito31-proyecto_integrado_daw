@@ -128,6 +128,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-end-proyectodaw"
+    }
+  },
+  "defaultProject": "front-end-proyectodaw",
+  "cli": {
+    "analytics": "62bb605c-f36a-4bc4-885d-2da477311aa8"
+  }
 }
