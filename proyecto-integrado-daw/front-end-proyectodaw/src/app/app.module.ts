@@ -17,6 +17,7 @@ import { ParrocoComponent } from './componentes/parroco/parroco.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { MenuComponent } from './componentes/menu/menu.component';
+import { VideosComponent } from './componentes/videos/videos.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MenuComponent } from './componentes/menu/menu.component';
     ParrocoComponent,
     PiePaginaComponent,
     RegistroComponent,
-    MenuComponent
+    MenuComponent,
+    VideosComponent
   ],
   imports: [
     BrowserModule,
