@@ -16,19 +16,19 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 
 
 const routes: Routes = [
-  /*{path: '', redirectTo: '/login', pathMatch: 'full'},*/
-  {path: '', component: TableroComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'registro', component: RegistroComponent},
-  {path: 'historia', component: HistoriaComponent},
-  {path: 'hermanomayor', component: HermanomayorComponent},
-  {path: 'novenas', component: NovenasComponent},
-  {path: 'parroco', component: ParrocoComponent},
-  {path: 'noticias', component: NoticiasComponent},
-  {path: 'nuevohermano', component: NuevohermanoComponent},
-  {path: 'imagenes', component: ImagenesComponent},
-  {path: 'videos', component: VideosComponent},
-  {path: 'contacto', component: ContactoComponent}
+   /*{path: '', redirectTo: '/login', pathMatch: 'full'},*/
+   {path: '', component: TableroComponent},
+   {path: 'login', component: LoginComponent},
+   {path: 'registro', component: RegistroComponent},
+   {path: 'historia', component: HistoriaComponent},
+   {path: 'hermanomayor', component: HermanomayorComponent},
+   {path: 'novenas', component: NovenasComponent},
+   {path: 'parroco', component: ParrocoComponent},
+   {path: 'noticias', component: NoticiasComponent},
+   {path: 'nuevohermano', component: NuevohermanoComponent},
+   {path: 'imagenes', component: ImagenesComponent},
+   {path: 'videos', component: VideosComponent},
+   {path: 'contacto', component: ContactoComponent}
 ];
 
 @NgModule({
