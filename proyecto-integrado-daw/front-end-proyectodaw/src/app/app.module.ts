@@ -16,6 +16,7 @@ import { NuevohermanoComponent } from './componentes/nuevohermano/nuevohermano.c
 import { ParrocoComponent } from './componentes/parroco/parroco.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { MenuComponent } from './componentes/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     NuevohermanoComponent,
     ParrocoComponent,
     PiePaginaComponent,
-    RegistroComponent
+    RegistroComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
