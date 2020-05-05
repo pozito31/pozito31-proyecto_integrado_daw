@@ -17,6 +17,7 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { TableroComponent } from './componentes/tablero/tablero.component';
 import { VideosComponent } from './componentes/videos/videos.component';
+import { NovenasComponent } from './componentes/novenas/novenas.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { VideosComponent } from './componentes/videos/videos.component';
     PiePaginaComponent,
     RegistroComponent,
     TableroComponent,
-    VideosComponent
+    VideosComponent,
+    NovenasComponent
   ],
   imports: [
     BrowserModule,
