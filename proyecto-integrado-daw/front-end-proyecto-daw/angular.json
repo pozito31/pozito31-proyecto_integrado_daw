@@ -28,14 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass",
-              "assets/css/bootstrap.min.css"
+              "src/styles.sass"
             ],
-            "scripts": [
-              "assets/js/jquery.slim.min.js",
-              "assets/js/popper.min.js",
-              "assets/js/bootstrap.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -128,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-end-proyecto-daw"
+    }
+  },
+  "defaultProject": "front-end-proyecto-daw",
+  "cli": {
+    "analytics": "55c88e4d-7039-4e0b-8187-7b05e18b7e7f"
+  }
 }
