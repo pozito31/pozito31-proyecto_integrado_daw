@@ -21,6 +21,8 @@ import { TableroComponent } from './componentes/tablero/tablero.component';
 import { VideosComponent } from './componentes/videos/videos.component';
 import { NovenasComponent } from './componentes/novenas/novenas.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
