@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
 import { HttpClient } from '@angular/common/http';
+import { LoginService } from '../../servicios/login.service';
+
 
 
 @Component({
@@ -13,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute, private loginService: LoginService) { }
 
   LoginFormulario: FormGroup;
 
@@ -38,7 +40,7 @@ export class LoginComponent implements OnInit {
     const val = this.LoginFormulario.value;
     console.log(val);
     if (val.usuario && val.password){
-      
+      this.loginService.login(val.usuario, val.password);
     }
   }
 
