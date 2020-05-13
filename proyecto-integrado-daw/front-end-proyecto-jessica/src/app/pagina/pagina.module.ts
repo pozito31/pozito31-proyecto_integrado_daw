@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [CabeceraComponent],
   imports: [
     CommonModule
   ]
