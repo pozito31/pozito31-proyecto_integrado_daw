@@ -22,6 +22,8 @@ import { RegistroComponent } from './pagina/componentes/registro/registro.compon
 import { TableroComponent } from './pagina/componentes/tablero/tablero.component';
 import { VideosComponent } from './pagina/componentes/videos/videos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
