@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-end-proyecto-jessica"
+    }
+  },
+  "defaultProject": "front-end-proyecto-jessica",
+  "cli": {
+    "analytics": "6c5d6c8d-6cb1-49c3-bb78-8f5733093512"
+  }
 }
