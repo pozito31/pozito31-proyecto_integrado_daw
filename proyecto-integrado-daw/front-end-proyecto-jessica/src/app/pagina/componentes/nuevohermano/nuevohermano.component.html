@@ -1,1 +1,1356 @@
-<p>nuevohermano works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3c790a">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Página de Nuevo hermano">
+    <title>Nuevo hermano</title>
+    <link rel="icon" href="assets/images/logotipo.ico">
+    <link rel="apple-touch-icon" href="assets/images/virgencita.png">
+    <link rel="manifest" href="assets/js/manifest.webmanifest.json">
+</head>
+<body>
+    <app-cabecera></app-cabecera>
+    <app-menu></app-menu>
+    <section>
+        <h2>Información de Alta de Nuevo hermano</h2>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <p>
+                        Si deseas formar parte de la Hermandad Sacramental Virgen De Las Mercedes,
+                        puedes transmitar su solicitud de ingreso, mediante alguna de las siguientes opciones:<br>
+                        *En la Secretaria de la Hermanda, pidiendo la Solicitud de Ingreso y presentándola debidamente
+                        cumplimentada, aportando la documentación que en ella se requiere y abonando la cuota de ingreso en el momento
+                        de su presentación.<br>
+                        *Online, cumplimentando todas y cada una de las casillas del siguiente formulario, adjuntando la documentación
+                        requerida y abonando la cuota de ingreso mediante pago electrónico con cargo a una tarjeta de crédito o débito. El
+                        coste es de 10€.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <form [formGroup]="NuevoHermanoFormulario" #formDir="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                        <div [hidden]="formDir.submitted">
+                            <div class="cross-validation" [class.cross-validation-error]="NuevoHermanoFormulario.errors?.identityRevealed && (NuevoHermanoFormulario.touched || NuevoHermanoFormulario.dirty)">
+                                <h2 class="titulo">Nueva solicitud de hermano</h2>
+                        <fieldset>
+                            <legend>Datos principales</legend>
+                            <hr>
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="nombre" 
+                                       id="nombre"
+                                       formControlName="nombre"
+                                       required
+                                       size="30"
+                                       aria-describedby="nombre">
+
+                                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+                                    <div *ngIf="nombre.errors.required">
+                                        Debe indicar el nombre.
+                                    </div>
+                                    <div *ngIf="nombre.errors.minlength">
+                                        El nombre debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="primerapellido">Primer Apellido</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="primerapellido" 
+                                       id="primerapellido"
+                                       formControlName="primerapellido"
+                                       required
+                                       size="30"
+                                       aria-describedby="primerapellido">
+
+                                <div *ngIf="primerapellido.invalid && (primerapellido.dirty || primerapellido.touched)" class="alert alert-danger">
+                                    <div *ngIf="primerapellido.errors.required">
+                                            Debe indicar el primer apellido.
+                                    </div>
+                                    <div *ngIf="primerapellido.errors.minlength">
+                                        El primer apellido debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="segundoapellido">Segundo Apellido</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="segundoapellido" 
+                                       id="segundoapellido"
+                                       formControlName="segundoapellido"
+                                       required
+                                       size="30"
+                                       aria-describedby="segundoapellido">
+
+                                <div *ngIf="segundoapellido.invalid && (segundoapellido.dirty || segundoapellido.touched)" class="alert alert-danger">
+                                    <div *ngIf="segundoapellido.errors.required">
+                                        Debe indicar el segundo apellido.
+                                    </div>
+                                    <div *ngIf="segundoapellido.errors.minlength">
+                                        El segundo apellido debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dni">DNI</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="dni" 
+                                       id="dni" 
+                                       formControlName="dni"
+                                       required
+                                       size="30"
+                                       aria-describedby="dni">
+
+                                <div *ngIf="dni.invalid && (dni.dirty || dni.touched)" class="alert alert-danger">
+                                    <div *ngIf="dni.errors.required">
+                                        Debe indicar el dni.
+                                    </div>
+                                    <div *ngIf="dni.errors.minlength">
+                                        El dni debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="correoelectronico">Correo electrónico</label>
+                                <input type="email" 
+                                       class="form-control" 
+                                       name="correoelectronico" 
+                                       id="correoelectronico"
+                                       formControlName="correoelectronico"
+                                       required
+                                       size="30"
+                                       aria-describedby="correoelectronico">
+
+                                <div *ngIf="correoelectronico.invalid && (correoelectronico.dirty || correoelectronico.touched)" class="alert alert-danger">
+                                    <div *ngIf="correoelectronico.errors.required">
+                                        Debe indicar el correo electronico.
+                                    </div>
+                                    <div *ngIf="correoelectronico.errors.minlength">
+                                        El correo electronico debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nacimiento">Fecha de Nacimiento</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="nacimiento" 
+                                       id="nacimiento"
+                                       formControlName="nacimiento"
+                                       required
+                                       size="30"
+                                       aria-describedby="nacimiento">
+
+                                <div *ngIf="nacimiento.invalid && (nacimiento.dirty || nacimiento.touched)" class="alert alert-danger">
+                                    <div *ngIf="nacimiento.errors.required">
+                                        Debe indicar la fecha de nacimiento.
+                                    </div>
+                                    <div *ngIf="nacimiento.errors.minlength">
+                                        La fecha de nacimiento debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="provincianacimiento">Provincia Nacimiento</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="provincianacimiento" 
+                                       id="provincianacimiento"
+                                       formControlName="provincianacimiento"
+                                       required
+                                       size="30"
+                                       aria-describedby="provincianacimiento">
+
+                                <div *ngIf="provincianacimiento.invalid && (provincianacimiento.dirty || provincianacimiento.touched)" class="alert alert-danger">
+                                    <div *ngIf="provincianacimiento.errors.required">
+                                        Debe indicar la provincia de nacimiento.
+                                    </div>
+                                    <div *ngIf="provincianacimiento.errors.minlength">
+                                        La provincia de nacimiento debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="poblacionnacimiento">Poblacion Nacimiento</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="poblacionnacimiento" 
+                                       id="poblacionnacimiento"
+                                       formControlName="poblacionnacimiento"
+                                       required
+                                       size="30"
+                                       aria-describedby="poblacionnacimiento">
+
+                                <div *ngIf="poblacionnacimiento.invalid && (poblacionnacimiento.dirty || poblacionnacimiento.touched)" class="alert alert-danger">
+                                    <div *ngIf="poblacionnacimiento.errors.required">
+                                        Debe indicar la población de nacimiento.
+                                    </div>
+                                    <div *ngIf="poblacionnacimiento.errors.minlength">
+                                        La población de nacimiento debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="genero">Genero</label>
+                                <select class="form-control" 
+                                        name="genero" 
+                                        id="genero"
+                                        formControlName="genero"
+                                        required
+                                        aria-describedby="genero">
+                                    <option value="1">Mujer</option>
+                                    <option value="2">Hombre</option>
+                                </select>
+
+                                <div *ngIf="genero.invalid && (genero.dirty || genero.touched)" class="alert alert-danger">
+                                    <div *ngIf="genero.errors.required">
+                                        Debes seleccionar el genero.
+                                    </div>         
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado</label>
+                                <select class="form-control" 
+                                        name="estado" 
+                                        id="estado"
+                                        formControlName="estado"
+                                        required
+                                        aria-describedby="estado">
+                                    <option value="1">Soltero</option>
+                                    <option value="2">Casado</option>
+                                    <option value="3">Divorciado</option>
+                                </select>
+
+                                <div *ngIf="estado.invalid && (estado.dirty || estado.touched)" class="alert alert-danger">
+                                    <div *ngIf="estado.errors.required">
+                                        Debes seleccionar el estado.
+                                    </div>         
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="presentado1">Presentado(1)</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="presentado1" 
+                                       id="presentado1"
+                                       formControlName="presentado1"
+                                       required
+                                       size="30"
+                                       aria-describedby="presentado1">
+
+                                <div *ngIf="presentado1.invalid && (presentado1.dirty || presentado1.touched)" class="alert alert-danger">
+                                    <div *ngIf="presentado1.errors.required">
+                                        Debe indicar el nombre de presentado1.
+                                    </div>
+                                    <div *ngIf="presentado1.errors.minlength">
+                                        El nombre de presentado1 debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="presentado2">Presentado(2)</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="presentado2" 
+                                       id="presentado2"
+                                       formControlName="presentado2"
+                                       required
+                                       size="30"
+                                       aria-describedby="presentado2">
+
+                                <div *ngIf="presentado2.invalid && (presentado2.dirty || presentado2.touched)" class="alert alert-danger">
+                                    <div *ngIf="presentado2.errors.required">
+                                        Debe indicar el nombre de presentado2.
+                                    </div>
+                                    <div *ngIf="presentado2.errors.minlength">
+                                        El nombre de presentado2 debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefonoprincipal">Telefono Principal</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="telefonoprincipal" 
+                                       id="telefonoprincipal"
+                                       formControlName="telefonoprincipal"
+                                       required
+                                       size="30"
+                                       aria-describedby="telefonoprincipal">
+
+                                <div *ngIf="telefonoprincipal.invalid && (telefonoprincipal.dirty || telefonoprincipal.touched)" class="alert alert-danger">
+                                    <div *ngIf="telefonoprincipal.errors.required">
+                                        Debe indicar el telefono principal.
+                                    </div>
+                                    <div *ngIf="telefonoprincipal.errors.minlength">
+                                        El telefono principal debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefonosecundario">Telefono Secundario</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="telefonosecundario" 
+                                       id="telefonosecundario"
+                                       formControlName="telefonosecundario"
+                                       required
+                                       size="30"
+                                       aria-describedby="telefonosecundario">
+
+                                <div *ngIf="telefonosecundario.invalid && (telefonosecundario.dirty || telefonosecundario.touched)" class="alert alert-danger">
+                                    <div *ngIf="telefonosecundario.errors.required">
+                                        Debe indicar el telefono secundario.
+                                    </div>
+                                    <div *ngIf="telefonosecundario.errors.minlength">
+                                        El telefono secundario debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" 
+                                       class="form-check-input" 
+                                       name="correo" 
+                                       id="correo"
+                                       formControlName="correo"
+                                       required
+                                       aria-describedby="correo">
+
+                                <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="alert alert-danger">
+                                    <div *ngIf="correo.errors.required">
+                                        Debes seleccionar el checkbox de correo.
+                                    </div>         
+                                </div>
+                                <label class="form-check-label" for="correo">Subscripción correo</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="profesion">Profesion</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="profesion" 
+                                       id="profesion"
+                                       formControlName="profesion"
+                                       required
+                                       size="30"
+                                       aria-describedby="profesion">
+
+                                <div *ngIf="profesion.invalid && (profesion.dirty || profesion.touched)" class="alert alert-danger">
+                                    <div *ngIf="profesion.errors.required">
+                                        Debe indicar la profesión.
+                                    </div>
+                                    <div *ngIf="profesion.errors.minlength">
+                                        La profesion debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Detalle Pagos</legend>
+                            <hr>
+                            <div class="form-group">
+                                <label for="metododepago">Metodo de pago</label>
+                                <select class="form-control" 
+                                        name="metododepago" 
+                                        id="metododepago"
+                                        formControlName="profesion"
+                                        required
+                                        aria-describedby="metododepago">
+                                    <option value="1">Banco</option>
+                                    <option value="2">Carta de pago</option>
+                                </select>
+
+                                <div *ngIf="metododepago.invalid && (metododepago.dirty || metododepago.touched)" class="alert alert-danger">
+                                    <div *ngIf="metododepago.errors.required">
+                                        Debes seleccionar el metodo de pago.
+                                    </div>         
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="iban">IBAN</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="iban" 
+                                       id="iban"
+                                       formControlName="iban"
+                                       required
+                                       size="30"
+                                       aria-describedby="iban">
+
+                                <div *ngIf="iban.invalid && (iban.dirty || iban.touched)" class="alert alert-danger">
+                                    <div *ngIf="iban.errors.required">
+                                        Debe indicar el iban.
+                                    </div>
+                                    <div *ngIf="iban.errors.minlength">
+                                        El iban debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipodecuota">Tipo de cuota</label>
+                                <select class="form-control" 
+                                        name="tipodecuota" 
+                                        id="tipodecuota"
+                                        formControlName="tipodecuota"
+                                        required
+                                        aria-describedby="tipodecuota">
+                                    <option value="1">Anual</option>
+                                    <option value="2">Trimestral</option>
+                                </select>
+
+                                <div *ngIf="tipodecuota.invalid && (tipodecuota.dirty || tipodecuota.touched)" class="alert alert-danger">
+                                    <div *ngIf="tipodecuota.errors.required">
+                                        Debes seleccionar el tipo de cuota.
+                                    </div>         
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nombredeltitularbancario">Nombre del titular bancario</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="nombredeltitularbancario" 
+                                       id="nombredeltitularbancario"
+                                       formControlName="nombredeltitularbancario"
+                                       required
+                                       size="30"
+                                       aria-describedby="nombredeltitularbancario">
+
+                                <div *ngIf="nombredeltitularbancario.invalid && (nombredeltitularbancario.dirty || nombredeltitularbancario.touched)" class="alert alert-danger">
+                                    <div *ngIf="nombredeltitularbancario.errors.required">
+                                        Debe indicar el nombre del titular bancario.
+                                    </div>
+                                    <div *ngIf="nombredeltitularbancario.errors.minlength">
+                                        El nombre del titular bancario debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="domiciliodeltitular">Domicilio del titular</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="domiciliodeltitular" 
+                                       id="domiciliodeltitular"
+                                       formControlName="domiciliodeltitular"
+                                       required
+                                       size="30"
+                                       aria-describedby="domiciliodeltitular">
+
+                                <div *ngIf="domiciliodeltitular.invalid && (domiciliodeltitular.dirty || domiciliodeltitular.touched)" class="alert alert-danger">
+                                    <div *ngIf="domiciliodeltitular.errors.required">
+                                        Debe indicar el domicilio del titular.
+                                    </div>
+                                    <div *ngIf="domiciliodeltitular.errors.minlength">
+                                        El domicilio del titular debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dnideltitular">Dni del titular</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="dnideltitular" 
+                                       id="dnideltitular"
+                                       formControlName="dnideltitular"
+                                       required
+                                       size="30"
+                                       aria-describedby="dnideltitular">
+
+                                <div *ngIf="dnideltitular.invalid && (dnideltitular.dirty || dnideltitular.touched)" class="alert alert-danger">
+                                    <div *ngIf="dnideltitular.errors.required">
+                                        Debe indicar el dni del titular.
+                                    </div>
+                                    <div *ngIf="dnideltitular.errors.minlength">
+                                        El dni del titular debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="titulardelatarjetadecredito">Titular de la tarjeta de crédito</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="titulardelatarjetadecredito" 
+                                       id="titulardelatarjetadecredito"
+                                       formControlName="titulardelatarjetadecredito"
+                                       required
+                                       size="30"
+                                       aria-describedby="titulardelatarjetadecredito">
+
+                                <div *ngIf="titulardelatarjetadecredito.invalid && (titulardelatarjetadecredito.dirty || titulardelatarjetadecredito.touched)" class="alert alert-danger">
+                                    <div *ngIf="titulardelatarjetadecredito.errors.required">
+                                        Debe indicar el titular de la tarjeta de credito.
+                                    </div>
+                                    <div *ngIf="titulardelatarjetadecredito.errors.minlength">
+                                        El titular de la tarjeta de credito debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Dirección principal</legend>
+                            <hr>
+                            <div class="form-group">
+                                <label for="pais">País</label>
+                                <select class="form-control" 
+                                        name="pais" 
+                                        id="pais"
+                                        formControlName="pais"
+                                        required 
+                                        aria-describedby="pais">
+                                    <option value="1" selected="selected">España</option>
+                                </select>
+
+                                <div *ngIf="pais.invalid && (pais.dirty || pais.touched)" class="alert alert-danger">
+                                    <div *ngIf="pais.errors.required">
+                                        Debes seleccionar el país.
+                                    </div>         
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="comunidadoestado">Comunidad o estado</label>
+                                <select class="form-control" 
+                                        name="comunidadoestado" 
+                                        id="comunidadoestado"
+                                        formControlName="comunidadoestado"
+                                        required  
+                                        aria-describedby="comunidadoestado">
+                                    <option value="1" selected="selected">Andalucia </option>
+                                </select>
+
+                                <div *ngIf="comunidadoestado.invalid && (comunidadoestado.dirty || comunidadoestado.touched)" class="alert alert-danger">
+                                    <div *ngIf="comunidadoestado.errors.required">
+                                        Debes seleccionar la comunidad o estado.
+                                    </div>         
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="provincia">Provincia</label>
+                                <select class="form-control" 
+                                        name="provincia" 
+                                        id="provincia"
+                                        formControlName="provincia"
+                                        required
+                                        aria-describedby="provincia">
+                                    <option value="1" selected="selected">Almeria </option>
+                                </select>
+
+                                <div *ngIf="provincia.invalid && (provincia.dirty || provincia.touched)" class="alert alert-danger">
+                                    <div *ngIf="provincia.errors.required">
+                                        Debes seleccionar la provincia.
+                                    </div>         
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="poblacion">Población</label>
+                                <select class="form-control" 
+                                        name="poblacion" 
+                                        id="poblacion"
+                                        formControlName="poblacion"
+                                        required
+                                        aria-describedby="poblacion">
+                                    <option value="1" selected="selected">Abejuela </option>
+                                    <option value="2">Abla </option> 
+                                    <option value="3">Abriojal </option> 
+                                    <option value="4">Abrucena </option> 
+                                    <option value="5">Aceituno, El </option> 
+                                    <option value="6">Adelfas, Las </option> 
+                                    <option value="7">Adra </option> 
+                                    <option value="8">Adrianes, Los </option> 
+                                    <option value="9">Agua Del Medio, El </option> 
+                                    <option value="10">Aguadulce </option> 
+                                    <option value="11">Aguamarga </option> 
+                                    <option value="12">Aguamarga (urracal) </option> 
+                                    <option value="13">Alameda, La </option> 
+                                    <option value="14">Alamicos, Los - Dehesa, La </option> 
+                                    <option value="15">Alamillos, Los </option>
+                                    <option value="16">Alamos, Los </option> 
+                                    <option value="17">Alara </option> 
+                                    <option value="18">Albanchez </option> 
+                                    <option value="19">Albarico, El </option> 
+                                    <option value="20">Albaricoques </option> 
+                                    <option value="21">Albarracin </option> 
+                                    <option value="22">Alboloduy </option> 
+                                    <option value="23">Albox </option> 
+                                    <option value="24">Alcantarilla, La </option> 
+                                    <option value="25">Alcaudique </option> 
+                                    <option value="26">Alcazaba, La </option> 
+                                    <option value="27">Alcolea </option> 
+                                    <option value="28">Alcoluches </option> 
+                                    <option value="29">Alcontar </option> 
+                                    <option value="30">Alcubillas Altas, Las </option> 
+                                    <option value="31">Alcubillas, Las </option> 
+                                    <option value="32">Alcudia De Monteagud </option> 
+                                    <option value="33">Aldeire </option> 
+                                    <option value="34">Alfahuara, La </option> 
+                                    <option value="35">Alfaix </option> 
+                                    <option value="36">Alfoquia, La </option> 
+                                    <option value="37">Algarrobina, La </option> 
+                                    <option value="38">Algarrobos, Los (palomares) </option> 
+                                    <option value="39">Alhabia </option> 
+                                    <option value="40">Alhama De Almeria </option> 
+                                    <option value="41">Alhanchete, El </option> 
+                                    <option value="42">Alias, Los </option> 
+                                    <option value="43">Alicun </option> 
+                                    <option value="44">Aljambra, La </option> 
+                                    <option value="45">Aljarilla </option> 
+                                    <option value="46">Aljariz </option> 
+                                    <option value="47">Almajalejo (los Pardos) </option> 
+                                    <option value="48">Almajalejo (zurgena) </option> 
+                                    <option value="49">Almanzora </option> 
+                                    <option value="50">Almendral, El </option> 
+                                    <option value="51">Almeria </option> 
+                                    <option value="52">Almerimar </option> 
+                                    <option value="53">Almocaizar </option> 
+                                    <option value="54">Almocita </option> 
+                                    <option value="55">Alparatas </option> 
+                                    <option value="56">Alqueria, La (velez Rubio) </option> 
+                                    <option value="57">Alqueria, La (venta Nueva) </option> 
+                                    <option value="58">Alquian, El </option> 
+                                    <option value="59">Alsodux </option> 
+                                    <option value="60">Amarguilla </option> 
+                                    <option value="61">Andreses, Los </option> 
+                                    <option value="62">Aneas, Las </option> 
+                                    <option value="63">Angosto De Abajo </option> 
+                                    <option value="64">Angosto De Arriba </option> 
+                                    <option value="65">Antas </option> 
+                                    <option value="66">Aranegas, Los </option> 
+                                    <option value="67">Arboleas </option> 
+                                    <option value="68">Argamason, El </option> 
+                                    <option value="69">Armuña De Almanzora </option> 
+                                    <option value="70">Arnilla </option> 
+                                    <option value="71">Arroyo Aceituno, El </option> 
+                                    <option value="72">Arroyo Albanchez, El </option> 
+                                    <option value="73">Arroyo De Verdelecho </option> 
+                                    <option value="74">Arroyo Del Saliente, El </option> 
+                                    <option value="75">Arroyo Franco Y Estella, El </option> 
+                                    <option value="76">Arroyo Medina </option> 
+                                    <option value="77">Arroyos, Los </option> 
+                                    <option value="78">Arteal, El </option> 
+                                    <option value="79">Asensio, Los </option> 
+                                    <option value="80">Aspilla </option> 
+                                    <option value="81">Atochares </option> 
+                                    <option value="82">Aulago </option> 
+                                    <option value="83">Aznares, Los </option> 
+                                    <option value="84">Bacares </option> 
+                                    <option value="85">Balanegra </option> 
+                                    <option value="86">Balerma </option> 
+                                    <option value="87">Bancalejo </option> 
+                                    <option value="88">Baños De Guardias Viejas, Los </option> 
+                                    <option value="89">Barranco De Los Lobos </option> 
+                                    <option value="90">Barranco De Quiles, El </option> 
+                                    <option value="91">Barranco Del Infierno, El </option> 
+                                    <option value="92">Barranquete, El </option> 
+                                    <option value="93">Barriada De Alcora, La </option> 
+                                    <option value="94">Barrio De Archilla </option> 
+                                    <option value="95">Barrio Mortero </option> 
+                                    <option value="96">Bayarcal </option> 
+                                    <option value="97">Bayarque </option> 
+                                    <option value="98">Bedar </option> 
+                                    <option value="99">Beires </option> 
+                                    <option value="100">Benahadux </option> 
+                                    <option value="101">Benecid </option> 
+                                    <option value="102">Beneji </option> 
+                                    <option value="103">Beninar </option> 
+                                    <option value="104">Benitagla </option> 
+                                    <option value="105">Benitorafe </option> 
+                                    <option value="106">Benizalon </option> 
+                                    <option value="107">Bentarique </option> 
+                                    <option value="108">Benzal </option> 
+                                    <option value="109">Berja </option> 
+                                    <option value="110">Blanquez De Alcontar </option> 
+                                    <option value="111">Blesas, Los </option> 
+                                    <option value="112">Bobar, El </option> 
+                                    <option value="113">Boca De Los Frailes </option> 
+                                    <option value="114">Borregos, Los </option> 
+                                    <option value="115">Breña </option> 
+                                    <option value="116">Brevas, Los </option> 
+                                    <option value="117">Burjulu </option> 
+                                    <option value="118">Cabañuelas, Las </option> 
+                                    <option value="119">Cabo De Gata, El </option> 
+                                    <option value="120">Cabreras, Los </option> 
+                                    <option value="121">Cala Panizo </option> 
+                                    <option value="122">Calabuche </option> 
+                                    <option value="123">Calar Alto, El </option> 
+                                    <option value="124">Calderona, La </option> 
+                                    <option value="125">Calesas, Los </option> 
+                                    <option value="126">Calguerin </option> 
+                                    <option value="127">Calon, El </option> 
+                                    <option value="128">Camino Real, El </option> 
+                                    <option value="129">Campamento </option> 
+                                    <option value="130">Campico </option> 
+                                    <option value="131">Campico De Las Moletas, El </option> 
+                                    <option value="132">Campico, El </option> 
+                                    <option value="133">Campillo Del Moro, El </option> 
+                                    <option value="134">Campillo, El (oria) </option> 
+                                    <option value="135">Campillo, El (venta Nueva) </option> 
+                                    <option value="136">Campohermoso </option> 
+                                    <option value="137">Campoys, Los </option> 
+                                    <option value="138">Cañada De Cañepla, La </option> 
+                                    <option value="139">Cañada De Don Rodrigo, La </option> 
+                                    <option value="140">Cañada De Las Cruces, La </option> 
+                                    <option value="141">Cañada De Lorca, La </option> 
+                                    <option value="142">Cañada De San Urbano, La </option> 
+                                    <option value="143">Cañada Grande, La </option> 
+                                    <option value="144">Cañada Sebastiana </option> 
+                                    <option value="145">Cañada, La </option> 
+                                    <option value="146">Canal, El (adra) </option> 
+                                    <option value="147">Canal, La </option> 
+                                    <option value="148">Canalejas, Las </option> 
+                                    <option value="149">Canales, Los </option> 
+                                    <option value="150">Canalica </option> 
+                                    <option value="151">Cañarico, El </option> 
+                                    <option value="152">Canjayar </option> 
+                                    <option value="153">Cantal, El </option> 
+                                    <option value="154">Cantinas, Las </option> 
+                                    <option value="155">Cantoria </option> 
+                                    <option value="156">Capairola </option> 
+                                    <option value="157">Caparroses, Los (pulpi) </option> 
+                                    <option value="158">Carasoles, Los </option> 
+                                    <option value="159">Carboneras </option> 
+                                    <option value="160">Cariatiz </option> 
+                                    <option value="161">Carmen, El </option> 
+                                    <option value="162">Carmonas, Los </option> 
+                                    <option value="163">Carrasca, La (albanchez) </option> 
+                                    <option value="164">Carrasca, La (campillo) </option> 
+                                    <option value="165">Carrasco </option> 
+                                    <option value="166">Carrascos, Los </option> 
+                                    <option value="167">Cartero </option> 
+                                    <option value="168">Casa Blanca, La (uleila) </option> 
+                                    <option value="169">Casablanca (arboleas) </option> 
+                                    <option value="170">Casas, Las </option> 
+                                    <option value="171">Casicas, Las </option> 
+                                    <option value="172">Castala </option> 
+                                    <option value="173">Castaños, Los </option> 
+                                    <option value="174">Castos, Los </option> 
+                                    <option value="175">Castro De Filabres </option> 
+                                    <option value="176">Cela </option> 
+                                    <option value="177">Cela (estacion) </option> 
+                                    <option value="178">Celin </option> 
+                                    <option value="179">Cerricos, Los </option> 
+                                    <option value="180">Cerrogordo, El </option> 
+                                    <option value="181">Chacones, Los </option> 
+                                    <option value="182">Charche, El </option> 
+                                    <option value="183">Chercos </option> 
+                                    <option value="184">Chercos Nuevos </option>
+                                    <option value="185">Chercos Viejos </option> 
+                                    <option value="186">Chiran </option> 
+                                    <option value="187">Chirivel </option> 
+                                    <option value="188">Chive, El </option> 
+                                    <option value="189">Chopo, El </option> 
+                                    <option value="190">Chuche, El </option> 
+                                    <option value="191">Chulos, Los </option> 
+                                    <option value="192">Cid, El </option> 
+                                    <option value="193">Cinta Blanca </option> 
+                                    <option value="194">Cinta, La </option> 
+                                    <option value="195">Cirera </option> 
+                                    <option value="196">Claveros, Los </option> 
+                                    <option value="197">Club De Tenis </option> 
+                                    <option value="198">Cobatillas, Las </option> 
+                                    <option value="199">Cobdar </option> 
+                                    <option value="200">Cocon Del Peral </option> 
+                                    <option value="201">Cocon, El </option> 
+                                    <option value="202">Cojos, Los </option> 
+                                    <option value="203">Collados, Los </option> 
+                                    <option value="204">Colorados, Los </option> 
+                                    <option value="205">Concepcion, La </option> 
+                                    <option value="206">Congo, El </option> 
+                                    <option value="207">Contador, El </option> 
+                                    <option value="208">Convoy, El </option> 
+                                    <option value="209">Corral, El </option> 
+                                    <option value="210">Cortijillos, Los </option> 
+                                    <option value="211">Cortijo Alto, El </option> 
+                                    <option value="212">Cortijo Grande, El </option> 
+                                    <option value="213">Cortijo Real </option> 
+                                    <option value="214">Cortijos De Marin </option> 
+                                    <option value="215">Cortijos De Marin (vicar) </option> 
+                                    <option value="216">Costacabana </option> 
+                                    <option value="217">Cuartillas, Las </option> 
+                                    <option value="218">Cuatro Higueras (cuevas Del Almanzora) </option> 
+                                    <option value="219">Cuatro Higueras, Las </option> 
+                                    <option value="220">Cucador, El </option> 
+                                    <option value="221">Cuesta Del Pino </option> 
+                                    <option value="222">Cueva Del Pajaro, La </option> 
+                                    <option value="223">Cuevas De Los Medinas </option> 
+                                    <option value="224">Cuevas De Los Ubedas </option> 
+                                    <option value="225">Cuevas Del Almanzora </option> 
+                                    <option value="226">Cuevas Del Lino </option> 
+                                    <option value="227">Cumbre, La </option> 
+                                    <option value="228">Cumbrero, El </option> 
+                                    <option value="229">Cumbres, Las </option> 
+                                    <option value="230">Cunas, Las </option> 
+                                    <option value="231">Cupillas, Las </option> 
+                                    <option value="232">Curva, La </option> 
+                                    <option value="233">Daimuz </option> 
+                                    <option value="234">Dali </option> 
+                                    <option value="235">Dalias </option> 
+                                    <option value="236">Darrical </option> 
+                                    <option value="237">Dehesa, La </option> 
+                                    <option value="238">Derde </option>                                                                         
+                                    <option value="239">Dioses, Los </option>  
+                                    <option value="240">Domenes </option> 
+                                    <option value="241">Doña Juana </option>  
+                                    <option value="242">Doña Maria De Ocaña </option>  
+                                    <option value="243">Donatos, Los </option>  
+                                    <option value="244">Ejido, El </option>  
+                                    <option value="245">Encalmados, Los </option>  
+                                    <option value="246">Enix </option>  
+                                    <option value="247">Entrenas, Los </option>  
+                                    <option value="248">Envia, La </option>  
+                                    <option value="249">Era Alta </option>  
+                                    <option value="250">Ermita, La </option>  
+                                    <option value="251">Escullar </option> 
+                                    <option value="252">Escullos, Los </option> 
+                                    <option value="253">Espadin, El </option> 
+                                    <option value="254">Espeliz </option> 
+                                    <option value="255">Estacion Ferrea </option> 
+                                    <option value="256">Estacion Ferrocarril (abla-abrucena) </option> 
+                                    <option value="257">Estacion Ferrocarril (sta Fe De Mondujar) </option> 
+                                    <option value="258">Estacion, La (escullar) </option> 
+                                    <option value="259">Estacion, La (fiñana) </option> 
+                                    <option value="260">Estacion, La (fines) </option> 
+                                    <option value="261">Estacion, La (gergal) </option> 
+                                    <option value="262">Estacion, La (nacimiento) </option> 
+                                    <option value="263">Estacion, La (san Miguel De Pulpi) </option>  
+                                    <option value="264">Fabriquilla, La </option>  
+                                    <option value="265">Felix </option>  
+                                    <option value="266">Fernanperez </option>  
+                                    <option value="267">Fiñana </option>  
+                                    <option value="268">Fines </option>  
+                                    <option value="269">Finos, Los </option>  
+                                    <option value="270">Fondon </option>  
+                                    <option value="271">Fonte, El </option>  
+                                    <option value="272">Frax </option>  
+                                    <option value="273">Frax De Arriba </option>    
+                                    <option value="274">Fuenblanquilla </option>    
+                                    <option value="275">Fuencaliente Y Calera </option>    
+                                    <option value="276">Fuensanta, La (huercal) </option>    
+                                    <option value="277">Fuensanta, La (urcal) </option>    
+                                    <option value="278">Fuente Abad, La </option>    
+                                    <option value="279">Fuente Amarga </option>    
+                                    <option value="280">Fuente De La Higuera, La </option>    
+                                    <option value="281">Fuente Del Ahijado, La </option>    
+                                    <option value="282">Fuente Del Mojon </option>    
+                                    <option value="283">Fuente Del Negro, La </option>    
+                                    <option value="284">Fuente Del Pino </option>   
+                                    <option value="285">Fuente Del Royo, La </option>    
+                                    <option value="286">Fuente Del Tio Molina, La </option>    
+                                    <option value="287">Fuente Jaula </option>    
+                                    <option value="288">Fuente Santa </option>    
+                                    <option value="289">Fuente Santilla, La </option>    
+                                    <option value="290">Fuente Victoria </option>    
+                                    <option value="291">Fuente, La </option>    
+                                    <option value="292">Fuentecilla, La </option>    
+                                    <option value="293">Gacia </option>    
+                                    <option value="294">Gacia Alto </option>    
+                                    <option value="295">Gacia Bajo </option>   
+                                    <option value="296">Gador </option>   
+                                    <option value="297">Gafares (carboneras) </option>   
+                                    <option value="298">Gafares (sorbas) </option>   
+                                    <option value="299">Gafarillos </option>   
+                                    <option value="300">Gallardos, Los </option>   
+                                    <option value="301">Gangosa, La </option>   
+                                    <option value="302">Garcias, Los </option>   
+                                    <option value="303">Garrido </option>   
+                                    <option value="304">Garrucha </option>   
+                                    <option value="305">Gasparillo </option>   
+                                    <option value="306">Gateros, Los </option>     
+                                    <option value="307">Gatos, Los </option>     
+                                    <option value="308">Gazquez, Los (los Alamos) </option>     
+                                    <option value="309">Gazquez, Los (velez Rubio) </option>     
+                                    <option value="310">Gergal </option>     
+                                    <option value="311">German </option>     
+                                    <option value="312">Gibaos, Los </option>     
+                                    <option value="313">Gibiley </option>     
+                                    <option value="314">Giles, Los </option>     
+                                    <option value="315">Gilma </option>     
+                                    <option value="316">Ginte </option>     
+                                    <option value="317">Gochar </option>     
+                                    <option value="318">Goñar </option>     
+                                    <option value="319">Gonzalez, Los </option>    
+                                    <option value="320">Gor, El </option>    
+                                    <option value="321">Graj </option>    
+                                    <option value="322">Grillos, Los </option>    
+                                    <option value="323">Grima </option>    
+                                    <option value="324">Guainos Altos </option>    
+                                    <option value="325">Guainos Bajos </option>    
+                                    <option value="326">Guarros </option>    
+                                    <option value="327">Guazamara </option>    
+                                    <option value="328">Guiraos, Los </option>    
+                                    <option value="329">Gurrias </option>  
+                                    <option value="330">Haza Del Riego, El </option> 
+                                    <option value="331">Heredad, La </option> 
+                                    <option value="332">Hernandez, Los (los Zoilos) </option> 
+                                    <option value="333">Herradura </option> 
+                                    <option value="334">Herradura, La </option> 
+                                    <option value="335">Herrera, Los </option> 
+                                    <option value="336">Herreria, La </option> 
+                                    <option value="337">Herrerias, Las </option> 
+                                    <option value="338">Higueral </option> 
+                                    <option value="339">Hijate, El </option> 
+                                    <option value="340">Hilarias, Las </option>   
+                                    <option value="341">Hirmes </option> 
+                                    <option value="342">Hojilla, La </option> 
+                                    <option value="343">Hornillos </option> 
+                                    <option value="344">Hortichuelas </option> 
+                                    <option value="345">Hoya De La Zarza, La </option> 
+                                    <option value="346">Hoya, La (arboleas) </option> 
+                                    <option value="347">Hoya, La (cantoria) </option> 
+                                    <option value="348">Hoya, La (huercal Overa) </option> 
+                                    <option value="349">Huebro </option> 
+                                    <option value="350">Huechar </option> 
+                                    <option value="351">Huecija </option>
+                                    <option value="352">Huelga, La </option> 
+                                    <option value="353">Hueli </option> 
+                                    <option value="354">Huercal De Almeria </option> 
+                                    <option value="355">Huercal-overa </option> 
+                                    <option value="356">Huerta, La </option> 
+                                    <option value="357">Huevanillas, Los </option> 
+                                    <option value="358">Huitar Mayor </option> 
+                                    <option value="359">Huitar Menor </option> 
+                                    <option value="360">Illar </option> 
+                                    <option value="361">Instincion </option> 
+                                    <option value="362">Isleta, La </option> 
+                                    <option value="363">Islica, La </option>  
+                                    <option value="364">Jacinto, Los </option>  
+                                    <option value="365">Jarales, Los </option>  
+                                    <option value="366">Jauca Alta </option>  
+                                    <option value="367">Jauca Baja </option>  
+                                    <option value="368">Jauro (antas) </option>  
+                                    <option value="369">Jauro (lubrin) </option>  
+                                    <option value="370">Joluque </option>  
+                                    <option value="371">Jordana </option>  
+                                    <option value="372">Juaida, La </option>  
+                                    <option value="373">Jucaini </option>   
+                                    <option value="374">Juntas, Las (abla) </option>   
+                                    <option value="375">Juntas, Las (velez-blanco) </option>   
+                                    <option value="376">Labores, Las </option>   
+                                    <option value="377">Lance De La Virgen </option>   
+                                    <option value="378">Largo, El </option>   
+                                    <option value="379">Laroya </option>   
+                                    <option value="380">Laujar De Andarax </option>   
+                                    <option value="381">Lijar </option>   
+                                    <option value="382">Limaria </option>   
+                                    <option value="383">Llano De Don Antonio, El </option>   
+                                    <option value="384">Llano De Las Animas, El </option>   
+                                    <option value="385">Llanos De Los Olleres </option>   
+                                    <option value="386">Llanos De Vicar </option>   
+                                    <option value="387">Llanos Del Espino </option>   
+                                    <option value="388">Llanos Del Mayor, Los </option>   
+                                    <option value="389">Llanos, Los (arboleas) </option>   
+                                    <option value="390">Llanos, Los (taberno) </option>   
+                                    <option value="391">Llanos, Los (zurgena) </option>   
+                                    <option value="392">Loberos, Los </option>   
+                                    <option value="393">Lobos, Los </option>   
+                                    <option value="394">Locaiba </option>   
+                                    <option value="395">Loma Cabrera </option>   
+                                    <option value="396">Loma De Los Vargas, La </option>   
+                                    <option value="397">Loma, La </option>   
+                                    <option value="398">Lomilla, La </option>   
+                                    <option value="399">Losilla, La </option>   
+                                    <option value="400">Lubrin </option>   
+                                    <option value="401">Lucainena De Darrical </option>   
+                                    <option value="402">Lucainena De Las Torres </option>   
+                                    <option value="403">Lucar </option>   
+                                    <option value="404">Macael </option>   
+                                    <option value="405">Macian </option>   
+                                    <option value="406">Madrid </option>  
+                                    <option value="407">Maguas </option>   
+                                    <option value="408">Malinos </option>   
+                                    <option value="409">Mami, El </option>   
+                                    <option value="410">Mañas, Los </option>   
+                                    <option value="411">Mancheño </option>   
+                                    <option value="412">Manolones, Los </option>   
+                                    <option value="413">Marchal De Enix </option>   
+                                    <option value="414">Marchal, El (cantoria) </option>   
+                                    <option value="415">Marchal, El (lubrin) </option>   
+                                    <option value="416">Marchal, El (macael) </option>   
+                                    <option value="417">Marchal, El (oria) </option>  
+                                    <option value="418">Marchal, El (uleila Del Campo) </option>  
+                                    <option value="419">Marchalico Viñicas </option>  
+                                    <option value="420">Margen, El </option>  
+                                    <option value="421">Maria </option>  
+                                    <option value="422">Marinas, Las </option>  
+                                    <option value="423">Marinas, Las (roquetas De Mar) </option>  
+                                    <option value="424">Marraque </option>  
+                                    <option value="425">Marteses, Los </option>  
+                                    <option value="426">Martinete, El </option>  
+                                    <option value="427">Martinez, Los (oria) </option>  
+                                    <option value="428">Martinez, Los (sorbas) </option>
+                                    <option value="429">Mata De Bolaimi, La </option> 
+                                    <option value="430">Matagorda </option> 
+                                    <option value="431">Matreros, Los </option> 
+                                    <option value="432">Mayordomo, El </option> 
+                                    <option value="433">Mazarrulleque </option> 
+                                    <option value="434">Mela, La </option> 
+                                    <option value="435">Menas, Las (seron) </option> 
+                                    <option value="436">Menas, Los (puertecico) </option> 
+                                    <option value="437">Menchones, Los </option> 
+                                    <option value="438">Mesa Roldan, La </option> 
+                                    <option value="439">Milanes, Los </option>   
+                                    <option value="440">Minas, Las </option>    
+                                    <option value="441">Minas, Las (huercal Overa) </option>    
+                                    <option value="442">Mizala </option>    
+                                    <option value="443">Mojacar </option>    
+                                    <option value="444">Mojonar, El </option>    
+                                    <option value="445">Mojonera, La </option>    
+                                    <option value="446">Moletas, Las </option>    
+                                    <option value="447">Molinas, Los </option>    
+                                    <option value="448">Molino Del Tarahal, El </option>    
+                                    <option value="449">Molino, El (pulpi) </option>    
+                                    <option value="450">Molinos, Los </option>  
+                                    <option value="451">Molinos, Los (sorbas) </option>     
+                                    <option value="452">Mondujar </option>     
+                                    <option value="453">Monjos, Los </option>     
+                                    <option value="454">Montagon </option>     
+                                    <option value="455">Montalviche </option>     
+                                    <option value="456">Morales, Los </option>     
+                                    <option value="457">Moras </option>     
+                                    <option value="458">Moras, Los </option>     
+                                    <option value="459">Moraton </option>     
+                                    <option value="460">Morillas, Los </option>     
+                                    <option value="461">Morro, El </option>     
+                                    <option value="462">Moscolux </option>        
+                                    <option value="463">Motailon </option>        
+                                    <option value="464">Muleria, La </option>        
+                                    <option value="465">Nacimiento </option>        
+                                    <option value="466">Navarros, Los </option>        
+                                    <option value="467">Navarros, Los (huercal Overa) </option>        
+                                    <option value="468">Negras, Las </option>        
+                                    <option value="469">Nietos, Los </option>        
+                                    <option value="470">Nijar </option>        
+                                    <option value="471">Noria, La (olula Del Rio) </option>        
+                                    <option value="472">Norias De Daza, Las </option>    
+                                    <option value="473">Norias, Las (fiñana) </option>   
+                                    <option value="474">Norias, Las (huercal Overa) </option>   
+                                    <option value="475">Nudos </option>   
+                                    <option value="476">Nudos, Los </option>   
+                                    <option value="477">Ocaña </option>   
+                                    <option value="478">Ohanes </option>   
+                                    <option value="479">Olivar, El </option>   
+                                    <option value="480">Olivillos, Los </option>   
+                                    <option value="481">Olula De Castro </option>   
+                                    <option value="482">Olula Del Rio </option>   
+                                    <option value="483">Oquendos, Los </option> 
+                                    <option value="484">Oria </option>  
+                                    <option value="485">Orillas, Las </option>  
+                                    <option value="486">Oro Verde </option>  
+                                    <option value="487">Padules </option>  
+                                    <option value="488">Pago Aguilar Bajo </option>  
+                                    <option value="489">Pago De Escuchagrano </option>  
+                                    <option value="490">Palaces, El </option>  
+                                    <option value="491">Palmera, La </option>  
+                                    <option value="492">Palomar, El </option>  
+                                    <option value="493">Palomares </option>  
+                                    <option value="494">Pampanico </option>   
+                                    <option value="495">Parador De Las Hortichuelas, El </option>        
+                                    <option value="496">Parador, El (vicar) </option>        
+                                    <option value="497">Parata, La (mojacar) </option>        
+                                    <option value="498">Pardos, Los (velez Rubio) </option>        
+                                    <option value="499">Parra, La (adra) </option>        
+                                    <option value="500">Parra, La (torrentes) </option>        
+                                    <option value="501">Partaloa </option>        
+                                    <option value="502">Paterna Del Rio </option>                 
+                                    <option value="503">Patio, El </option>        
+                                    <option value="504">Paulenca </option>        
+                                    <option value="505">Pechina </option>  
+                                    <option value="506">Pedregales, Los </option>        
+                                    <option value="507">Pedro Garcia </option>        
+                                    <option value="508">Peñarrodada, La </option>        
+                                    <option value="509">Peñas Negras </option>        
+                                    <option value="510">Peñon Alto, El </option>        
+                                    <option value="511">Peñon Bajo, El </option>        
+                                    <option value="512">Perales, Los </option>        
+                                    <option value="513">Peraltas, Los </option>        
+                                    <option value="514">Perdigones, Los </option>        
+                                    <option value="515">Perez, Los (adra) </option>        
+                                    <option value="516">Perez, Los (alcontar) </option>   
+                                    <option value="517">Perla, La </option>               
+                                    <option value="518">Perulaca, La </option>    
+                                    <option value="519">Perulera, La </option>    
+                                    <option value="520">Piar De Abajo, El </option>    
+                                    <option value="521">Pichiriches, Los </option>    
+                                    <option value="522">Piedra Amarilla, La </option>    
+                                    <option value="523">Piedra De Zahor, La </option>    
+                                    <option value="524">Piedras, Las (huercal Overa) </option>    
+                                    <option value="525">Pilancon </option>    
+                                    <option value="526">Pilar De Jaravia </option>    
+                                    <option value="527">Pilar, El </option>    
+                                    <option value="528">Pilar, El (huercal Overa) </option>    
+                                    <option value="529">Pilar, El (sorbas) </option>    
+                                    <option value="530">Pilarico, El </option>    
+                                    <option value="531">Piletas, Las </option>    
+                                    <option value="532">Pinar, El </option>    
+                                    <option value="533">Pinares, Los </option>    
+                                    <option value="534">Pinos, Los </option>    
+                                    <option value="535">Pocicas, Las </option>    
+                                    <option value="536">Pocico, El (lubrin) </option>    
+                                    <option value="537">Pocos Bollos, Los </option>    
+                                    <option value="538">Polopos </option>    
+                                    <option value="539">Porteros, Los (tijola) </option>   
+                                    <option value="540">Portilla, La </option>   
+                                    <option value="541">Portocarrero </option>   
+                                    <option value="542">Pozo De La Higuera </option>   
+                                    <option value="543">Pozo De Los Frailes </option>   
+                                    <option value="544">Pozo Del Esparto </option>   
+                                    <option value="545">Pozo Del Esparto (pulpi) </option>   
+                                    <option value="546">Pozo Del Lobo </option>   
+                                    <option value="547">Prado, El (la Cinta) </option>   
+                                    <option value="548">Presillas Bajas </option>   
+                                    <option value="549">Puebla De Vicar </option>  
+                                    <option value="550">Pueblo Blanco </option>   
+                                    <option value="551">Puente De Guayar </option>   
+                                    <option value="552">Puente Del Rio, El </option>   
+                                    <option value="553">Puertecico, El </option>   
+                                    <option value="554">Puerto Rey </option>   
+                                    <option value="555">Pujaire (almeria) </option>   
+                                    <option value="556">Pujaire (nijar) </option>   
+                                    <option value="557">Pulpi </option>   
+                                    <option value="558">Puntal, El (lubrin) </option>   
+                                    <option value="559">Purchena </option>   
+                                    <option value="560">Quijiliana </option> 
+                                    <option value="561">Ragol </option>    
+                                    <option value="562">Ramales, Los </option>    
+                                    <option value="563">Rambla Aljibe, La </option>    
+                                    <option value="564">Rambla De Abajo, La </option>    
+                                    <option value="565">Rambla De Arriba, La </option>    
+                                    <option value="566">Rambla De Taberno </option>    
+                                    <option value="567">Rambla Del Marques </option>    
+                                    <option value="568">Rambla Grande </option>    
+                                    <option value="569">Rambla Honda, La (lubrin) </option>    
+                                    <option value="570">Rambla Honda, La (lucainena De Las Torres) </option>    
+                                    <option value="571">Rambla Morales </option>      
+                                    <option value="572">Ramil Alto </option>      
+                                    <option value="573">Ramil Bajo </option>      
+                                    <option value="574">Ramos, Los </option>      
+                                    <option value="575">Raspajos, Los </option>      
+                                    <option value="576">Real, El </option>      
+                                    <option value="577">Realengo, El </option>      
+                                    <option value="578">Reconco, El </option>      
+                                    <option value="579">Redonda, La </option>      
+                                    <option value="580">Retacos, Los </option>      
+                                    <option value="581">Retamar </option>      
+                                    <option value="582">Reul Alto, El </option>   
+                                    <option value="583">Rincon Del Marques, El </option>    
+                                    <option value="584">Rincon, El (la Cinta) </option>    
+                                    <option value="585">Rincon, El (uleila Del Campo) </option>    
+                                    <option value="586">Rio Chico, El </option>    
+                                    <option value="587">Rio Claro, El </option>    
+                                    <option value="588">Rio De Mula, El </option>    
+                                    <option value="589">Rio Grande, El </option>    
+                                    <option value="590">Rioja </option>    
+                                    <option value="591">Rioja (palomares) </option>    
+                                    <option value="592">Risas, Los </option>    
+                                    <option value="593">Rodalquilar </option>        
+                                    <option value="594">Rojas, Los </option>     
+                                    <option value="595">Rondeña, La </option>     
+                                    <option value="596">Roquetas De Mar </option>     
+                                    <option value="597">Roquez </option>     
+                                    <option value="598">Rozas, Las </option>     
+                                    <option value="599">Ruescas (almeria) </option>     
+                                    <option value="600">Ruescas (nijar) </option>     
+                                    <option value="601">Ruini, El </option>     
+                                    <option value="602">Rulador, El </option>     
+                                    <option value="603">Sacristan, El </option>     
+                                    <option value="604">Saeti, El </option> 
+                                    <option value="605">Saladar Y Leche </option>   
+                                    <option value="606">Saliente Alto </option>   
+                                    <option value="607">Saliente Bajo (albox) </option>   
+                                    <option value="608">Saltador Alto, El </option>   
+                                    <option value="609">Saltador Bajo, El </option>   
+                                    <option value="610">Saltador, El (lucainena De Las Torres) </option>   
+                                    <option value="611">Saltador, El (pulpi) </option>   
+                                    <option value="612">Salto Del Lobo, El </option>   
+                                    <option value="613">San Agustin </option>   
+                                    <option value="614">San Francisco </option>   
+                                    <option value="615">San Isidro De Nijar </option>       
+                                    <option value="616">San Jose </option>     
+                                    <option value="617">San Juan De Los Terreros </option>     
+                                    <option value="618">San Miguel (alamos) </option>     
+                                    <option value="619">San Roque (berja) </option>     
+                                    <option value="620">San Silvestre </option>     
+                                    <option value="621">Sanchos, Los </option>     
+                                    <option value="622">Santa Barbara </option>     
+                                    <option value="623">Santa Cruz De Marchen </option>     
+                                    <option value="624">Santa Fe De Mondujar </option>     
+                                    <option value="625">Santa Maria De Nieva </option>     
+                                    <option value="626">Santa Maria Del Aguila </option>   
+                                    <option value="627">Santillana </option>  
+                                    <option value="628">Santo Domingo </option>  
+                                    <option value="629">Santopetar </option>  
+                                    <option value="630">Santuario De Monteagud, El </option>  
+                                    <option value="631">Santuario, El </option>  
+                                    <option value="632">Senes </option>  
+                                    <option value="633">Serena, La </option>  
+                                    <option value="634">Seron </option>  
+                                    <option value="635">Sierra Alhamilla </option>  
+                                    <option value="636">Sierro </option>  
+                                    <option value="637">Silos, Los (cuevas Del Almanzora) </option>    
+                                    <option value="638">Solana </option> 
+                                    <option value="639">Solanillo, El </option> 
+                                    <option value="640">Soleres, Les </option> 
+                                    <option value="641">Somontin </option> 
+                                    <option value="642">Sorbas </option> 
+                                    <option value="643">Sufli </option> 
+                                    <option value="644">Tabernas </option> 
+                                    <option value="645">Taberno </option> 
+                                    <option value="646">Tablar, El </option> 
+                                    <option value="647">Tablas, Las </option> 
+                                    <option value="648">Tahal </option> 
+                                    <option value="649">Tahullas, Las </option> 
+                                    <option value="650">Taibena </option> 
+                                    <option value="651">Tallon Bajo, El </option> 
+                                    <option value="652">Tejica, La </option> 
+                                    <option value="653">Terque </option> 
+                                    <option value="654">Terreros </option> 
+                                    <option value="655">Tesoro, El </option> 
+                                    <option value="656">Tia Lucia, La </option> 
+                                    <option value="657">Tices </option> 
+                                    <option value="658">Tijola </option> 
+                                    <option value="659">Tomillar, El </option> 
+                                    <option value="660">Tonosa </option> 
+                                    <option value="661">Topares </option> 
+                                    <option value="662">Toril, El </option> 
+                                    <option value="663">Torre Del Campo </option> 
+                                    <option value="664">Torrentes, Los </option> 
+                                    <option value="665">Tristanes </option> 
+                                    <option value="666">Turre </option> 
+                                    <option value="667">Turrillas </option> 
+                                    <option value="668">Uleila Del Campo </option> 
+                                    <option value="669">Urcal </option> 
+                                    <option value="670">Urra </option> 
+                                    <option value="671">Urracal </option> 
+                                    <option value="672">Valle, El </option> 
+                                    <option value="673">Varguicas </option> 
+                                    <option value="674">Vega, La </option> 
+                                    <option value="675">Vegas, Los </option> 
+                                    <option value="676">Velefique </option> 
+                                    <option value="677">Velez-blanco </option> 
+                                    <option value="678">Velez-rubio </option> 
+                                    <option value="679">Venta Del Pobre </option> 
+                                    <option value="680">Venta Del Viso, La </option> 
+                                    <option value="681">Venta Gaspar </option> 
+                                    <option value="682">Venta Nueva </option> 
+                                    <option value="683">Venta Ratonera </option> 
+                                    <option value="684">Vera </option> 
+                                    <option value="685">Vera-playa </option> 
+                                    <option value="686">Viator </option> 
+                                    <option value="687">Vicar </option> 
+                                    <option value="688">Villar, El </option> 
+                                    <option value="689">Villaricos </option> 
+                                    <option value="690">Viso, El </option> 
+                                    <option value="691">Vizcaino </option> 
+                                    <option value="692">Yegua Baja, La </option> 
+                                    <option value="693">Yesos, Los </option> 
+                                    <option value="694">Zofre </option> 
+                                    <option value="695">Zoilos, Los </option> 
+                                    <option value="696">Zurgena </option> 
+                                </select>
+
+                                <div *ngIf="poblacion.invalid && (poblacion.dirty || poblacion.touched)" class="alert alert-danger">
+                                    <div *ngIf="poblacion.errors.required">
+                                        Debes seleccionar la población.
+                                    </div>         
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion">Dirección</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="direccion" 
+                                       id="direccion"
+                                       formControlName="direccion"
+                                       required
+                                       size="30"
+                                       aria-describedby="direccion">
+
+                                <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" class="alert alert-danger">
+                                    <div *ngIf="direccion.errors.required">
+                                        Debe indicar la dirección.
+                                    </div>
+                                    <div *ngIf="direccion.errors.minlength">
+                                       La dirección debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="codigopostal">Código Postal</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="codigopostal" 
+                                       id="codigopostal"
+                                       formControlName="codigopostal"
+                                       required
+                                       size="30" 
+                                       aria-describedby="codigopostal">
+
+                                <div *ngIf="codigopostal.invalid && (codigopostal.dirty || codigopostal.touched)" class="alert alert-danger">
+                                    <div *ngIf="codigopostal.errors.required">
+                                        Debe indicar el codigo postal.
+                                    </div>
+                                    <div *ngIf="codigopostal.errors.minlength">
+                                        El codigo postal debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Datos adjuntos</legend>
+                            <hr>
+                            <div class="form-group">
+                                <label for="foto">Foto</label>
+                                <input type="hidden" name="MAX_FILE_SIZE" value="102400">
+                                <input type="file" 
+                                       class="form-control-file" 
+                                       name="foto" 
+                                       id="foto"
+                                       formControlName="foto"
+                                       required
+                                       aria-describedby="foto" 
+                                       size="44">
+
+                                <div *ngIf="foto.invalid && (foto.dirty || foto.touched)" class="alert alert-danger">
+                                    <div *ngIf="foto.errors.required">
+                                        Debes seleccionar la foto.
+                                    </div>         
+                                </div>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" 
+                                       class="form-check-input" 
+                                       name="acepto" 
+                                       id="acepto"
+                                       formControlName="acepto"
+                                       required 
+                                       aria-describedby="acepto">
+
+                                <div *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)" class="alert alert-danger">
+                                    <div *ngIf="acepto.errors.required">
+                                        Debes seleccionar el checkbox He leido y acepto las condiciones.
+                                    </div>         
+                                </div>
+                                <label class="form-check-label" for="acepto">He leido y acepto las condiciones</label>
+                            </div>
+                        </fieldset>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="enviar" id="enviar" value="enviar" [disabled]="NuevoHermanoFormulario.invalid">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <app-pie-pagina></app-pie-pagina>
+</body>
+</html>
+
+
