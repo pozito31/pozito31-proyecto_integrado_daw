@@ -24,6 +24,7 @@ import { VideosComponent } from './pagina/componentes/videos/videos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AdministracionModule } from './administracion/administracion.module';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { environment } from '../environments/environment';
     ReactiveFormsModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AdministracionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
