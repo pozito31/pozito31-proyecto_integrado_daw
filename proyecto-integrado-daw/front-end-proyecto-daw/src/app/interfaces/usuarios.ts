@@ -8,6 +8,6 @@ export interface Usuarios {
 }
 
 export interface datosDevueltos  {
-    status: string,
-    data: Usuarios[]
-};
+    status: string;
+    data: Usuarios[];
+}
