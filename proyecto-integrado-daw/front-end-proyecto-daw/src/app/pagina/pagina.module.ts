@@ -15,10 +15,11 @@ import { ParrocoComponent } from './componentes/parroco/parroco.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { TableroComponent } from './componentes/tablero/tablero.component';
 import { VideosComponent } from './componentes/videos/videos.component';
+import { PaginaComponent } from './pagina/pagina.component';
 
 
 @NgModule({
-  declarations: [CabeceraComponent, ContactoComponent, HermanomayorComponent, HistoriaComponent, ImagenesComponent, MenuComponent, NoticiasComponent, NovenasComponent, NuevohermanoComponent, ParrocoComponent, PiePaginaComponent, TableroComponent, VideosComponent],
+  declarations: [CabeceraComponent, ContactoComponent, HermanomayorComponent, HistoriaComponent, ImagenesComponent, MenuComponent, NoticiasComponent, NovenasComponent, NuevohermanoComponent, ParrocoComponent, PiePaginaComponent, TableroComponent, VideosComponent, PaginaComponent],
   imports: [
     CommonModule,
     PaginaRoutingModule
