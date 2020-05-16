@@ -30,27 +30,27 @@ const ADMIN_ROUTES: Routes = [
     component: ListadonoticiaComponent
   },
   {
-    path: 'paginas/nuevohermano',
+    path: 'paginas/nuevohermano/crearnuevohermano',
     component: CrearnuevohermanoComponent
   },
   {
-    path: 'paginas/nuevohermano',
+    path: 'paginas/nuevohermano/editarnuevohermano',
     component: EditarnuevohermanoComponent
   },
   {
-    path: 'paginas/nuevohermano',
+    path: 'paginas/nuevohermano/listadonuevohermano',
     component: ListadonuevohermanoComponent
   },
   {
-    path: 'paginas/contacto',
+    path: 'paginas/contacto/crearcontacto',
     component:  CrearcontactoComponent
   },
   {
-    path: 'paginas/contacto',
+    path: 'paginas/contacto/editarcontacto',
     component:  EditarcontactoComponent
   },
   {
-    path: 'paginas/contacto',
+    path: 'paginas/contacto/listadocontacto',
     component:  ListadocontactoComponent
   }
 ];
