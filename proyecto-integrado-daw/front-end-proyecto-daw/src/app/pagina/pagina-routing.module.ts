@@ -13,16 +13,16 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 
 
 const PAGINA_ROUTES: Routes = [
-   {path: '', component: TableroComponent},
-   {path: 'historia', component: HistoriaComponent},
-   {path: 'hermanomayor', component: HermanomayorComponent},
-   {path: 'novenas', component: NovenasComponent},
-   {path: 'parroco', component: ParrocoComponent},
-   {path: 'noticias', component: NoticiasComponent},
-   {path: 'nuevohermano', component: NuevohermanoComponent},
-   {path: 'imagenes', component: ImagenesComponent},
-   {path: 'videos', component: VideosComponent},
-   {path: 'contacto', component: ContactoComponent}
+  { path: '', component: TableroComponent },
+  { path: 'historia', component: HistoriaComponent },
+  { path: 'hermanomayor', component: HermanomayorComponent },
+  { path: 'novenas', component: NovenasComponent },
+  { path: 'parroco', component: ParrocoComponent },
+  { path: 'noticias', component: NoticiasComponent },
+  { path: 'nuevohermano', component: NuevohermanoComponent },
+  { path: 'imagenes', component: ImagenesComponent },
+  { path: 'videos', component: VideosComponent },
+  { path: 'contacto', component: ContactoComponent }
 ];
 
 @NgModule({

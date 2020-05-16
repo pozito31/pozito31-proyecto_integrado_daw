@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
 import { PaginaRoutingModule } from './pagina-routing.module';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
@@ -22,16 +19,28 @@ import { PaginaComponent } from './pagina/pagina.component';
 
 
 @NgModule({
-  declarations: [CabeceraComponent, ContactoComponent, HermanomayorComponent, HistoriaComponent, ImagenesComponent, MenuComponent, NoticiasComponent, NovenasComponent, NuevohermanoComponent, ParrocoComponent, PiePaginaComponent, TableroComponent, VideosComponent, PaginaComponent],
+  declarations: [
+    CabeceraComponent,
+    ContactoComponent,
+    HermanomayorComponent,
+    HistoriaComponent,
+    ImagenesComponent,
+    MenuComponent,
+    NoticiasComponent,
+    NovenasComponent,
+    NuevohermanoComponent,
+    ParrocoComponent,
+    PiePaginaComponent,
+    TableroComponent,
+    VideosComponent,
+    PaginaComponent
+  ],
   exports: [
     PaginaRoutingModule
   ],
   imports: [
     CommonModule,
-    PaginaRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    PaginaRoutingModule
   ]
 })
 export class PaginaModule { }
