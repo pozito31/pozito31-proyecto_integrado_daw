@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import { AdministracionRoutingModule } from './administracion-routing.module';
 import { NavbarComponent } from './compartidos/navbar/navbar.component';
 import { AdministracionComponent } from './administracion/administracion/administracion.component';
@@ -35,6 +37,8 @@ import { ListadocontactoComponent } from './paginas/contacto/listadocontacto/lis
   ],
   imports: [
     CommonModule,
+    FormsModule, 
+    ReactiveFormsModule,
     AppRoutingModule,
     AdministracionRoutingModule
   ]
