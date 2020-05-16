@@ -22,7 +22,7 @@ const PAGINA_ROUTES: Routes = [
   { path: 'nuevohermano', component: NuevohermanoComponent },
   { path: 'imagenes', component: ImagenesComponent },
   { path: 'videos', component: VideosComponent },
-  { path: 'contacto', component: ContactoComponent }
+  {path: 'contacto', component: ContactoComponent}
 ];
 
 @NgModule({
