@@ -18,7 +18,6 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
 import { TableroComponent } from './componentes/tablero/tablero.component';
 import { VideosComponent } from './componentes/videos/videos.component';
 import { PaginaComponent } from './pagina/pagina.component';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -45,8 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule, 
     ReactiveFormsModule,
-    PaginaRoutingModule,
-    HttpClientModule
+    PaginaRoutingModule
   ]
 })
 export class PaginaModule { }
