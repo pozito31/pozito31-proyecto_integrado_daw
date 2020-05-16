@@ -23,6 +23,9 @@ import { PaginaComponent } from './pagina/pagina.component';
 
 @NgModule({
   declarations: [CabeceraComponent, ContactoComponent, HermanomayorComponent, HistoriaComponent, ImagenesComponent, MenuComponent, NoticiasComponent, NovenasComponent, NuevohermanoComponent, ParrocoComponent, PiePaginaComponent, TableroComponent, VideosComponent, PaginaComponent],
+  exports: [
+    PaginaRoutingModule
+  ],
   imports: [
     CommonModule,
     PaginaRoutingModule,
