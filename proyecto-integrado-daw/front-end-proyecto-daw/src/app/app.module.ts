@@ -6,6 +6,9 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdministracionModule } from './administracion/administracion.module';
+import { AuthModule } from './auth/auth.module';
+import { PaginaModule } from './pagina/pagina.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AdministracionModule,
+    AuthModule,
+    PaginaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
