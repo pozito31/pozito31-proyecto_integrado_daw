@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import { PaginaRoutingModule } from './pagina-routing.module';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
@@ -16,6 +18,7 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
 import { TableroComponent } from './componentes/tablero/tablero.component';
 import { VideosComponent } from './componentes/videos/videos.component';
 import { PaginaComponent } from './pagina/pagina.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { PaginaComponent } from './pagina/pagina.component';
   ],
   imports: [
     CommonModule,
-    PaginaRoutingModule
+    FormsModule, 
+    ReactiveFormsModule,
+    PaginaRoutingModule,
+    HttpClientModule
   ]
 })
 export class PaginaModule { }
