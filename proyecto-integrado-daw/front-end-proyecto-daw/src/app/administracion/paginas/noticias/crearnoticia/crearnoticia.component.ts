@@ -22,6 +22,10 @@ export class CrearnoticiaComponent implements OnInit {
         Validators.required,
         Validators.minLength(4)
       ]),
+      'estado': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
+      ]),
       'texto': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
@@ -34,6 +38,7 @@ export class CrearnoticiaComponent implements OnInit {
 
   get titulo() { return this.NoticiasFormulario.get('titulo') }
   get descripcion() { return this.NoticiasFormulario.get('descripcion') }
+  get estado() { return this.NoticiasFormulario.get('estado') }
   get texto() { return this.NoticiasFormulario.get('texto') }
   get imagen() { return this.NoticiasFormulario.get('imagen') }
 
