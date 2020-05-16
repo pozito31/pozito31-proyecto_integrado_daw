@@ -9,7 +9,11 @@ import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegistroComponent, AuthComponent],
+  declarations: [
+    LoginComponent,
+    RegistroComponent,
+    AuthComponent
+  ],
   exports: [
     AuthRoutingModule
   ],
