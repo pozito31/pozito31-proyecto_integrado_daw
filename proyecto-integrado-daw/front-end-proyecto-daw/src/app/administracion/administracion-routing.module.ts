@@ -13,7 +13,6 @@ import { ListadocontactoComponent } from './paginas/contacto/listadocontacto/lis
 
 
 const ADMIN_ROUTES: Routes = [
-  { path: '', redirectTo: 'administracion', pathMatch: 'full' },
   {
     path: 'administracion',
     component: AdministracionComponent
