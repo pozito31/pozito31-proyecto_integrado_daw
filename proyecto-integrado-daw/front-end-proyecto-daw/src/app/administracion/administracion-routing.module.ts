@@ -6,7 +6,7 @@ import { NuevohermanoComponent } from './paginas/nuevohermano/nuevohermano.compo
 import { ContactoComponent } from './paginas/contacto/contacto.component';
 
 
-const routes: Routes = [
+const ADMIN_ROUTES: Routes = [
   {path: '', redirectTo: 'administracion', pathMatch: 'full' },
   {path: 'administracion', component: AdministracionComponent}, 
   {path: 'noticias', component: NoticiasComponent}, 
@@ -15,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(ADMIN_ROUTES)],
   exports: [RouterModule]
 })
 export class AdministracionRoutingModule { }
