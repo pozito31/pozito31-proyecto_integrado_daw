@@ -12,7 +12,7 @@ import { VideosComponent } from './componentes/videos/videos.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 
 
-const routes: Routes = [
+const PAGINA_ROUTES: Routes = [
    {path: '', component: TableroComponent},
    {path: 'historia', component: HistoriaComponent},
    {path: 'hermanomayor', component: HermanomayorComponent},
@@ -26,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(PAGINA_ROUTES)],
   exports: [RouterModule]
 })
 export class PaginaRoutingModule { }
