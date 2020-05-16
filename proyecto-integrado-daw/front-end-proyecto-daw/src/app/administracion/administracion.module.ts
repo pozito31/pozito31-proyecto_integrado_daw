@@ -12,6 +12,9 @@ import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [AdministracionComponent, NavbarComponent, NoticiasComponent, NuevohermanoComponent, ContactoComponent],
+  exports: [
+    AdministracionRoutingModule
+  ],
   imports: [
     CommonModule,
     AppRoutingModule,
