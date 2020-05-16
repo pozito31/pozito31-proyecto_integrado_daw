@@ -18,15 +18,15 @@ const ADMIN_ROUTES: Routes = [
     component: AdministracionComponent
   },
   {
-    path: 'paginas/noticias',
+    path: 'paginas/noticias/crearnoticia',
     component: CrearnoticiaComponent
   },
   {
-    path: 'paginas/noticias',
+    path: 'paginas/noticias/editarnoticia',
     component: EditarnoticiaComponent
   },
   {
-    path: 'paginas/noticias',
+    path: 'paginas/noticias/listadonoticia',
     component: ListadonoticiaComponent
   },
   {
