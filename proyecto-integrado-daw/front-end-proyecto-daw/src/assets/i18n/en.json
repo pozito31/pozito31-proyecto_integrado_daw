@@ -1,0 +1,13 @@
+{
+    "app": {
+        "title": "Angular Multilanguage"
+    },
+
+    "main": {
+        "language": "Language",
+        "spanish": "Spanish",
+        "english": "English",
+        "input_placeholder": "Introduce text here",
+        "introduced_text": "Introduced text is: {{ text }}"
+    }
+}
