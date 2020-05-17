@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { AdministracionModule } from './administracion/administracion.module';
 import { AuthModule } from './auth/auth.module';
 import { PaginaModule } from './pagina/pagina.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
@@ -21,9 +23,21 @@ import { environment } from '../environments/environment';
     AuthModule,
     PaginaModule,
     HttpClientModule,
+    TranslateModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [ HttpClient ]
+      }
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
