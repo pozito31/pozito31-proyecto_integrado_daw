@@ -21,7 +21,7 @@ const routes: Routes = [
   {
     path: 'administracion',
     component: AdministracionComponent,
-    loadChildren: './administracion/administracion/administracion-routing.module#AdministracionRoutingModule'
+    loadChildren: './administracion/administracion-routing.module#AdministracionRoutingModule'
   },
 ];
 
