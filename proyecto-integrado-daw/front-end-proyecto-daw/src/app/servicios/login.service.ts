@@ -12,7 +12,7 @@ export class LoginService {
   login(usuario: string, password: string){
 
     console.log('Entra en login');
-    this.http.get<any>('http://pi.diiesmurgi.org/~jessica/REST_API/').subscribe((response) => {
+    this.http.get<any>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/usuarios').subscribe((response) => {
       console.log("La respuesta es: ", response)
     });
   }
