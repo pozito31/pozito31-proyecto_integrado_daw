@@ -20,7 +20,7 @@
                     <form [formGroup]="NoticiasFormulario" #formDir="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
                         <div [hidden]="formDir.submitted">
                             <div class="cross-validation" [class.cross-validation-error]="NoticiasFormulario.errors?.identityRevealed && (NoticiasFormulario.touched || NoticiasFormulario.dirty)">
-                                <h2 class="titulo">Insertar Noticias</h2>
+                                <h2 class="titulo">Editar Noticias</h2>
                                 <fieldset>
                                     <legend>Noticia</legend>
                                     <hr>
