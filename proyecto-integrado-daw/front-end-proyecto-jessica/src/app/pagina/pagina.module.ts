@@ -20,7 +20,21 @@ import { PaginaComponent } from './pagina/pagina.component';
 
 
 @NgModule({
-  declarations: [CabeceraComponent, ContactoComponent, HermanomayorComponent, HistoriaComponent, ImagenesComponent, NoticiasComponent, NovenasComponent, NuevohermanoComponent, ParrocoComponent, PiePaginaComponent, TableroComponent, VideosComponent, PaginaComponent],
+  declarations: [
+    CabeceraComponent, 
+    ContactoComponent, 
+    HermanomayorComponent, 
+    HistoriaComponent, 
+    ImagenesComponent,
+    NoticiasComponent, 
+    NovenasComponent, 
+    NuevohermanoComponent, 
+    ParrocoComponent, 
+    PiePaginaComponent, 
+    TableroComponent, 
+    VideosComponent, 
+    PaginaComponent
+  ],
   exports: [
     PaginaRoutingModule
   ],
