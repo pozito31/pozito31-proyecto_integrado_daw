@@ -38,8 +38,7 @@ export class NoticiasComponent implements OnInit {
   get imagen() { return this.NoticiasFormulario.get('imagen') }
 
   onSubmit() {
-    const valor = this.NoticiasFormulario;
-    console.log(valor);
+    
   }
 
 }
