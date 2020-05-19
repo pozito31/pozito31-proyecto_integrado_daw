@@ -15,13 +15,13 @@
     <app-cabecera></app-cabecera>
     <app-menu></app-menu>
     <section>
+        <h2>Información de noticias sobre la Hermandad</h2>
+        <br>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <form [formGroup]="NoticiasFormulario" #formDir="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
                         <div [hidden]="formDir.submitted">
-                            <h2>Información de noticias sobre la Hermandad</h2>
-                            <br>
                             <div class="cross-validation" [class.cross-validation-error]="NoticiasFormulario.errors?.identityRevealed && (NoticiasFormulario.touched || NoticiasFormulario.dirty)">
                                 <h2 class="titulo">Insertar Noticias</h2>
                                 <fieldset>
