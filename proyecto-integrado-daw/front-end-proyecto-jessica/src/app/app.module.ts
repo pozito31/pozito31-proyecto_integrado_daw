@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdministracionModule } from './administracion/administracion.module';
+import { AuthModule } from './auth/auth.module';
+import { PaginaModule } from './pagina/pagina.module';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,7 +14,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdministracionModule,
+    AuthModule,
+    PaginaModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
