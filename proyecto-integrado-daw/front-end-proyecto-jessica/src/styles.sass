@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "assets/scss/bootstrap.scss"
+
+//General
+
 body
   font-family: "Open Sans", sans-serif
   color: #4d4643
@@ -13,6 +17,8 @@ a:hover
 
 h1, h2, h3, h4, h5, h6
   font-family: "Roboto", sans-serif
+
+//Back to top button
 
 .back-to-top
   position: fixed
@@ -38,10 +44,13 @@ h1, h2, h3, h4, h5, h6
   background: #2ae149
   transition: 0.3s ease-in-out
 
+//Disable AOS delay on mobile
+
 @media screen and (max-width: 768px)
   [data-aos-delay]
     transition-delay: 0 !important
 
+//Header
 
 #header
   background: #fff
@@ -68,6 +77,8 @@ h1, h2, h3, h4, h5, h6
 #header .logo img
   max-height: 40px
 
+// Navigation Menu
+//Desktop Navigation
 
 .nav-menu ul
   margin: 0
@@ -159,6 +170,8 @@ h1, h2, h3, h4, h5, h6
   .nav-menu .drop-down .drop-down > a:after
     content: "\ea9d"
 
+//Mobile Navigation
+
 .mobile-nav-toggle
   position: fixed
   right: 15px
@@ -249,6 +262,8 @@ h1, h2, h3, h4, h5, h6
 
 .mobile-nav-active .mobile-nav-toggle i
   color: #fff
+
+//Hero Section
 
 #hero
   width: 100%
@@ -393,6 +408,7 @@ h1, h2, h3, h4, h5, h6
   #hero 
     height: 120vh
   
+//Sections General
 
 section
   padding: 60px 0
@@ -425,6 +441,8 @@ section
 
 .section-title p
   margin-bottom: 0
+
+//Footer
 
 #footer
   color: #fff
@@ -512,53 +530,3 @@ section
   position: relative
   border-radius: 4px 0 0 4px
   text-align: left
-
-#footer .footer-newsletter form input[type="email"]
-  border: 0
-  padding: 4px 8px
-  width: calc(100% - 100px)
-
-#footer .footer-newsletter form input[type="submit"]
-  position: absolute
-  top: 0
-  right: -4px
-  bottom: 0
-  border: 0
-  background: none
-  font-size: 16px
-  padding: 0 20px
-  background: #1bbd36
-  color: #fff
-  transition: 0.3s
-  border-radius: 0 4px 4px 0
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1)
-
-#footer .footer-newsletter form input[type="submit"]:hover
-  background: #2ae149
-
-#footer .credits
-  padding-top: 5px
-  font-size: 13px
-  color: #fff
-
-#footer .social-links a
-  font-size: 18px
-  display: inline-block
-  background: rgba(255, 255, 255, 0.08)
-  color: #fff
-  line-height: 1
-  padding: 8px 0
-  margin-right: 4px
-  border-radius: 4px
-  text-align: center
-  width: 36px
-  height: 36px
-  transition: 0.3s
-
-#footer .social-links a:hover
-  background: #1bbd36
-  color: #fff
-  text-decoration: none
-
-
-
