@@ -12,6 +12,7 @@ import { VideosComponent } from './componentes/videos/videos.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { AdministracionComponent } from './administracion/administracion/administracion.component';
 
 const routes: Routes = [
   /*{path: '', redirectTo: 'login', pathMatch: 'full' },*/
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'videos', component: VideosComponent},
   {path: 'contacto', component: ContactoComponent},
   {path: 'login', component: LoginComponent },
-  {path: 'registro', component: RegistroComponent}
+  {path: 'registro', component: RegistroComponent},
+  {path: 'administracion', component: AdministracionComponent, loadChildren: './administracion/administracion-routing.module#AdministracionRoutingModule'}
 ];
 
 @NgModule({
