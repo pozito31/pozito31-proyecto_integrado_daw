@@ -1,1 +1,127 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+.header_area .navbar
+    background: transparent
+    padding: 0px
+    border: 0px
+    border-radius: 0px
+
+.header_area .navbar .nav .nav-item
+    margin-right: 45px
+
+.header_area .navbar .nav .nav-item .nav-link
+    font: 500 12px/80px "Roboto", sans-serif
+    text-transform: uppercase
+    color: #222222
+    padding: 0px
+    display: inline-block
+
+.header_area .navbar .nav .nav-item .nav-link:after
+    display: none
+
+.header_area .navbar .nav .nav-item:hover .nav-link, .header_area .navbar .nav .nav-item.active .nav-link
+    color: #4dbf1c
+
+.header_area .navbar .nav .nav-item.submenu
+    position: relative
+
+.header_area .navbar .nav .nav-item.submenu ul
+    border: none
+    padding: 0px
+    border-radius: 0px
+    box-shadow: none
+    margin: 0px
+    background: #fff
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1)
+
+ @media (min-width: 992px)
+    .header_area .navbar .nav .nav-item.submenu ul
+        position: absolute
+        top: 120%
+        left: 0px
+        min-width: 200px
+        text-align: left
+        opacity: 0
+        transition: all 300ms ease-in
+        visibility: hidden
+        display: block
+        border: none
+        padding: 0px
+        border-radius: 0px
+
+.header_area .navbar .nav .nav-item.submenu ul:before
+    content: ""
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 10px 10px 0 10px
+    border-color: #eeeeee transparent transparent transparent
+    position: absolute
+    right: 24px
+    top: 45px
+    z-index: 3
+    opacity: 0
+    transition: all 400ms linear
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item
+    display: block
+    float: none
+    margin-right: 0px
+    border-bottom: 1px solid #ededed
+    margin-left: 0px
+    transition: all 0.4s linear
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link
+    line-height: 45px
+    color: #222222
+    padding: 0px 30px
+    transition: all 150ms linear
+    display: block
+    margin-right: 0px
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item:last-child
+    border-bottom: none
+.header_area .navbar .nav .nav-item.submenu ul .nav-item:hover .nav-link 
+    background: #4dbf1c
+    color: #fff
+
+@media (min-width: 992px) 
+    .header_area .navbar .nav .nav-item.submenu:hover ul 
+        visibility: visible
+        opacity: 1
+        top: 100%
+
+.header_area .navbar .nav .nav-item.submenu:hover ul .nav-item
+    margin-top: 0px
+
+ .header_area .navbar .nav .nav-item:last-child
+    margin-right: 0px
+
+.header_area .navbar .search
+    font-size: 12px
+    line-height: 60px
+    display: inline-block
+    color: #222222
+    margin-left: 80px
+
+.header_area .navbar .search i
+    font-weight: 600
+
+.header_area + section, .header_area + row, .header_area + div 
+    margin-top: 122px
+
+.header_area.navbar_fixed .main_menu
+    position: fixed
+    width: 100%
+    top: -70px
+    left: 0
+    right: 0
+    background: #fff
+    transform: translateY(70px)
+    transition: transform 500ms ease, background 500ms ease
+    -webkit-transition: transform 500ms ease, background 500ms ease
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1)
+.header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link
+    line-height: 70px
