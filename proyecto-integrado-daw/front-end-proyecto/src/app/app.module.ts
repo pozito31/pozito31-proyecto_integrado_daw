@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
@@ -17,6 +19,7 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { TableroComponent } from './componentes/tablero/tablero.component';
 import { VideosComponent } from './componentes/videos/videos.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,11 @@ import { VideosComponent } from './componentes/videos/videos.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule, 
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule, 
+    HttpClient 
   ],
   providers: [],
   bootstrap: [AppComponent]
