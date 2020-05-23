@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdministracionModule } from './administracion/administracion.module';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { HermanomayorComponent } from './componentes/hermanomayor/hermanomayor.component';
@@ -45,6 +46,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     FormsModule, 
     ReactiveFormsModule,
+    AdministracionModule,
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
