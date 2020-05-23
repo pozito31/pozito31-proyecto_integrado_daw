@@ -4,7 +4,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-!(function($) {
+$(document).ready(function(){
   "use strict";
 
   // Smooth scroll for the navigation menu and links with .scrollto classes
@@ -45,6 +45,7 @@
 
   // Mobile Navigation
   if ($('.nav-menu').length) {
+    console.log("testsssssssssssss1")
     var $mobile_nav = $('.nav-menu').clone().prop({
       class: 'mobile-nav d-lg-none'
     });
@@ -154,5 +155,4 @@
     });
   }
   aos_init();
-
-})(jQuery);
+});
