@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import { AdministracionRoutingModule } from './administracion-routing.module';
 import { AdministracionComponent } from './administracion/administracion.component';
 import { NavbarComponent } from './compartidos/navbar/navbar.component';
@@ -17,8 +19,13 @@ import { ListadonuevohermanoComponent } from './paginas/nuevohermano/listadonuev
 
 @NgModule({
   declarations: [AdministracionComponent, NavbarComponent, CrearcontactoComponent, EditarcontactoComponent, ListadocontactoComponent, CrearnoticiaComponent, EditarnoticiaComponent, ListadonoticiaComponent, CrearnuevohermanoComponent, EditarnuevohermanoComponent, ListadonuevohermanoComponent],
+  exports: [
+    AdministracionRoutingModule
+  ],
   imports: [
     CommonModule,
+    FormsModule, 
+    ReactiveFormsModule,
     AdministracionRoutingModule
   ]
 })
