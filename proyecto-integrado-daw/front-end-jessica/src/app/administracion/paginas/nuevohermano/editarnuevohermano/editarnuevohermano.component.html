@@ -1,1 +1,152 @@
-<p>editarnuevohermano works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3c790a">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Página de Nuevo hermano">
+    <title>Nuevo hermano</title>
+    <link rel="icon" href="assets/images/logotipo.ico">
+    <link rel="apple-touch-icon" href="assets/images/virgencita.png">
+    <link rel="manifest" href="assets/js/manifest.webmanifest.json">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <form [formGroup]="NuevohermanoFormulario" #formDir="ngForm" (ngSubmit)="onSubmit()">
+                        <div [hidden]="formDir.submitted">
+                            <div class="cross-validation" [class.cross-validation-error]="NuevohermanoFormulario.errors?.identityRevealed && (NuevohermanoFormulario.touched || NuevohermanoFormulario.dirty)">
+                                <h2 class="titulo">Editar nuevo hermano</h2>
+                                <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="nombre" 
+                                           id="nombre" 
+                                           formControlName="nombre"
+                                           required
+                                           size="30"
+                                           aria-describedby="nombre">
+
+                                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+                                        <div *ngIf="nombre.errors.required">
+                                             Debe indicar el nombre.
+                                        </div>
+                                        <div *ngIf="nombre.errors.minlength">
+                                             El nombre debe tener como mínimo 4 caractéres.
+                                        </div>            
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="primerapellido">Primer apellido</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="primerapellido" 
+                                           id="primerapellido" 
+                                           formControlName="primerapellido"
+                                           required
+                                           size="30"
+                                           aria-describedby="primerapellido">
+
+                                    <div *ngIf="primerapellido.invalid && (primerapellido.dirty || primerapellido.touched)" class="alert alert-danger">
+                                        <div *ngIf="primerapellido.errors.required">
+                                             Debe indicar el primer apellido.
+                                        </div>
+                                        <div *ngIf="primerapellido.errors.minlength">
+                                             El primer apellido debe tener como mínimo 4 caractéres.
+                                        </div>            
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="segundoapellido">Segundo apellido</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="segundoapellido" 
+                                           id="segundoapellido" 
+                                           formControlName="segundoapellido"
+                                           required
+                                           size="30"
+                                           aria-describedby="segundoapellido">
+
+                                    <div *ngIf="segundoapellido.invalid && (segundoapellido.dirty || segundoapellido.touched)" class="alert alert-danger">
+                                        <div *ngIf="segundoapellido.errors.required">
+                                             Debe indicar el segundo apellido.
+                                        </div>
+                                        <div *ngIf="segundoapellido.errors.minlength">
+                                             El segundo apellido debe tener como mínimo 4 caractéres.
+                                        </div>            
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dni">DNI</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="dni" 
+                                           id="dni" 
+                                           formControlName="dni"
+                                           required
+                                           size="30"
+                                           aria-describedby="dni">
+
+                                    <div *ngIf="dni.invalid && (dni.dirty || dni.touched)" class="alert alert-danger">
+                                        <div *ngIf="dni.errors.required">
+                                             Debe indicar el DNI.
+                                        </div>
+                                        <div *ngIf="dni.errors.minlength">
+                                             El DNI debe tener como mínimo 4 caractéres.
+                                        </div>            
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="correoelectronico">Correo electronico</label>
+                                    <input type="email" 
+                                           class="form-control" 
+                                           name="correoelectronico" 
+                                           id="correoelectronico"
+                                           formControlName="correoelectronico"
+                                           required
+                                           size="30"
+                                           aria-describedby="correoelectronico">
+
+                                    <div *ngIf="correoelectronico.invalid && (correoelectronico.dirty || correoelectronico.touched)" class="alert alert-danger">
+                                        <div *ngIf="correoelectronico.errors.required">
+                                            Debe indicar el correo electronico.
+                                        </div>
+                                        <div *ngIf="correoelectronico.errors.minlength">
+                                            El correo electronico debe tener como mínimo 4 caractéres.
+                                        </div>            
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Telefono</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="telefono" 
+                                       id="telefono" 
+                                       formControlName="telefono"
+                                       required
+                                       size="30"
+                                       aria-describedby="telefono">
+
+                                <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert alert-danger">
+                                    <div *ngIf="telefono.errors.required">
+                                         Debe indicar el telefono.
+                                    </div>
+                                    <div *ngIf="telefono.errors.minlength">
+                                         El telefono debe tener como mínimo 4 caractéres.
+                                    </div>            
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" name="editar-nuevohermano" id="editar-nuevohermano" value="editar-nuevohermano" [disabled]="NuevohermanoFormulario.invalid">Editar nuevohermano</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
