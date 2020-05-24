@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ServicioRestNoticiasService } from '../../../../../front-end-proyecto-daw/src/app/servicios/servicio-rest-noticias.service';
+
 
 @Component({
   selector: 'app-noticias',
@@ -8,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NoticiasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private servicioRest: ServicioRestNoticiasService) { }
 
   NoticiasFormulario: FormGroup;
 
