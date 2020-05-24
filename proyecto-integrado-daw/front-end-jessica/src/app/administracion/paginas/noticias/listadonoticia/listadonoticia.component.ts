@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioRestNoticiasService } from '../../../../servicios/servicio-rest-noticias.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { Noticias, datosDevueltos } from '../../../../interfaces/noticias';
 
 @Component({
   selector: 'app-listadonoticia',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadonoticiaComponent implements OnInit {
 
-  constructor() { }
+  noticias: Noticias[];
+  error: boolean = false;
+
+  constructor(private servicioRest: ServicioRestNoticiasService) { }
 
   ngOnInit(): void {
+    this.servicioRest.ObtenerNoticias()
+      .subscribe((response: datosDevueltos) => {
+        this.noticias = response.data;
+      },
+        (error) => {
+          this.error = true;
+        })
   }
 
 }
