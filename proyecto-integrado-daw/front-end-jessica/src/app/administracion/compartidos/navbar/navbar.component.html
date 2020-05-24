@@ -1,45 +1,36 @@
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
+  <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a routerLink="/"><span>Herm</span>andad</a></h1>
-      <!-- nav-menu -->
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Noticias
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" routerLink="/paginas/noticias/crearnoticia" title="Página de crear noticia" aria-label="Vuelve a crear noticia">Cnoticia</a>
-              <a class="dropdown-item" routerLink="/paginas/noticias/editarnoticia" title="Página de editar noticia" aria-label="Vuelve a editar noticia">Enoticia</a>
-              <a class="dropdown-item" routerLink="/paginas/noticias/listadonoticia" title="Página de listado noticia" aria-label="Vuelve a listado noticia">Lnoticia</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Nuevo hermano
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" routerLink="/paginas/nuevohermano/crearnuevohermano" title="Página de crear nuevo hermano" aria-label="Vuelve a crear nuevo hermano">Cnuevohermano</a>
-              <a class="dropdown-item" routerLink="/paginas/nuevohermano/editarnuevohermano" title="Página de editar nuevo hermano" aria-label="Vuelve a editar nuevo hermano">Enuevohermano</a>
-              <a class="dropdown-item" routerLink="/paginas/nuevohermano/listadonuevohermano" title="Página de listado nuevo hermano" aria-label="Vuelve a listado nuevo hermano">Lnuevohermano</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Contacto
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" routerLink="/paginas/contacto/crearcontacto" title="Página de crear contacto" aria-label="Vuelve a crear contacto">Ccontacto</a>
-              <a class="dropdown-item" routerLink="/paginas/contacto/editarcontacto" title="Página de editar contacto" aria-label="Vuelve a editar contacto">Econtacto</a>
-              <a class="dropdown-item" routerLink="/paginas/contacto/listadocontacto" title="Página de listado contacto" aria-label="Vuelve a listado contacto">Lcontacto</a>
-            </div>
-          </li>
-        </ul>
-      </nav>
-      <!-- nav-menu -->
-    </div>
-  </header>
-  <!-- End Header -->
+    <h1 class="logo mr-auto"><a routerLink="/"><span>Herm</span>andad</a></h1>
+    <!-- nav-menu -->
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="drop-down"><a routerLink="">Noticias</a>
+          <ul>
+            <li><a routerLink="/paginas/noticias/crearnoticia" title="Página de crear noticia" aria-label="Vuelve a crear noticia">Cnoticia</a></li>
+            <li><a routerLink="/paginas/noticias/editarnoticia" title="Página de editar noticia" aria-label="Vuelve a editar noticia">Enoticia</a></li>
+            <li><a routerLink="/paginas/noticias/listadonoticia" title="Página de listado noticia" aria-label="Vuelve a listado noticia">Lnoticia</a></li>
+          </ul>
+        </li>
+        <li class="drop-down"><a routerLink="">Nuevo hermano</a>
+          <ul>
+            <li><a routerLink="/paginas/nuevohermano/crearnuevohermano" title="Página de crear nuevo hermano" aria-label="Vuelve a crear nuevo hermano">Cnuevohermano</a></li>
+            <li><a routerLink="/paginas/nuevohermano/editarnuevohermano" title="Página de editar nuevo hermano" aria-label="Vuelve a editar nuevo hermano">Enuevohermano</a></li>
+            <li><a routerLink="/paginas/nuevohermano/listadonuevohermano" title="Página de listado nuevo hermano" aria-label="Vuelve a listado nuevo hermano">Lnuevohermano</a></li>
+          </ul>
+        </li>
+        <li class="drop-down"><a routerLink="">Contacto</a>
+          <ul>
+            <li><a routerLink="/paginas/contacto/crearcontacto" title="Página de crear contacto" aria-label="Vuelve a crear contacto">Ccontacto</a></li>
+            <li><a routerLink="/paginas/contacto/editarcontacto" title="Página de editar contacto" aria-label="Vuelve a editar contacto">Econtacto</a></li>
+            <li><a routerLink="/paginas/contacto/listadocontacto" title="Página de listado contacto" aria-label="Vuelve a listado contacto">Lcontacto</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- nav-menu -->
+  </div>
+</header>
+<!-- End Header -->
 
