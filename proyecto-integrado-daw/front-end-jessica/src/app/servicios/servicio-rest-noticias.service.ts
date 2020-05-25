@@ -23,11 +23,7 @@ export class ServicioRestNoticiasService {
   ObtenerNoticia(id_noticia:number){
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
   }
-
-  EnviarNoticias(jsonData){ 
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias',jsonData);
-  }
-
+  
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
