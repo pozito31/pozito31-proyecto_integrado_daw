@@ -34,8 +34,7 @@ export class ContactoComponent implements OnInit {
   get mensaje() { return this.ContactoFormulario.get('mensaje') }
 
   onSubmit() {
-    const valor = this.ContactoFormulario;
-    console.log(valor);
+   
   }
 
 }
