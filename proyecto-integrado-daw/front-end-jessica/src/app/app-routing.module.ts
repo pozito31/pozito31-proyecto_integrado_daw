@@ -33,6 +33,7 @@ const routes: Routes = [
     component: AdministracionComponent,
     loadChildren: './administracion/administracion-routing.module#AdministracionRoutingModule'
   },
+  {path: '**', component: TableroComponent}
 ];
 
 @NgModule({
