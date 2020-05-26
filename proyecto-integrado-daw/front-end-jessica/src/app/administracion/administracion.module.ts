@@ -18,7 +18,18 @@ import { ListadonuevohermanoComponent } from './paginas/nuevohermano/listadonuev
 
 
 @NgModule({
-  declarations: [AdministracionComponent, NavbarComponent, CrearcontactoComponent, EditarcontactoComponent, ListadocontactoComponent, CrearnoticiaComponent, EditarnoticiaComponent, ListadonoticiaComponent, CrearnuevohermanoComponent, EditarnuevohermanoComponent, ListadonuevohermanoComponent],
+  declarations: [
+    AdministracionComponent, 
+    NavbarComponent, 
+    CrearcontactoComponent, 
+    EditarcontactoComponent, 
+    ListadocontactoComponent, 
+    CrearnoticiaComponent, 
+    EditarnoticiaComponent, 
+    ListadonoticiaComponent, 
+    CrearnuevohermanoComponent, 
+    EditarnuevohermanoComponent, 
+    ListadonuevohermanoComponent],
   exports: [
     AdministracionRoutingModule
   ],
