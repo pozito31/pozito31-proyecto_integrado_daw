@@ -28,7 +28,11 @@ const routes: Routes = [
   {path: 'contacto', component: ContactoComponent},
   {path: 'login', component: LoginComponent },
   {path: 'registro', component: RegistroComponent},
-  {path: 'administracion', component: AdministracionComponent, loadChildren: './administracion/administracion-routing.module#AdministracionRoutingModule'}
+  {
+    path: 'administracion',
+    component: AdministracionComponent,
+    loadChildren: './administracion/administracion-routing.module#AdministracionRoutingModule'
+  },
 ];
 
 @NgModule({
