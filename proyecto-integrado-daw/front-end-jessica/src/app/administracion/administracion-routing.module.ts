@@ -51,8 +51,7 @@ const ADMIN_ROUTES: Routes = [
   {
     path: 'paginas/contacto/listadocontacto',
     component:  ListadocontactoComponent
-  },
-  {path: '**', component: AdministracionComponent}
+  }
 ];
 
 @NgModule({
