@@ -42,7 +42,6 @@ export class NoticiasComponent implements OnInit {
   get imagen() { return this.NoticiasFormulario.get('imagen') }
 
   onSubmit() {
-    this.isSubmitting = true;
     
   }
 
