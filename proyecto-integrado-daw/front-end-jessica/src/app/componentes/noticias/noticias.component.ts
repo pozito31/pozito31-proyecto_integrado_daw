@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ServicioRestNoticiasService } from '../../servicios/servicio-rest-noticias.service';
-
+import { DatosProtegidosService } from "../../servicios/datos-protegidos.service";
+import { datosDevueltos } from '../../interfaces/noticias';
 
 
 @Component({
@@ -11,7 +13,7 @@ import { ServicioRestNoticiasService } from '../../servicios/servicio-rest-notic
 })
 export class NoticiasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient, private direcciones : DatosProtegidosService) { }
 
   NoticiasFormulario: FormGroup;
 
