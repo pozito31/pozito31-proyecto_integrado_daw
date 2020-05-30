@@ -11,6 +11,10 @@ import { datosDevueltos } from '../interfaces/noticias';
 export class ServicioRestNoticiasService {
 
   constructor(private http: HttpClient, private direcciones : DatosProtegidosService) { }
+  
+  addNoticias(id_noticia:number){
+    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
+  }
 
   ObtenerNoticias(){
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias') 
