@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ServicioRestNoticiasService } from '../../servicios/servicio-rest-noticias.service';
+
 
 
 @Component({
@@ -12,6 +14,7 @@ export class NoticiasComponent implements OnInit {
   constructor() { }
 
   NoticiasFormulario: FormGroup;
+  isSubmitting = false;
 
   ngOnInit(): void {
     this.NoticiasFormulario = new FormGroup({
@@ -39,6 +42,7 @@ export class NoticiasComponent implements OnInit {
   get imagen() { return this.NoticiasFormulario.get('imagen') }
 
   onSubmit() {
+    this.isSubmitting = true;
     
   }
 
