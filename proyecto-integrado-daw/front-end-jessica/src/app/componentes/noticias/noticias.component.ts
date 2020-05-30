@@ -14,7 +14,6 @@ export class NoticiasComponent implements OnInit {
   constructor() { }
 
   NoticiasFormulario: FormGroup;
-  isSubmitting = false;
 
   ngOnInit(): void {
     this.NoticiasFormulario = new FormGroup({
