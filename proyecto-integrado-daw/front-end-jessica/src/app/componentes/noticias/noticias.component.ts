@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { ServicioRestNoticiasService } from '../../servicios/servicio-rest-noticias.service';
-import { DatosProtegidosService } from "../../servicios/datos-protegidos.service";
-import { Noticias, datosDevueltos } from '../../interfaces/noticias';
 import { Router } from '@angular/router';
 
 
