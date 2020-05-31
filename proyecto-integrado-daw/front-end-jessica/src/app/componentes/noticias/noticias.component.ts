@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { ServicioRestNoticiasService } from '../../servicios/servicio-rest-noticias.service';
 import { DatosProtegidosService } from "../../servicios/datos-protegidos.service";
 import { datosDevueltos } from '../../interfaces/noticias';
@@ -14,9 +14,14 @@ import { Router } from '@angular/router';
 })
 export class NoticiasComponent implements OnInit {
 
-  constructor(private http: HttpClient, private direcciones : DatosProtegidosService, private _router: Router) { }
+  constructor(private http: HttpClient) { }
 
   NoticiasFormulario: FormGroup;
+
+  //Para poder enviar la imagen hacia el servidor
+  formData = new FormData;
+  //Para poder almacenar la imagen como archivo
+  imagenFile: File;
 
   ngOnInit(): void {
     this.NoticiasFormulario = new FormGroup({
@@ -44,7 +49,13 @@ export class NoticiasComponent implements OnInit {
   get imagen() { return this.NoticiasFormulario.get('imagen') }
 
   onSubmit() {
-   
+    console.log(this.NoticiasFormulario.value);
+    
+  }
+
+  obtenerImagen(event: any){
+    const file: File = event.target.files[0];
+    this.imagenFile = file;
   }
 
 }

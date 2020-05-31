@@ -87,7 +87,8 @@
                                                formControlName="imagen"
                                                required
                                                aria-describedby="imagen" 
-                                               size="44">
+                                               size="44"
+                                               (change)="obtenerImagen($event)">
 
                                         <div *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)" class="alert alert-danger">
                                             <div *ngIf="imagen.errors.required">
