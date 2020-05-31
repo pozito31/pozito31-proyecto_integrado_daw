@@ -44,6 +44,11 @@ export class NoticiasComponent implements OnInit {
 
   onSubmit() {
     console.log(this.NoticiasFormulario.value);
+    this.http.post<any>('url_noticias_store', this.NoticiasFormulario, {
+      headers: new HttpHeaders({
+        Accept: 'application/json'
+      })
+    });
   }
 
 }
