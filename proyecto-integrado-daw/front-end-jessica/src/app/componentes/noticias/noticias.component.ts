@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ServicioRestNoticiasService } from '../../servicios/servicio-rest-noticias.service';
+import { Noticias } from '../../interfaces/noticias';
 
 
 @Component({
@@ -10,7 +12,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./noticias.component.sass']
 })
 export class NoticiasComponent implements OnInit {
-
   constructor(private http: HttpClient) {}
 
   NoticiasFormulario: FormGroup;
