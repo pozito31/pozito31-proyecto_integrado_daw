@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { DatosProtegidosService } from "./datos-protegidos.service";
 import { datosDevueltos } from '../interfaces/noticias';
+import { Noticias } from '../../../../front-end-proyecto-daw/src/app/interfaces/noticias';
 
 @Injectable({
   providedIn: 'root'
