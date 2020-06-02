@@ -45,6 +45,11 @@ export class NoticiasComponent implements OnInit {
 
   onSubmit() {
     console.log(this.NoticiasFormulario.value);
+    this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', {
+      headers: new HttpHeaders({
+        Accept: 'application/json'
+      })
+    })
   }
 
 }
