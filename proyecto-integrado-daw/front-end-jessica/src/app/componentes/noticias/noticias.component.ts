@@ -13,7 +13,7 @@ import { Observable, throwError } from 'rxjs';
   styleUrls: ['./noticias.component.sass']
 })
 export class NoticiasComponent implements OnInit {
-  constructor(private http: HttpClient, noticiasService: ServicioRestNoticiasService) {}
+  constructor(private http: HttpClient, private noticiasService: ServicioRestNoticiasService) {}
 
   NoticiasFormulario: FormGroup;
 
@@ -45,11 +45,7 @@ export class NoticiasComponent implements OnInit {
 
   onSubmit() {
     console.log(this.NoticiasFormulario.value);
-    this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', {
-      headers: new HttpHeaders({
-        Accept: 'application/json'
-      })
-    })
+    
   }
 
 }
