@@ -49,10 +49,10 @@ export class NoticiasComponent implements OnInit {
     this.noticiasService.agregarNoticia(this.NoticiasFormulario.value).subscribe(
       (response) => {
         console.log(response);
-        // aqui vas a colocar el codigo que quieres que haga ya sea redirigir al componente que quieras o mostrar un mensaje de guardado
+        
       }, (error) => { 
         console.error(error);
-        // aqui vas a colocar un mensaje de error o si quieres lo dejas vacio o como te lo hayan pedido en tu curso
+        
       }
     );
   }
