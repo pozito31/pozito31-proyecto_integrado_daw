@@ -12,9 +12,7 @@ import { Noticias } from '../../interfaces/noticias';
   styleUrls: ['./noticias.component.sass']
 })
 export class NoticiasComponent implements OnInit {
-  constructor(
-    private noticiasService: ServicioRestNoticiasService
-  ) {}
+  constructor(private http: HttpClient, noticiasService: ServicioRestNoticiasService) {}
 
   NoticiasFormulario: FormGroup;
 
@@ -46,15 +44,7 @@ export class NoticiasComponent implements OnInit {
 
   onSubmit() {
     console.log(this.NoticiasFormulario.value);
-    this.noticiasService.agregarNoticia(this.NoticiasFormulario.value).subscribe(
-      (response) => {
-        console.log(response);
-        
-      }, (error) => { 
-        console.error(error);
-        
-      }
-    );
+    
   }
 
 }
