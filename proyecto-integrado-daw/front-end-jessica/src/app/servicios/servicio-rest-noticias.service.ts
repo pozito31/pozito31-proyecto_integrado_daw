@@ -14,6 +14,14 @@ export class ServicioRestNoticiasService {
 
   constructor(private http: HttpClient, private direcciones : DatosProtegidosService) { }
   
+  agregarNoticia(noticia: datosDevueltos) {
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia)
+      .pipe(
+        retry(3), // si ocurre un error lo volvemos a intentar hasta tres veces
+        catchError(this.handleError) // Gestionar el error
+      );
+  }
+
   addNoticias(id_noticia:number){
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
   }
