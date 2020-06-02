@@ -4,6 +4,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Router } from '@angular/router';
 import { ServicioRestNoticiasService } from '../../servicios/servicio-rest-noticias.service';
 import { Noticias } from '../../interfaces/noticias';
+import { Observable, throwError } from 'rxjs';
 
 
 @Component({
@@ -44,7 +45,6 @@ export class NoticiasComponent implements OnInit {
 
   onSubmit() {
     console.log(this.NoticiasFormulario.value);
-    
   }
 
 }
