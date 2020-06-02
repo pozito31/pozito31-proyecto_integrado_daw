@@ -13,7 +13,7 @@ import { Observable, throwError } from 'rxjs';
   styleUrls: ['./noticias.component.sass']
 })
 export class NoticiasComponent implements OnInit {
-  constructor(private http: HttpClient, private noticiasService: ServicioRestNoticiasService) {}
+  constructor(private ServicioRestNoticiasService: ServicioRestNoticiasService) {}
 
   NoticiasFormulario: FormGroup;
 
