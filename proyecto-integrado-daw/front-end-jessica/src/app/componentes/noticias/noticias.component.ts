@@ -44,7 +44,8 @@ export class NoticiasComponent implements OnInit {
   get imagen() { return this.NoticiasFormulario.get('imagen') }
 
   onSubmit() {
-    
+    this.ServicioRestNoticiasService.agregarNoticia(newNoticia)
+    .subscribe(noticia => this.noticias.push(noticia))
   }
 
 }

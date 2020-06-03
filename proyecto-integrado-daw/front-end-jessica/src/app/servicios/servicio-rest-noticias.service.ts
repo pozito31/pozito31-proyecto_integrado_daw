@@ -11,6 +11,8 @@ import { Noticias, datosDevueltos } from '../interfaces/noticias';
 
 
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,11 +20,8 @@ export class ServicioRestNoticiasService {
   
   constructor(private http: HttpClient, private direcciones : DatosProtegidosService) { }
   
-  agregarNoticia (noticia: Noticias): Observable<Noticias> {
-    return this.http.post<Noticias>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia)
-      .pipe(
-        catchError(this.handleError('agregarNoticia', noticia))
-    );
+  agregarNoticia (noticia: datosDevueltos): Observable<datosDevueltos> {
+    return this.http.post<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia);
   }
   
   addNoticias(id_noticia:number){
