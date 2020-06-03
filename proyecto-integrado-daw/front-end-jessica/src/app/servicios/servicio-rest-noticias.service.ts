@@ -20,9 +20,7 @@ export class ServicioRestNoticiasService {
   
   constructor(private http: HttpClient, private direcciones : DatosProtegidosService) { }
   
-  agregarNoticia (noticia: datosDevueltos): Observable<datosDevueltos> {
-    return this.http.post<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia);
-  }
+ 
   
   addNoticias(id_noticia:number){
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
@@ -39,7 +37,15 @@ export class ServicioRestNoticiasService {
   ObtenerNoticia(id_noticia:number){
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
   }
-  
+
+  añadirNoticia(noticia:Noticias):Observable<{}> {
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia);
+  }
+
+  borrarNoticia(id_noticia:number):Observable<{}>{
+    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
