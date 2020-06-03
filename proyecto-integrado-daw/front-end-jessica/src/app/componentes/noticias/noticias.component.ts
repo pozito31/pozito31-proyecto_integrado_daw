@@ -16,7 +16,7 @@ export class NoticiasComponent implements OnInit {
   constructor(private ServicioRestNoticiasService: ServicioRestNoticiasService) {}
 
   NoticiasFormulario: FormGroup;
-
+  nuevaNoticia: any;
 
   ngOnInit(): void {
     this.NoticiasFormulario = new FormGroup({
@@ -44,8 +44,13 @@ export class NoticiasComponent implements OnInit {
   get imagen() { return this.NoticiasFormulario.get('imagen') }
 
   onSubmit() {
-    this.ServicioRestNoticiasService.agregarNoticia(newNoticia)
-    .subscribe(noticia => this.noticias.push(noticia))
+    this.nuevaNoticia.titulo = this.NoticiasFormulario.get("titulo").value;
+    this.nuevaNoticia.descripcion = this.NoticiasFormulario.get("descripcion").value;
+    this.nuevaNoticia.texto = this.NoticiasFormulario.get("texto").value;
+    this.nuevaNoticia.imagen = this.NoticiasFormulario.get("imagen").value;
+
+    console.log(this.NoticiasFormulario);
+    this.ServicioRestNoticiasService.añadirNoticia(this.nuevaNoticia).subscribe();
   }
 
 }
