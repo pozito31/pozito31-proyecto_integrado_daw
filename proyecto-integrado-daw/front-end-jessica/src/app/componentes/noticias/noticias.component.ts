@@ -13,10 +13,12 @@ import { Observable, throwError } from 'rxjs';
   styleUrls: ['./noticias.component.sass']
 })
 export class NoticiasComponent implements OnInit {
-  constructor(private ServicioRestNoticiasService: ServicioRestNoticiasService) {}
 
+  constructor(private ServicioRestNoticiasService: ServicioRestNoticiasService) {}
+  
+  nuevaNoticia
   NoticiasFormulario: FormGroup;
-  nuevaNoticia: any;
+  
 
   ngOnInit(): void {
     this.NoticiasFormulario = new FormGroup({
@@ -48,7 +50,6 @@ export class NoticiasComponent implements OnInit {
     this.nuevaNoticia.descripcion = this.NoticiasFormulario.get("descripcion").value;
     this.nuevaNoticia.texto = this.NoticiasFormulario.get("texto").value;
     this.nuevaNoticia.imagen = this.NoticiasFormulario.get("imagen").value;
-
     console.log(this.NoticiasFormulario);
     this.ServicioRestNoticiasService.añadirNoticia(this.nuevaNoticia).subscribe();
   }
