@@ -38,11 +38,11 @@ export class ServicioRestNoticiasService {
   }
 
   añadirNoticia(noticia:Noticias){
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia, httpOptions);
+    return this.http.post<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia, httpOptions);
   }
 
   borrarNoticia(id_noticia:number){
-    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
+    return this.http.delete<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
   }
 
   private handleError(error: HttpErrorResponse) {
