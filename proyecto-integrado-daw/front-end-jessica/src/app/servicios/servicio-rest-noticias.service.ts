@@ -37,12 +37,12 @@ export class ServicioRestNoticiasService {
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
   }
 
-  añadirNoticia(noticia:Noticias){
-    return this.http.post<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia, httpOptions);
+  añadirNoticia(noticia:Noticias): Observable<{}>{
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia, httpOptions);
   }
 
-  borrarNoticia(id_noticia:number){
-    return this.http.delete<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
+  borrarNoticia(id_noticia:number): Observable<{}>{
+    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
   }
 
   private handleError(error: HttpErrorResponse) {
