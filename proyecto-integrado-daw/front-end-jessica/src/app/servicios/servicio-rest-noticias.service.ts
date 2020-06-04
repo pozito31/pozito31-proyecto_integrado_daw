@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { DatosProtegidosService } from "./datos-protegidos.service";
 import { Noticias, datosDevueltos } from '../interfaces/noticias';
 
-
-
-
-
-
-
-
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -38,11 +37,11 @@ export class ServicioRestNoticiasService {
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
   }
 
-  añadirNoticia(noticia:Noticias):Observable<{}> {
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia);
+  añadirNoticia(noticia:Noticias){
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia, httpOptions);
   }
 
-  borrarNoticia(id_noticia:number):Observable<{}>{
+  borrarNoticia(id_noticia:number){
     return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
   }
 
