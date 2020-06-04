@@ -1,8 +1,11 @@
 export interface Noticias {
     id_noticia: number;
+    titulo: string;
     descripcion: string;
+    texto: string;
     estado: string;
     directorio_noticia: string;
+    imagen: string;
     usuarios_id_usuario: number;
 }
 

@@ -15,8 +15,17 @@ import { Observable, throwError } from 'rxjs';
 export class NoticiasComponent implements OnInit {
 
   constructor(private ServicioRestNoticiasService: ServicioRestNoticiasService) {}
-  
-  nuevaNoticia
+  nuevaNoticia: Noticias = {
+    id_noticia: 0,
+    titulo: "a",
+    descripcion: "a",
+    texto: "a",
+    estado: "a",
+    directorio_noticia: "a",
+    imagen: "a",
+    usuarios_id_usuario: 0
+  };
+
   NoticiasFormulario: FormGroup;
   
 
@@ -53,5 +62,4 @@ export class NoticiasComponent implements OnInit {
     console.log(this.NoticiasFormulario);
     this.ServicioRestNoticiasService.añadirNoticia(this.nuevaNoticia).subscribe();
   }
-
 }
