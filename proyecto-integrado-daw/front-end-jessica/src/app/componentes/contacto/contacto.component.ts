@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { ServicioRestContactoService } from '../../servicios/servicio-rest-contacto.service';
-import { Contacto } from '../../interfaces/contacto';
+import { Contacto, datosDevueltos } from '../../interfaces/contacto';
+import { Observable, throwError } from 'rxjs';
 
 
 @Component({
