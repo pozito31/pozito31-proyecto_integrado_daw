@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { DatosProtegidosService } from "./datos-protegidos.service";
 import { Contacto, datosDevueltos } from '../interfaces/contacto';
-import { HttpHeaders } from '@angular/common/http';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
