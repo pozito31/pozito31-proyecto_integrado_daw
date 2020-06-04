@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ServicioRestNoticiasService } from '../../../../servicios/servicio-rest-noticias.service';
+import { Noticias } from '../../../../interfaces/noticias';
+import { Observable, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-crearnoticia',
@@ -8,7 +13,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class CrearnoticiaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ServicioRestNoticiasService: ServicioRestNoticiasService) { }
+  nuevaNoticia: Noticias = {
+    id_noticia: 0,
+    titulo: "a",
+    descripcion: "a",
+    texto: "a",
+    estado: "a",
+    directorio_noticia: "a",
+    imagen: "a",
+    usuarios_id_usuario: 0
+  };
 
   NoticiasFormulario: FormGroup;
 
@@ -43,7 +58,12 @@ export class CrearnoticiaComponent implements OnInit {
   get imagen() { return this.NoticiasFormulario.get('imagen') }
 
   onSubmit() {
-    
+    this.nuevaNoticia.titulo = this.NoticiasFormulario.get("titulo").value;
+    this.nuevaNoticia.descripcion = this.NoticiasFormulario.get("descripcion").value;
+    this.nuevaNoticia.texto = this.NoticiasFormulario.get("texto").value;
+    this.nuevaNoticia.imagen = this.NoticiasFormulario.get("imagen").value;
+    console.log(this.NoticiasFormulario);
+    this.ServicioRestNoticiasService.añadirNoticia(this.nuevaNoticia).subscribe();
   }
 
 }
