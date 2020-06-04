@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class ServicioRestNoticiasService {
   
-  constructor(private http: HttpClient, private direcciones: DatosProtegidosService, private headers:  HttpHeaders) { }
+  constructor(private http: HttpClient, private direcciones: DatosProtegidosService) { }
   
  
   
