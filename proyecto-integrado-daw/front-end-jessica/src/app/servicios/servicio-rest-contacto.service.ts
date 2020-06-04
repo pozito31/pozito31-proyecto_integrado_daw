@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { DatosProtegidosService } from "./datos-protegidos.service";
-import { datosDevueltos } from '../interfaces/contacto';
+import { Contacto, datosDevueltos } from '../interfaces/contacto';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,14 @@ export class ServicioRestContactoService {
 
   ObtieneContacto(id_contacto:number){
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto'+'/'+id_contacto);
+  }
+
+  añadirContacto(contacto:Contacto):Observable<{}> {
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto', contacto);
+  }
+
+  borrarContacto(id_contacto:number):Observable<{}>{
+    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto'+'/'+id_contacto);
   }
 
   private handleError(error: HttpErrorResponse) {
