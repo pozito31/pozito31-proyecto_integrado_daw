@@ -24,11 +24,11 @@ export class ServicioRestContactoService {
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto'+'/'+id_contacto);
   }
 
-  añadirContacto(contacto:Contacto):Observable<{}> {
+  añadirContacto(contacto:Contacto) {
     return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto', contacto);
   }
 
-  borrarContacto(id_contacto:number):Observable<{}>{
+  borrarContacto(id_contacto:number){
     return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto'+'/'+id_contacto);
   }
 
