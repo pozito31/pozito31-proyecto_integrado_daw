@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { DatosProtegidosService } from "./datos-protegidos.service";
-import { datosDevueltos } from "../interfaces/nuevohermano";
+import { Nuevohermano, datosDevueltos } from "../interfaces/nuevohermano";
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +29,14 @@ export class ServicioRestNuevohermanoService {
 
   Obtienenuevohermano(id_nuevohermano:number){
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano'+'/'+id_nuevohermano);
+  }
+
+  añadirNuevohermano(hermano:Nuevohermano): Observable<{}> {
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano', hermano, httpOptions);
+  }
+
+  borrarNuevohermano(id_nuevohermano:number): Observable<{}>{
+    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano'+'/'+id_nuevohermano);
   }
 
   private handleError(error: HttpErrorResponse) {

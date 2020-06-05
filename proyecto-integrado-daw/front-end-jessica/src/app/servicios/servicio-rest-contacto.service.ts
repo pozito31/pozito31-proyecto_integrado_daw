@@ -32,12 +32,12 @@ export class ServicioRestContactoService {
     return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto'+'/'+id_contacto);
   }
 
-  añadirContacto(contacto:Contacto) {
-    return this.http.post<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto', contacto, httpOptions);
+  añadirContacto(contacto:Contacto): Observable<{}> {
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto', contacto, httpOptions);
   }
 
-  borrarContacto(id_contacto:number){
-    return this.http.delete<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto'+'/'+id_contacto);
+  borrarContacto(id_contacto:number): Observable<{}>{
+    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto'+'/'+id_contacto);
   }
 
   private handleError(error: HttpErrorResponse) {
