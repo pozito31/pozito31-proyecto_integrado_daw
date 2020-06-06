@@ -20,7 +20,6 @@ export class NoticiasComponent implements OnInit {
     titulo: "a",
     descripcion: "a",
     texto: "a",
-    estado: "a",
     directorio_noticia: "a",
     imagen: "a",
     usuarios_id_usuario: 0
