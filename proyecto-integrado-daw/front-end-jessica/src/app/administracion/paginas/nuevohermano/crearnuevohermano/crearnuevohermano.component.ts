@@ -21,7 +21,8 @@ export class CrearnuevohermanoComponent implements OnInit {
     segundoapellido: "a",
     dni: "a",
     correoelectronico: "a",
-    telefono: "a"
+    telefono: "a",
+    foto: "a"
   };
 
   NuevohermanoFormulario: FormGroup;

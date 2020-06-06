@@ -6,6 +6,7 @@ export interface Nuevohermano {
     dni: string;
     correoelectronico: string;
     telefono: string;
+    foto: string;
 }
 
 export interface datosDevueltos  {

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Nuevohermano , datosDevueltos } from '../../interfaces/nuevohermano';
+import { Observable, throwError } from 'rxjs';
+import { ServicioRestNuevohermanoService } from '../../servicios/servicio-rest-nuevohermano.service';
 
 @Component({
   selector: 'app-nuevohermano',
@@ -8,7 +13,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NuevohermanoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ServicioRestNuevohermanoService: ServicioRestNuevohermanoService) { }
+  nuevoHermano: Nuevohermano = {
+    id_nuevohermano: 0,
+    nombre: "a",
+    primerapellido: "a",
+    segundoapellido: "a",
+    dni: "a",
+    correoelectronico: "a",
+    telefono: "a",
+    foto: "a"
+  };
 
   NuevoHermanoFormulario: FormGroup;
 
@@ -55,7 +70,15 @@ export class NuevohermanoComponent implements OnInit {
 
 
   onSubmit() {
-    
+    this.nuevoHermano.nombre = this.NuevoHermanoFormulario.get("nombre").value;
+    this.nuevoHermano.primerapellido = this.NuevoHermanoFormulario.get("primerapellido").value;
+    this.nuevoHermano.segundoapellido = this.NuevoHermanoFormulario.get("segundoapellido").value;
+    this.nuevoHermano.dni = this.NuevoHermanoFormulario.get("dni").value;
+    this.nuevoHermano.correoelectronico = this.NuevoHermanoFormulario.get("correoelectronico").value;
+    this.nuevoHermano.telefono = this.NuevoHermanoFormulario.get("telefono").value;
+    this.nuevoHermano.foto = this.NuevoHermanoFormulario.get("foto").value;
+    console.log(this.NuevoHermanoFormulario);
+    this.ServicioRestNuevohermanoService.añadirNuevohermano(this.nuevoHermano).subscribe();
   }
 
 }
