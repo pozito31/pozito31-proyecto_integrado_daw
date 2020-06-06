@@ -21,6 +21,7 @@ export class CrearnuevohermanoComponent implements OnInit {
     segundoapellido: "a",
     dni: "a",
     correoelectronico: "a",
+    nacimiento: "a",
     telefono: "a",
     foto: "a"
   };
