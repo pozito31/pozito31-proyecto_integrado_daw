@@ -34,44 +34,7 @@ export class NuevohermanoComponent implements OnInit {
         Validators.required,
         Validators.minLength(4)
       ]),
-      'nacimiento': new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ]),
-      'provincianacimiento': new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ]),
-      'poblacionnacimiento': new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ]),
-      'genero': new FormControl('', [
-        Validators.required
-      ]),
-      'estado': new FormControl('', [
-        Validators.required
-      ]),
-      'presentado1': new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ]),
-      'presentado2': new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ]),
-      'telefonoprincipal': new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ]),
-      'telefonosecundario': new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ]),
-      'correo': new FormControl('', [
-        Validators.required
-      ]),
-      'profesion': new FormControl('', [
+      'telefono': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
       ]),
@@ -86,18 +49,6 @@ export class NuevohermanoComponent implements OnInit {
         Validators.required
       ]),
       'nombredeltitularbancario': new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ]),
-      'domiciliodeltitular': new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ]),
-      'dnideltitular': new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ]),
-      'titulardelatarjetadecredito': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
       ]),
@@ -123,9 +74,6 @@ export class NuevohermanoComponent implements OnInit {
       ]),
       'foto': new FormControl('', [
         Validators.required
-      ]),
-      'acepto': new FormControl('', [
-        Validators.required
       ])
     });
   }
@@ -136,23 +84,10 @@ export class NuevohermanoComponent implements OnInit {
   get dni() { return this.NuevoHermanoFormulario.get('dni') }
   get correoelectronico() { return this.NuevoHermanoFormulario.get('correoelectronico') }
   get nacimiento() { return this.NuevoHermanoFormulario.get('nacimiento') }
-  get provincianacimiento() { return this.NuevoHermanoFormulario.get('provincianacimiento') }
-  get poblacionnacimiento() { return this.NuevoHermanoFormulario.get('poblacionnacimiento') }
-  get genero() { return this.NuevoHermanoFormulario.get('genero') }
-  get estado() { return this.NuevoHermanoFormulario.get('estado') }
-  get presentado1() { return this.NuevoHermanoFormulario.get('presentado1') }
-  get presentado2() { return this.NuevoHermanoFormulario.get('presentado2') }
-  get telefonoprincipal() { return this.NuevoHermanoFormulario.get('telefonoprincipal') }
-  get telefonosecundario() { return this.NuevoHermanoFormulario.get('telefonosecundario') }
-  get correo() { return this.NuevoHermanoFormulario.get('correo') }
-  get profesion() { return this.NuevoHermanoFormulario.get('profesion') }
+  get telefono() { return this.NuevoHermanoFormulario.get('telefono') }
   get metododepago() { return this.NuevoHermanoFormulario.get('metododepago') }
   get iban() { return this.NuevoHermanoFormulario.get('iban') }
   get tipodecuota() { return this.NuevoHermanoFormulario.get('tipodecuota') }
-  get nombredeltitularbancario() { return this.NuevoHermanoFormulario.get('nombredeltitularbancario') }
-  get domiciliodeltitular() { return this.NuevoHermanoFormulario.get('domiciliodeltitular') }
-  get dnideltitular() { return this.NuevoHermanoFormulario.get('dnideltitular') }
-  get titulardelatarjetadecredito() { return this.NuevoHermanoFormulario.get('titulardelatarjetadecredito') }
   get pais() { return this.NuevoHermanoFormulario.get('pais') }
   get comunidadoestado() { return this.NuevoHermanoFormulario.get('comunidadoestado') }
   get provincia() { return this.NuevoHermanoFormulario.get('provincia') }
@@ -160,7 +95,6 @@ export class NuevohermanoComponent implements OnInit {
   get direccion() { return this.NuevoHermanoFormulario.get('direccion') }
   get codigopostal() { return this.NuevoHermanoFormulario.get('codigopostal') }
   get foto() { return this.NuevoHermanoFormulario.get('foto') }
-  get acepto() { return this.NuevoHermanoFormulario.get('acepto') }
 
 
   onSubmit() {

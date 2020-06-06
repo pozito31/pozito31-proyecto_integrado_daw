@@ -147,195 +147,22 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="provincianacimiento">Provincia Nacimiento</label>
+                                <label for="telefono">Telefono</label>
                                 <input type="text" 
                                        class="form-control" 
-                                       name="provincianacimiento" 
-                                       id="provincianacimiento"
-                                       formControlName="provincianacimiento"
+                                       name="telefono" 
+                                       id="telefono"
+                                       formControlName="telefono"
                                        required
                                        size="30"
-                                       aria-describedby="provincianacimiento">
+                                       aria-describedby="telefono">
 
-                                <div *ngIf="provincianacimiento.invalid && (provincianacimiento.dirty || provincianacimiento.touched)" class="alert alert-danger">
-                                    <div *ngIf="provincianacimiento.errors.required">
-                                        Debe indicar la provincia de nacimiento.
+                                <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert alert-danger">
+                                    <div *ngIf="telefono.errors.required">
+                                        Debe indicar el telefono.
                                     </div>
-                                    <div *ngIf="provincianacimiento.errors.minlength">
-                                        La provincia de nacimiento debe tener como mínimo 4 caractéres.
-                                    </div>            
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="poblacionnacimiento">Poblacion Nacimiento</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="poblacionnacimiento" 
-                                       id="poblacionnacimiento"
-                                       formControlName="poblacionnacimiento"
-                                       required
-                                       size="30"
-                                       aria-describedby="poblacionnacimiento">
-
-                                <div *ngIf="poblacionnacimiento.invalid && (poblacionnacimiento.dirty || poblacionnacimiento.touched)" class="alert alert-danger">
-                                    <div *ngIf="poblacionnacimiento.errors.required">
-                                        Debe indicar la población de nacimiento.
-                                    </div>
-                                    <div *ngIf="poblacionnacimiento.errors.minlength">
-                                        La población de nacimiento debe tener como mínimo 4 caractéres.
-                                    </div>            
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="genero">Genero</label>
-                                <select class="form-control" 
-                                        name="genero" 
-                                        id="genero"
-                                        formControlName="genero"
-                                        required
-                                        aria-describedby="genero">
-                                    <option value="1">Mujer</option>
-                                    <option value="2">Hombre</option>
-                                </select>
-
-                                <div *ngIf="genero.invalid && (genero.dirty || genero.touched)" class="alert alert-danger">
-                                    <div *ngIf="genero.errors.required">
-                                        Debes seleccionar el genero.
-                                    </div>         
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="estado">Estado</label>
-                                <select class="form-control" 
-                                        name="estado" 
-                                        id="estado"
-                                        formControlName="estado"
-                                        required
-                                        aria-describedby="estado">
-                                    <option value="1">Soltero</option>
-                                    <option value="2">Casado</option>
-                                    <option value="3">Divorciado</option>
-                                </select>
-
-                                <div *ngIf="estado.invalid && (estado.dirty || estado.touched)" class="alert alert-danger">
-                                    <div *ngIf="estado.errors.required">
-                                        Debes seleccionar el estado.
-                                    </div>         
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="presentado1">Presentado(1)</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="presentado1" 
-                                       id="presentado1"
-                                       formControlName="presentado1"
-                                       required
-                                       size="30"
-                                       aria-describedby="presentado1">
-
-                                <div *ngIf="presentado1.invalid && (presentado1.dirty || presentado1.touched)" class="alert alert-danger">
-                                    <div *ngIf="presentado1.errors.required">
-                                        Debe indicar el nombre de presentado1.
-                                    </div>
-                                    <div *ngIf="presentado1.errors.minlength">
-                                        El nombre de presentado1 debe tener como mínimo 4 caractéres.
-                                    </div>            
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="presentado2">Presentado(2)</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="presentado2" 
-                                       id="presentado2"
-                                       formControlName="presentado2"
-                                       required
-                                       size="30"
-                                       aria-describedby="presentado2">
-
-                                <div *ngIf="presentado2.invalid && (presentado2.dirty || presentado2.touched)" class="alert alert-danger">
-                                    <div *ngIf="presentado2.errors.required">
-                                        Debe indicar el nombre de presentado2.
-                                    </div>
-                                    <div *ngIf="presentado2.errors.minlength">
-                                        El nombre de presentado2 debe tener como mínimo 4 caractéres.
-                                    </div>            
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="telefonoprincipal">Telefono Principal</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="telefonoprincipal" 
-                                       id="telefonoprincipal"
-                                       formControlName="telefonoprincipal"
-                                       required
-                                       size="30"
-                                       aria-describedby="telefonoprincipal">
-
-                                <div *ngIf="telefonoprincipal.invalid && (telefonoprincipal.dirty || telefonoprincipal.touched)" class="alert alert-danger">
-                                    <div *ngIf="telefonoprincipal.errors.required">
-                                        Debe indicar el telefono principal.
-                                    </div>
-                                    <div *ngIf="telefonoprincipal.errors.minlength">
-                                        El telefono principal debe tener como mínimo 4 caractéres.
-                                    </div>            
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="telefonosecundario">Telefono Secundario</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="telefonosecundario" 
-                                       id="telefonosecundario"
-                                       formControlName="telefonosecundario"
-                                       required
-                                       size="30"
-                                       aria-describedby="telefonosecundario">
-
-                                <div *ngIf="telefonosecundario.invalid && (telefonosecundario.dirty || telefonosecundario.touched)" class="alert alert-danger">
-                                    <div *ngIf="telefonosecundario.errors.required">
-                                        Debe indicar el telefono secundario.
-                                    </div>
-                                    <div *ngIf="telefonosecundario.errors.minlength">
-                                        El telefono secundario debe tener como mínimo 4 caractéres.
-                                    </div>            
-                                </div>
-                            </div>
-                            <div class="form-group form-check">
-                                <input type="checkbox" 
-                                       class="form-check-input" 
-                                       name="correo" 
-                                       id="correo"
-                                       formControlName="correo"
-                                       required
-                                       aria-describedby="correo">
-
-                                <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="alert alert-danger">
-                                    <div *ngIf="correo.errors.required">
-                                        Debes seleccionar el checkbox de correo.
-                                    </div>         
-                                </div>
-                                <label class="form-check-label" for="correo">Subscripción correo</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="profesion">Profesion</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="profesion" 
-                                       id="profesion"
-                                       formControlName="profesion"
-                                       required
-                                       size="30"
-                                       aria-describedby="profesion">
-
-                                <div *ngIf="profesion.invalid && (profesion.dirty || profesion.touched)" class="alert alert-danger">
-                                    <div *ngIf="profesion.errors.required">
-                                        Debe indicar la profesión.
-                                    </div>
-                                    <div *ngIf="profesion.errors.minlength">
-                                        La profesion debe tener como mínimo 4 caractéres.
+                                    <div *ngIf="telefono.errors.minlength">
+                                        El telefono debe tener como mínimo 4 caractéres.
                                     </div>            
                                 </div>
                             </div>
@@ -397,86 +224,6 @@
                                     <div *ngIf="tipodecuota.errors.required">
                                         Debes seleccionar el tipo de cuota.
                                     </div>         
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="nombredeltitularbancario">Nombre del titular bancario</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="nombredeltitularbancario" 
-                                       id="nombredeltitularbancario"
-                                       formControlName="nombredeltitularbancario"
-                                       required
-                                       size="30"
-                                       aria-describedby="nombredeltitularbancario">
-
-                                <div *ngIf="nombredeltitularbancario.invalid && (nombredeltitularbancario.dirty || nombredeltitularbancario.touched)" class="alert alert-danger">
-                                    <div *ngIf="nombredeltitularbancario.errors.required">
-                                        Debe indicar el nombre del titular bancario.
-                                    </div>
-                                    <div *ngIf="nombredeltitularbancario.errors.minlength">
-                                        El nombre del titular bancario debe tener como mínimo 4 caractéres.
-                                    </div>            
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="domiciliodeltitular">Domicilio del titular</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="domiciliodeltitular" 
-                                       id="domiciliodeltitular"
-                                       formControlName="domiciliodeltitular"
-                                       required
-                                       size="30"
-                                       aria-describedby="domiciliodeltitular">
-
-                                <div *ngIf="domiciliodeltitular.invalid && (domiciliodeltitular.dirty || domiciliodeltitular.touched)" class="alert alert-danger">
-                                    <div *ngIf="domiciliodeltitular.errors.required">
-                                        Debe indicar el domicilio del titular.
-                                    </div>
-                                    <div *ngIf="domiciliodeltitular.errors.minlength">
-                                        El domicilio del titular debe tener como mínimo 4 caractéres.
-                                    </div>            
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="dnideltitular">Dni del titular</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="dnideltitular" 
-                                       id="dnideltitular"
-                                       formControlName="dnideltitular"
-                                       required
-                                       size="30"
-                                       aria-describedby="dnideltitular">
-
-                                <div *ngIf="dnideltitular.invalid && (dnideltitular.dirty || dnideltitular.touched)" class="alert alert-danger">
-                                    <div *ngIf="dnideltitular.errors.required">
-                                        Debe indicar el dni del titular.
-                                    </div>
-                                    <div *ngIf="dnideltitular.errors.minlength">
-                                        El dni del titular debe tener como mínimo 4 caractéres.
-                                    </div>            
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="titulardelatarjetadecredito">Titular de la tarjeta de crédito</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="titulardelatarjetadecredito" 
-                                       id="titulardelatarjetadecredito"
-                                       formControlName="titulardelatarjetadecredito"
-                                       required
-                                       size="30"
-                                       aria-describedby="titulardelatarjetadecredito">
-
-                                <div *ngIf="titulardelatarjetadecredito.invalid && (titulardelatarjetadecredito.dirty || titulardelatarjetadecredito.touched)" class="alert alert-danger">
-                                    <div *ngIf="titulardelatarjetadecredito.errors.required">
-                                        Debe indicar el titular de la tarjeta de credito.
-                                    </div>
-                                    <div *ngIf="titulardelatarjetadecredito.errors.minlength">
-                                        El titular de la tarjeta de credito debe tener como mínimo 4 caractéres.
-                                    </div>            
                                 </div>
                             </div>
                         </fieldset>
@@ -1307,22 +1054,6 @@
                                         Debes seleccionar la foto.
                                     </div>         
                                 </div>
-                            </div>
-                            <div class="form-group form-check">
-                                <input type="checkbox" 
-                                       class="form-check-input" 
-                                       name="acepto" 
-                                       id="acepto"
-                                       formControlName="acepto"
-                                       required 
-                                       aria-describedby="acepto">
-
-                                <div *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)" class="alert alert-danger">
-                                    <div *ngIf="acepto.errors.required">
-                                        Debes seleccionar el checkbox He leido y acepto las condiciones.
-                                    </div>         
-                                </div>
-                                <label class="form-check-label" for="acepto">He leido y acepto las condiciones</label>
                             </div>
                         </fieldset>
                             </div>
