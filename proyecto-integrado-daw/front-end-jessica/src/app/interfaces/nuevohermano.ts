@@ -5,6 +5,7 @@ export interface Nuevohermano {
     segundoapellido: string;
     dni: string;
     correoelectronico: string;
+    nacimiento: string;
     telefono: string;
     foto: string;
 }

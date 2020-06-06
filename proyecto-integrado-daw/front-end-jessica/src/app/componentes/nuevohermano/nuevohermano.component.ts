@@ -21,6 +21,7 @@ export class NuevohermanoComponent implements OnInit {
     segundoapellido: "a",
     dni: "a",
     correoelectronico: "a",
+    nacimiento: "a",
     telefono: "a",
     foto: "a"
   };
@@ -46,6 +47,10 @@ export class NuevohermanoComponent implements OnInit {
         Validators.minLength(4)
       ]),
       'correoelectronico': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
+      ]),
+      'nacimiento': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
       ]),
@@ -75,6 +80,7 @@ export class NuevohermanoComponent implements OnInit {
     this.nuevoHermano.segundoapellido = this.NuevoHermanoFormulario.get("segundoapellido").value;
     this.nuevoHermano.dni = this.NuevoHermanoFormulario.get("dni").value;
     this.nuevoHermano.correoelectronico = this.NuevoHermanoFormulario.get("correoelectronico").value;
+    this.nuevoHermano.nacimiento = this.NuevoHermanoFormulario.get("nacimiento").value;
     this.nuevoHermano.telefono = this.NuevoHermanoFormulario.get("telefono").value;
     this.nuevoHermano.foto = this.NuevoHermanoFormulario.get("foto").value;
     console.log(this.NuevoHermanoFormulario);
