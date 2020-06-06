@@ -37,7 +37,7 @@ export class ServicioRestContactoService {
   }
 
   editarContacto(contacto:Contacto): Observable<{}> {
-    return this.http.get('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto');
+    return this.http.put('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto', contacto, httpOptions);
   }
 
   borrarContacto(id_contacto:number): Observable<{}>{
