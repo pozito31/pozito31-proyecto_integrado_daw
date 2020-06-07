@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ServicioRestContactoService } from '../../../../servicios/servicio-rest-contacto.service';
+import { Contacto, datosDevueltos } from '../../../../interfaces/contacto';
+import { Observable, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-borrarcontacto',
@@ -7,9 +13,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BorrarcontactoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ServicioRestContactoService: ServicioRestContactoService) { }
+  borrarContacto: Contacto = {
+    id_contacto: 0,
+    nombre: "a",
+    email: "a",
+    mensaje: "a"
+  };
+  ContactoFormulario: FormGroup;
 
   ngOnInit(): void {
+    this.ContactoFormulario = new FormGroup({
+      'email': new FormControl('', [
+         Validators.required,
+         Validators.minLength(4) 
+      ]),
+      'nombre': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
+      ]),
+      'mensaje': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
+      ])
+    });
+  }
+
+  get email() { return this.ContactoFormulario.get('email') }
+  get nombre() { return this.ContactoFormulario.get('nombre') }
+  get mensaje() { return this.ContactoFormulario.get('mensaje') }
+
+  onSubmit() {
+    this.borrarContacto.email = this.ContactoFormulario.get("email").value;
+    this.borrarContacto.nombre = this.ContactoFormulario.get("nombre").value;
+    this.borrarContacto.mensaje = this.ContactoFormulario.get("mensaje").value;
+    console.log(this.ContactoFormulario);
+    this.ServicioRestContactoService.borrarContacto(this.borrarContacto).subscribe();
   }
 
 }
