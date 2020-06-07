@@ -41,10 +41,6 @@ export class ServicioRestNoticiasService {
     return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia, httpOptions);
   }
 
-  borrarNoticia(id_noticia:number): Observable<{}>{
-    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
-  }
-
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
