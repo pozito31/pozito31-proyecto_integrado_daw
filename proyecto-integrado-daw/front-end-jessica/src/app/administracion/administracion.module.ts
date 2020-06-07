@@ -16,6 +16,9 @@ import { CrearnuevohermanoComponent } from './paginas/nuevohermano/crearnuevoher
 import { EditarnuevohermanoComponent } from './paginas/nuevohermano/editarnuevohermano/editarnuevohermano.component';
 import { ListadonuevohermanoComponent } from './paginas/nuevohermano/listadonuevohermano/listadonuevohermano.component';
 import { PiePaginaComponent } from './compartidos/pie-pagina/pie-pagina.component';
+import { BorrarnoticiaComponent } from './paginas/noticias/borrarnoticia/borrarnoticia.component';
+import { BorrarnuevohermanoComponent } from './paginas/nuevohermano/borrarnuevohermano/borrarnuevohermano.component';
+import { BorrarcontactoComponent } from './paginas/contacto/borrarcontacto/borrarcontacto.component';
 
 
 @NgModule({
@@ -30,7 +33,7 @@ import { PiePaginaComponent } from './compartidos/pie-pagina/pie-pagina.componen
     ListadonoticiaComponent, 
     CrearnuevohermanoComponent, 
     EditarnuevohermanoComponent, 
-    ListadonuevohermanoComponent, PiePaginaComponent],
+    ListadonuevohermanoComponent, PiePaginaComponent, BorrarnoticiaComponent, BorrarnuevohermanoComponent, BorrarcontactoComponent],
   exports: [
     AdministracionRoutingModule
   ],
