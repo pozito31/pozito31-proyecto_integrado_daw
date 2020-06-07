@@ -15,6 +15,7 @@ import { ListadonoticiaComponent } from './paginas/noticias/listadonoticia/lista
 import { CrearnuevohermanoComponent } from './paginas/nuevohermano/crearnuevohermano/crearnuevohermano.component';
 import { EditarnuevohermanoComponent } from './paginas/nuevohermano/editarnuevohermano/editarnuevohermano.component';
 import { ListadonuevohermanoComponent } from './paginas/nuevohermano/listadonuevohermano/listadonuevohermano.component';
+import { PiePaginaComponent } from './compartidos/pie-pagina/pie-pagina.component';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { ListadonuevohermanoComponent } from './paginas/nuevohermano/listadonuev
     ListadonoticiaComponent, 
     CrearnuevohermanoComponent, 
     EditarnuevohermanoComponent, 
-    ListadonuevohermanoComponent],
+    ListadonuevohermanoComponent, PiePaginaComponent],
   exports: [
     AdministracionRoutingModule
   ],
