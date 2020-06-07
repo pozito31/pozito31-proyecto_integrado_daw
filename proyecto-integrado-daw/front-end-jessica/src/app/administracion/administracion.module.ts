@@ -33,7 +33,11 @@ import { BorrarcontactoComponent } from './paginas/contacto/borrarcontacto/borra
     ListadonoticiaComponent, 
     CrearnuevohermanoComponent, 
     EditarnuevohermanoComponent, 
-    ListadonuevohermanoComponent, PiePaginaComponent, BorrarnoticiaComponent, BorrarnuevohermanoComponent, BorrarcontactoComponent],
+    ListadonuevohermanoComponent, 
+    PiePaginaComponent, 
+    BorrarnoticiaComponent, 
+    BorrarnuevohermanoComponent, 
+    BorrarcontactoComponent],
   exports: [
     AdministracionRoutingModule
   ],
