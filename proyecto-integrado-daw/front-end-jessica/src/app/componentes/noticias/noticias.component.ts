@@ -58,7 +58,7 @@ export class NoticiasComponent implements OnInit {
     this.nuevaNoticia.descripcion = this.NoticiasFormulario.get("descripcion").value;
     this.nuevaNoticia.texto = this.NoticiasFormulario.get("texto").value;
     this.nuevaNoticia.imagen = this.NoticiasFormulario.get("imagen").value;
-    console.log(this.NoticiasFormulario);
+    console.log(this.NoticiasFormulario.value);
     this.ServicioRestNoticiasService.añadirNoticia(this.nuevaNoticia).subscribe();
   }
 }
