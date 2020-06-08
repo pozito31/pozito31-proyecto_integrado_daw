@@ -29,8 +29,7 @@ export class BorrarcontactoComponent implements OnInit {
          Validators.minLength(4) 
       ]),
       'id_contacto': new FormControl('', [
-        Validators.required,
-        Validators.minLength(2)
+        Validators.required
       ]),
       'nombre': new FormControl('', [
         Validators.required,

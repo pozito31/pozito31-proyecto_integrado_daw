@@ -30,6 +30,9 @@ export class BorrarnuevohermanoComponent implements OnInit {
 
   ngOnInit(): void {
     this.NuevohermanoFormulario = new FormGroup({
+      'id_nuevohermano': new FormControl('', [
+        Validators.required
+      ]),
       'nombre': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
@@ -57,6 +60,7 @@ export class BorrarnuevohermanoComponent implements OnInit {
     });
   }
 
+  get id_nuevohermano() { return this.NuevohermanoFormulario.get('id_nuevohermano') }
   get nombre() { return this.NuevohermanoFormulario.get('nombre') }
   get primerapellido() { return this.NuevohermanoFormulario.get('primerapellido') }
   get segundoapellido() { return this.NuevohermanoFormulario.get('segundoapellido') }
@@ -65,6 +69,7 @@ export class BorrarnuevohermanoComponent implements OnInit {
   get telefono() { return this.NuevohermanoFormulario.get('telefono') }
 
   onSubmit() {
+    this.borrarHermano.id_nuevohermano = this.NuevohermanoFormulario.get("id_nuevohermano").value;
     this.borrarHermano.nombre = this.NuevohermanoFormulario.get("nombre").value;
     this.borrarHermano.primerapellido = this.NuevohermanoFormulario.get("primerapellido").value;
     this.borrarHermano.segundoapellido = this.NuevohermanoFormulario.get("segundoapellido").value;
@@ -72,6 +77,6 @@ export class BorrarnuevohermanoComponent implements OnInit {
     this.borrarHermano.correoelectronico = this.NuevohermanoFormulario.get("correoelectronico").value;
     this.borrarHermano.telefono = this.NuevohermanoFormulario.get("telefono").value;
     console.log(this.NuevohermanoFormulario);
-    this.ServicioRestNuevohermanoService.editarNuevohermano(this.borrarHermano).subscribe();
+    this.ServicioRestNuevohermanoService.borrarNuevohermano(this.borrarHermano.id_nuevohermano).subscribe();
   }
 }

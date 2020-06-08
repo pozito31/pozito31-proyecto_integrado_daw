@@ -39,8 +39,8 @@ export class ServicioRestNuevohermanoService {
     return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano', hermano, httpOptions);
   }
 
-  borrarNuevohermano(id_nuevohermano:number): Observable<{}>{
-    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano'+'/'+id_nuevohermano);
+  borrarNuevohermano(id_nuevohermano:number):Observable<{}>{
+    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano/'+ id_nuevohermano);
   }
 
   private handleError(error: HttpErrorResponse) {
