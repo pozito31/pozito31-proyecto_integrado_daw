@@ -8,6 +8,26 @@
                             <div class="cross-validation" [class.cross-validation-error]="ContactoFormulario.errors?.identityRevealed && (ContactoFormulario.touched || ContactoFormulario.dirty)">
                                 <h2 class="titulo">Borrar Contacto</h2>
                                 <div class="form-group">
+                                    <label for="id_contacto">Id_contacto</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="id_contacto" 
+                                           id="id_contacto" 
+                                           formControlName="id_contacto"
+                                           required
+                                           size="30"
+                                           aria-describedby="id_contacto">
+
+                                    <div *ngIf="id_contacto.invalid && (id_contacto.dirty || id_contacto.touched)" class="alert alert-danger">
+                                        <div *ngIf="id_contacto.errors.required">
+                                             Debe indicar el id_contacto.
+                                        </div>
+                                        <div *ngIf="id_contacto.errors.minlength">
+                                             El id_contacto debe tener como mínimo 2 caractéres.
+                                        </div>            
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" 
                                            class="form-control" 

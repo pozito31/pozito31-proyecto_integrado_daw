@@ -28,6 +28,10 @@ export class BorrarcontactoComponent implements OnInit {
          Validators.required,
          Validators.minLength(4) 
       ]),
+      'id_contacto': new FormControl('', [
+        Validators.required,
+        Validators.minLength(2)
+      ]),
       'nombre': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
@@ -40,13 +44,16 @@ export class BorrarcontactoComponent implements OnInit {
   }
 
   get email() { return this.ContactoFormulario.get('email') }
+  get id_contacto() { return this.ContactoFormulario.get('id_contacto') }
   get nombre() { return this.ContactoFormulario.get('nombre') }
   get mensaje() { return this.ContactoFormulario.get('mensaje') }
 
   onSubmit() {
     this.borrarContacto.email = this.ContactoFormulario.get("email").value;
+    this.borrarContacto.id_contacto = this.ContactoFormulario.get("id_contacto").value;
     this.borrarContacto.nombre = this.ContactoFormulario.get("nombre").value;
     this.borrarContacto.mensaje = this.ContactoFormulario.get("mensaje").value;
     console.log(this.ContactoFormulario);
+    this.ServicioRestContactoService.borrarContacto(this.borrarContacto.id_contacto).subscribe();
   }
 }
