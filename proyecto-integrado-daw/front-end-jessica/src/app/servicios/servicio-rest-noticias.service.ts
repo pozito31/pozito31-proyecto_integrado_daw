@@ -36,7 +36,7 @@ export class ServicioRestNoticiasService {
   }
 
   editarNoticia(noticia:Noticias): Observable<{}>{
-    return this.http.patch('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia, httpOptions);
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia, httpOptions);
   }
 
   borrarNoticia(id_noticia:number):Observable<{}>{

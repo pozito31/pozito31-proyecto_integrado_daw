@@ -36,7 +36,7 @@ export class ServicioRestNuevohermanoService {
   }
 
   editarNuevohermano(hermano:Nuevohermano): Observable<{}> {
-    return this.http.patch('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano', hermano, httpOptions);
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano', hermano, httpOptions);
   }
 
   borrarNuevohermano(id_nuevohermano:number):Observable<{}>{
