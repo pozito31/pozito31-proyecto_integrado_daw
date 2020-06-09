@@ -30,6 +30,9 @@ export class EditarnuevohermanoComponent implements OnInit {
 
   ngOnInit(): void {
     this.NuevohermanoFormulario = new FormGroup({
+      'id_nuevohermano': new FormControl('', [
+        Validators.required
+      ]),
       'nombre': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
@@ -57,6 +60,7 @@ export class EditarnuevohermanoComponent implements OnInit {
     });
   }
 
+  get id_nuevohermano() { return this.NuevohermanoFormulario.get('id_nuevohermano') }
   get nombre() { return this.NuevohermanoFormulario.get('nombre') }
   get primerapellido() { return this.NuevohermanoFormulario.get('primerapellido') }
   get segundoapellido() { return this.NuevohermanoFormulario.get('segundoapellido') }
@@ -65,6 +69,7 @@ export class EditarnuevohermanoComponent implements OnInit {
   get telefono() { return this.NuevohermanoFormulario.get('telefono') }
 
   onSubmit() {
+    this.editarHermano.id_nuevohermano = this.NuevohermanoFormulario.get("id_nuevohermano").value;
     this.editarHermano.nombre = this.NuevohermanoFormulario.get("nombre").value;
     this.editarHermano.primerapellido = this.NuevohermanoFormulario.get("primerapellido").value;
     this.editarHermano.segundoapellido = this.NuevohermanoFormulario.get("segundoapellido").value;

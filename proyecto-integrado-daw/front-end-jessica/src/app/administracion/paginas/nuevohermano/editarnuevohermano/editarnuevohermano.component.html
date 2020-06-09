@@ -8,6 +8,23 @@
                             <div class="cross-validation" [class.cross-validation-error]="NuevohermanoFormulario.errors?.identityRevealed && (NuevohermanoFormulario.touched || NuevohermanoFormulario.dirty)">
                                 <h2 class="titulo">Editar nuevo hermano</h2>
                                 <div class="form-group">
+                                    <label for="id_nuevohermano">Id_nuevohermano</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="id_nuevohermano" 
+                                           id="id_nuevohermano" 
+                                           formControlName="id_nuevohermano"
+                                           required
+                                           size="30"
+                                           aria-describedby="id_nuevohermano">
+
+                                    <div *ngIf="id_nuevohermano.invalid && (id_nuevohermano.dirty || id_nuevohermano.touched)" class="alert alert-danger">
+                                        <div *ngIf="id_nuevohermano.errors.required">
+                                             Debe indicar el id_nuevohermano.
+                                        </div>         
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" 
                                            class="form-control" 
