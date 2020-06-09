@@ -14,7 +14,7 @@ class nuevohermano extends Model
     protected $primaryKey = 'id_nuevohermano';
 
       //Atributos que se pueden asignar de manera masiva.
-      protected $fillable = array('nombre', 'primerapellido', 'segundoapellido', 'dni', 'correoelectronico', 'telefono');
+      protected $fillable = array('nombre', 'primerapellido', 'segundoapellido', 'dni', 'correoelectronico', 'telefono', 'foto');
 
       //Aqui ponemos los campos que no queremos que se devuelvan en las consultas.
       protected $hidden = ['created_at', 'updated_at'];

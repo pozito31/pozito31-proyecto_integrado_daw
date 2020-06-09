@@ -32,7 +32,8 @@ class NuevohermanoSeeder extends Seeder
                     'segundoapellido'=>$faker->lastName(),
                     'dni'=>$faker->lastName(),
                     'correoelectronico'=>$faker->email(),
-                    'telefono'=>$faker->phoneNumber()
+                    'telefono'=>$faker->phoneNumber(),
+                    'foto'=>$faker->name()
                 ]
             );
         }

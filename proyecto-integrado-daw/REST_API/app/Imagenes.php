@@ -14,11 +14,6 @@ class Imagenes extends Model
    protected $primaryKey = 'id_imagen';
 
    //Atributos que se pueden asignar de manera masiva.
-   protected $fillable = array('descripcion', 'directorio_foto', 'noticias_id_noticia');
+   protected $fillable = array('descripcion', 'directorio_foto');
 
-    //Relación de Imagenes con Noticias:
-    public function noticias()
-    {
-        return $this->belongsTo('App\Noticias');
-    }
 }

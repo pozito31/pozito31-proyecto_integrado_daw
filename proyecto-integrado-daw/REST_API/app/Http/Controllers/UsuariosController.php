@@ -257,7 +257,6 @@ class UsuariosController extends Controller
         // El usuario existe entonces buscamos todos los pagos asociados a ese usuario.
         $pagos = $usuario->pagos; // Sin paréntesis obtenemos el array de todos los pagos.
         $roles = $usuario->roles;
-        $noticias = $usuario->noticias;
 
         // Comprobamos si tiene pagos ese usuario
         if (sizeof($pagos) > 0)
@@ -274,14 +273,6 @@ class UsuariosController extends Controller
 
             // Devolveremos un código 409 Conflict - [Conflicto] Cuando hay algún conflicto al procesar una petición, por ejemplo en PATCH, POST o DELETE.
             return response()->json(['code'=>409,'message'=>'Este usuario posee roles y no puede ser eliminado.'],409);
-        }
-
-        if (sizeof($noticias) > 0)
-        {
-            // Lo correcto en la API REST sería ésto:
-
-            // Devolveremos un código 409 Conflict - [Conflicto] Cuando hay algún conflicto al procesar una petición, por ejemplo en PATCH, POST o DELETE.
-            return response()->json(['code'=>409,'message'=>'Este usuario posee noticias y no puede ser eliminado.'],409);
         }
 
         // Procedemos por lo tanto a eliminar el usuario.

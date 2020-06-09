@@ -79,12 +79,12 @@ class ImagenesController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($noticias_id_noticia)
+    public function show($id_imagen)
     {
         //
-        // return "Se muestra noticias con id: $noticias_id_noticia";
+        // return "Se muestra imagenes con id: $id_imagen";
         // Buscamos un usuario por el id.
-        $imagenes=Imagenes::find($noticias_id_noticia);
+        $imagenes=Imagenes::find($id_imagen);
 
         // Si no existe ese avion devolvemos un error.
         if (!$imagenes)
@@ -100,7 +100,7 @@ class ImagenesController extends Controller
     public function store(Request $request)
     {
          // Primero comprobaremos si estamos recibiendo todos los campos.
-         if (!$request->input('descripcion') || !$request->input('directorio_foto') || !$request->input('noticias_id_noticia'))
+         if (!$request->input('descripcion') || !$request->input('directorio_foto'))
          {
              // Se devuelve un array errors con los errores encontrados y cabecera HTTP 422 Unprocessable Entity – [Entidad improcesable] Utilizada para errores de validación.
             // En code podríamos indicar un código de error personalizado de nuestra aplicación si lo deseamos.
@@ -123,10 +123,10 @@ class ImagenesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_noticia)
+    public function update(Request $request, $id_imagen)
     {
         // Comprobamos si la noticia que nos están pasando existe o no.
-        $imagenes=Imagenes::find($id_noticia);
+        $imagenes=Imagenes::find($id_imagen);
 
         // Si no existe esa noticia devolvemos un error.
         if (!$imagenes)
@@ -139,7 +139,6 @@ class ImagenesController extends Controller
          // Listado de campos recibidos teóricamente.
          $descripcion=$request->input('descripcion');
          $directorio_foto=$request->input('directorio_foto');
-         $noticias_id_noticia=$request->input('noticias_id_noticia');
 
          // Necesitamos detectar si estamos recibiendo una petición PUT o PATCH.
         // El método de la petición se sabe a través de $request->method();
@@ -161,12 +160,6 @@ class ImagenesController extends Controller
                 $bandera=true;
             }
 
-            if ($noticias_id_noticia)
-            {
-                $imagenes->noticias_id_noticia = $noticias_id_noticia;
-                $bandera=true;
-            }
-
             if ($bandera)
             {
                 // Almacenamos en la base de datos el registro.
@@ -182,7 +175,7 @@ class ImagenesController extends Controller
         }
 
          // Si el método no es PATCH entonces es PUT y tendremos que actualizar todos los datos.
-         if (!$descripcion || !$directorio_foto || !$noticias_id_noticia)
+         if (!$descripcion || !$directorio_foto)
          {
               // Se devuelve un array errors con los errores encontrados y cabecera HTTP 422 Unprocessable Entity – [Entidad improcesable] Utilizada para errores de validación.
             return response()->json(['errors'=>array(['code'=>422,'message'=>'Faltan valores para completar el procesamiento.'])],422);
@@ -190,18 +183,17 @@ class ImagenesController extends Controller
 
          $imagenes->descripcion = $descripcion;
          $imagenes->directorio_foto = $directorio_foto;
-         $imagenes->noticias_id_noticia = $noticias_id_noticia;
 
          // Almacenamos en la base de datos el registro.
         $imagenes->save();
         return response()->json(['status'=>'ok','data'=>$imagenes], 200);
     }
 
-    public function destroy($id_noticia)
+    public function destroy($id_imagen)
     {
         // Primero eliminaremos todas las noticias de una noticia y luego la noticia en si mismo.
         // Comprobamos si la noticia que nos están pasando existe o no 
-        $imagenes=Imagenes::find($id_noticia);
+        $imagenes=Imagenes::find($id_imagen);
 
         // Si no existe ese usuario devolvemos un error.
         if (!$imagenes)
@@ -211,7 +203,7 @@ class ImagenesController extends Controller
             return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un modelo de imagenes con ese código.'])],404);
         }
 
-        // Procedemos por lo tanto a eliminar la noticia.
+        // Procedemos por lo tanto a eliminar la imagenes.
         $imagenes->delete();
 
         // Se usa el código 204 No Content – [Sin Contenido] Respuesta a una petición exitosa que no devuelve un body (como una petición DELETE)

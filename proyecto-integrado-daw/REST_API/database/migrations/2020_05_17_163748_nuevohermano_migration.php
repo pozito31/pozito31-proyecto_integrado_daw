@@ -21,7 +21,8 @@ class NuevohermanoMigration extends Migration
             $table->string('dni');
             $table->string('correoelectronico');
             $table->string('telefono');
-
+            $table->string('foto');
+            
             // Para que también cree automáticamente los campos timestamps (created_at, updated_at)
             $table->timestamps();
         });

@@ -100,7 +100,7 @@ class NuevohermanoController extends Controller
     public function store(Request $request)
     {
          // Primero comprobaremos si estamos recibiendo todos los campos.
-         if (!$request->input('nombre') || !$request->input('primerapellido') || !$request->input('segundoapellido') || !$request->input('dni') || !$request->input('correoelectronico') || !$request->input('telefono'))
+         if (!$request->input('nombre') || !$request->input('primerapellido') || !$request->input('segundoapellido') || !$request->input('dni') || !$request->input('correoelectronico') || !$request->input('telefono') || !$request->input('foto'))
          {
              // Se devuelve un array errors con los errores encontrados y cabecera HTTP 422 Unprocessable Entity – [Entidad improcesable] Utilizada para errores de validación.
             // En code podríamos indicar un código de error personalizado de nuestra aplicación si lo deseamos.
@@ -143,6 +143,7 @@ class NuevohermanoController extends Controller
          $dni=$request->input('dni');
          $correoelectronico=$request->input('correoelectronico');
          $telefono=$request->input('telefono');
+         $foto=$request->input('foto');
 
          // Necesitamos detectar si estamos recibiendo una petición PUT o PATCH.
         // El método de la petición se sabe a través de $request->method();
@@ -188,6 +189,12 @@ class NuevohermanoController extends Controller
                 $bandera=true;
             }
 
+            if ($foto)
+            {
+                $nuevohermano->foto = $foto;
+                $bandera=true;
+            }
+
             if ($bandera)
             {
                 // Almacenamos en la base de datos el registro.
@@ -203,7 +210,7 @@ class NuevohermanoController extends Controller
         }
 
          // Si el método no es PATCH entonces es PUT y tendremos que actualizar todos los datos.
-         if (!$nombre || !$primerapellido || !$segundoapellido || !$dni || !$correoelectronico || !$telefono)
+         if (!$nombre || !$primerapellido || !$segundoapellido || !$dni || !$correoelectronico || !$telefono || !$foto)
          {
               // Se devuelve un array errors con los errores encontrados y cabecera HTTP 422 Unprocessable Entity – [Entidad improcesable] Utilizada para errores de validación.
             return response()->json(['errors'=>array(['code'=>422,'message'=>'Faltan valores para completar el procesamiento.'])],422);
@@ -215,6 +222,7 @@ class NuevohermanoController extends Controller
          $nuevohermano->dni  = $dni;
          $nuevohermano->correoelectronico  = $correoelectronico;
          $nuevohermano->telefono  = $telefono;
+         $nuevohermano->foto  = $foto;
 
          // Almacenamos en la base de datos el registro.
         $nuevohermano->save();

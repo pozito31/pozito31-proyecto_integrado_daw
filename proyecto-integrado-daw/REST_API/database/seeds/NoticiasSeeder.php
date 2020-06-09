@@ -24,21 +24,17 @@ class NoticiasSeeder extends Seeder
         //Creamos una instancia de Faker
         $faker = Faker::create();
 
-        //Para cubrir las noticias tenemos que tener en cuenta que usuarios tenemos.
-        //Para que la clave foránea no nos de problemas.
-        //Averiguamos cuantos usuarios hay en la tabla.
-        $cuantos= Usuarios::all()->count();
-
          //Creamos un bucle para cubrir 10 noticias:
          for ($i=1; $i<=10; $i++){
             //Cuando llamamos al método create del modelo de Noticias
             //Se está creando una nueva fila en la tabla.
             Noticias::create(
                 [
+                    'titulo'=>$faker->name(),
                     'descripcion'=>$faker->name(),
-                    'estado'=>$faker->firstName(),
+                    'texto'=>$faker->firstName(),
                     'directorio_noticia'=>$faker->firstName(),
-                    'usuarios_id_usuario'=>$faker->numberBetween(1,$cuantos)
+                    'imagen'=>$faker->name(),
                 ]
             );
         }
