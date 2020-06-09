@@ -11,6 +11,23 @@
                                     <legend>Noticia</legend>
                                     <hr>
                                     <div class="form-group">
+                                        <label for="id_noticia">Id_noticia</label>
+                                        <input type="text" 
+                                               class="form-control" 
+                                               name="id_noticia" 
+                                               id="id_noticia" 
+                                               formControlName="id_noticia"
+                                               required
+                                               size="30"
+                                               aria-describedby="id_noticia">
+    
+                                        <div *ngIf="id_noticia.invalid && (id_noticia.dirty || id_noticia.touched)" class="alert alert-danger">
+                                            <div *ngIf="id_noticia.errors.required">
+                                                 Debe indicar el id_noticia.
+                                            </div>     
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="titulo">Titulo Noticia</label>
                                         <input type="text" 
                                                class="form-control" 

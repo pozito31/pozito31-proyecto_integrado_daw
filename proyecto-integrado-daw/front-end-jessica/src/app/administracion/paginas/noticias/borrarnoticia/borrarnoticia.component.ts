@@ -28,6 +28,9 @@ export class BorrarnoticiaComponent implements OnInit {
 
   ngOnInit(): void {
     this.NoticiasFormulario = new FormGroup({
+      'id_noticia': new FormControl('', [
+        Validators.required
+     ]),
       'titulo': new FormControl('', [
          Validators.required,
          Validators.minLength(4)
@@ -50,6 +53,7 @@ export class BorrarnoticiaComponent implements OnInit {
     });
   }
 
+  get id_noticia() { return this.NoticiasFormulario.get('id_noticia') }
   get titulo() { return this.NoticiasFormulario.get('titulo') }
   get descripcion() { return this.NoticiasFormulario.get('descripcion') }
   get estado() { return this.NoticiasFormulario.get('estado') }
@@ -57,6 +61,7 @@ export class BorrarnoticiaComponent implements OnInit {
   get imagen() { return this.NoticiasFormulario.get('imagen') }
 
   onSubmit() {
+    this.borrarNoticia.id_noticia = this.NoticiasFormulario.get("id_noticia").value;
     this.borrarNoticia.titulo = this.NoticiasFormulario.get("titulo").value;
     this.borrarNoticia.descripcion = this.NoticiasFormulario.get("descripcion").value;
     this.borrarNoticia.texto = this.NoticiasFormulario.get("texto").value;
