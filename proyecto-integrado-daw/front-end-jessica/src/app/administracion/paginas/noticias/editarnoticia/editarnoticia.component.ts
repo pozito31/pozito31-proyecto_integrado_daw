@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ServicioRestNoticiasService } from '../../../../servicios/servicio-rest-noticias.service';
+import { Noticias } from '../../../../interfaces/noticias';
+import { Observable, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-editarnoticia',
@@ -8,7 +13,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class EditarnoticiaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ServicioRestNoticiasService: ServicioRestNoticiasService) { }
+  editarNoticia: Noticias = {
+    id_noticia: 0,
+    titulo: "a",
+    descripcion: "a",
+    texto: "a",
+    directorio_noticia: "a",
+    imagen: "a",
+    usuarios_id_usuario: 0
+  };
 
   NoticiasFormulario: FormGroup;
 
@@ -43,7 +57,12 @@ export class EditarnoticiaComponent implements OnInit {
   get imagen() { return this.NoticiasFormulario.get('imagen') }
 
   onSubmit() {
-    
+    this.editarNoticia.titulo = this.NoticiasFormulario.get("titulo").value;
+    this.editarNoticia.descripcion = this.NoticiasFormulario.get("descripcion").value;
+    this.editarNoticia.texto = this.NoticiasFormulario.get("texto").value;
+    this.editarNoticia.imagen = this.NoticiasFormulario.get("imagen").value;
+    console.log(this.NoticiasFormulario);
+    this.ServicioRestNoticiasService.editarNoticia(this.editarNoticia).subscribe();
   }
 
 
