@@ -70,27 +70,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="estado">Estado de la noticia</label>
-                                        <input type="text" 
-                                               class="form-control" 
-                                               name="estado" 
-                                               id="estado"
-                                               placeholder="estado"
-                                               formControlName="estado"
-                                               required
-                                               size="30"
-                                               aria-describedby="estado">
-
-                                        <div *ngIf="estado.invalid && (estado.dirty || estado.touched)" class="alert alert-danger">
-                                            <div *ngIf="estado.errors.required">
-                                                Debe indicar el estado.
-                                            </div>
-                                            <div *ngIf="estado.errors.minlength">
-                                                El estado debe tener como mínimo 4 caractéres.
-                                            </div>            
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="texto">Texto</label>
                                         <textarea class="form-control" 
                                                   name="texto" 
