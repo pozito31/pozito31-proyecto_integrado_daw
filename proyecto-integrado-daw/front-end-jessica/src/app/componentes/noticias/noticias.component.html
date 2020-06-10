@@ -14,7 +14,7 @@
                                     <hr>
                                     <div class="form-group">
                                         <label for="titulo">Titulo Noticia</label>
-                                        <input type="text" 
+                                            <input type="text" 
                                                class="form-control" 
                                                name="titulo" 
                                                id="titulo"
@@ -23,7 +23,6 @@
                                                required
                                                size="30"
                                                aria-describedby="titulo">
-
                                         <div *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="alert alert-danger">
                                             <div *ngIf="titulo.errors.required">
                                                 Debe indicar el titulo.
