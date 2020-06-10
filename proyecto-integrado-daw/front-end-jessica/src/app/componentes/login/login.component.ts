@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit {
   get password() { return this.LoginFormulario.get('password') }
 
   onSubmit() {    
-    const val = this.LoginFormulario.value;
-    console.log(val);
+    console.log(this.usuario);
+    console.log(this.password);
   }
 
 }
