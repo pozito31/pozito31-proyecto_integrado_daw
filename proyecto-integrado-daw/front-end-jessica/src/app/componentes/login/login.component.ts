@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { first } from 'rxjs/operators';
 import { Usuarios } from '../../interfaces/usuarios';
 import { LoginService } from '../../servicios/login.service';
 
@@ -14,7 +15,7 @@ import { LoginService } from '../../servicios/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
+  constructor(){}
 
   LoginFormulario: FormGroup;
 
@@ -30,14 +31,14 @@ export class LoginComponent implements OnInit {
         Validators.maxLength(15)
       ])
     });
+
   }
 
   get usuario() { return this.LoginFormulario.get('usuario') }
   get password() { return this.LoginFormulario.get('password') }
 
   onSubmit() {    
-    console.log(this.usuario);
-    console.log(this.password);
+    
   }
 
 }
