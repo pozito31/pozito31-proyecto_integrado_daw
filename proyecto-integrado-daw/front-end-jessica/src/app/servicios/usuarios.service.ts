@@ -12,4 +12,12 @@ export class UsuariosService {
   getAll() {
     return this.http.get<Usuarios[]>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/usuarios');
   }
+
+  register(usuarios: Usuarios) {
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/usuarios', usuarios);
+  }
+
+  delete(id_usuario: number) {
+    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/usuarios');
+  }
 }
