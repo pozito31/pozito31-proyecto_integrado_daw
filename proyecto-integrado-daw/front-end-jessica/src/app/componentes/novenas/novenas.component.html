@@ -115,7 +115,11 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <img src="assets/images/playa.webp" class="d-block w-100" alt="playa">
+                    <picture>
+                        <source media="(min-width: 750px)" srcset="assets/images/playa-1600_large_2x.webp 2x, assets/images/playa-1000_large_1x.webp" />
+                        <source media="(min-width: 500px)" srcset="assets/images/playa_medium.webp" />
+                        <img src="assets/images/playa.webp" class="d-block w-100" alt="playa">
+                    </picture>
                 </div>
             </div>
         </div>
