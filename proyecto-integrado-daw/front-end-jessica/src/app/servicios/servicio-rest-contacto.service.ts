@@ -21,7 +21,7 @@ export class ServicioRestContactoService {
   constructor(private http: HttpClient, private direcciones : DatosProtegidosService) { }
 
   ObtenerContacto(){
-    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto') 
+    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/contacto') 
     .pipe(
       retry(3), // si ocurre un error lo volvemos a intentar hasta tres veces
       catchError(this.handleError) // Gestionar el error
@@ -29,19 +29,19 @@ export class ServicioRestContactoService {
   }
 
   ObtieneContacto(id_contacto:number){
-    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto'+'/'+id_contacto);
+    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/contacto'+'/'+id_contacto);
   }
 
   añadirContacto(contacto:Contacto): Observable<{}> {
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto', contacto, httpOptions);
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/contacto', contacto, httpOptions);
   }
 
   editarContacto(contacto:Contacto): Observable<{}> {
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto', contacto, httpOptions);
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/contacto', contacto, httpOptions);
   }
 
   borrarContacto(id_codigo:number):Observable<{}>{
-    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/contacto/'+ id_codigo);
+    return this.http.delete('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/contacto/'+ id_codigo);
   }
 
   private handleError(error: HttpErrorResponse) {
