@@ -20,7 +20,7 @@ export class ServicioRestNoticiasService {
   constructor(private http: HttpClient, private direcciones: DatosProtegidosService) { }
   
   ObtenerNoticias(){
-    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias') 
+    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/noticias') 
     .pipe(
       retry(3), // si ocurre un error lo volvemos a intentar hasta tres veces
       catchError(this.handleError) // Gestionar el error
@@ -28,19 +28,19 @@ export class ServicioRestNoticiasService {
   }
 
   ObtenerNoticia(id_noticia:number){
-    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias'+'/'+id_noticia);
+    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/noticias'+'/'+id_noticia);
   }
 
   añadirNoticia(noticia:Noticias): Observable<{}>{
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia, httpOptions);
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/noticias', noticia, httpOptions);
   }
 
   editarNoticia(noticia:Noticias): Observable<{}>{
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias', noticia, httpOptions);
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/noticias', noticia, httpOptions);
   }
 
   borrarNoticia(id_noticia:number):Observable<{}>{
-    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/noticias/'+ id_noticia);
+    return this.http.delete('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/noticias/'+ id_noticia);
   }
 
   
