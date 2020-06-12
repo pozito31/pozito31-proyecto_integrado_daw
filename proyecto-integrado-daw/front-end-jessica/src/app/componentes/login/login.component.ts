@@ -5,8 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { first } from 'rxjs/operators';
 import { Usuarios } from '../../interfaces/usuarios';
 import { LoginService } from '../../servicios/login.service';
-import { AlertService } from '../../servicios/alert.service';
-
 
 
 @Component({
@@ -16,22 +14,7 @@ import { AlertService } from '../../servicios/alert.service';
 })
 export class LoginComponent implements OnInit {
   LoginFormulario: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private LoginService: LoginService,
-    private alertService: AlertService
-  ) {
-    // redirect to home if already logged in
-    if (this.LoginService.currentUserValue) {
-        this.router.navigate(['/']);
-    }
-  }
+  constructor(private LoginService: LoginService) {}
 
  
 
@@ -48,36 +31,13 @@ export class LoginComponent implements OnInit {
       ])
     });
 
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-
   }
 
   get usuario() { return this.LoginFormulario.get('usuario') }
   get password() { return this.LoginFormulario.get('password') }
 
   onSubmit() {    
-    this.submitted = true;
-
-        // reset alerts on submit
-        this.alertService.clear();
-
-        // stop here if form is invalid
-        if (this.LoginFormulario.invalid) {
-            return;
-        }
-
-        this.loading = true;
-        this.LoginService.login(this.usuario.value, this.password.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+   
   }
 
 }

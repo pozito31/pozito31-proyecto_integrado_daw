@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { AlertService } from '../../servicios/alert.service';
-import { UsuariosService } from '../../servicios/usuarios.service';
 import { LoginService } from '../../servicios/login.service';
 
 
@@ -14,20 +12,9 @@ import { LoginService } from '../../servicios/login.service';
 })
 export class RegistroComponent implements OnInit {
   RegistroFormulario: FormGroup;
-  loading = false;
-  submitted = false;
 
   constructor(
-    private router: Router,
-    private LoginService: LoginService,
-    private UsuariosService: UsuariosService,
-    private alertService: AlertService
-  ) {
-    // redirect to home if already logged in
-    if (this.LoginService.currentUserValue) {
-        this.router.navigate(['/']);
-    }
-  }
+    private LoginService: LoginService) {}
 
   ngOnInit(): void {
     this.RegistroFormulario = new FormGroup({
@@ -57,28 +44,7 @@ export class RegistroComponent implements OnInit {
   get password() { return this.RegistroFormulario.get('password') }
 
   onSubmit() {    
-    this.submitted = true;
-
-    // reset alerts on submit
-    this.alertService.clear();
-
-    // stop here if form is invalid
-    if (this.RegistroFormulario.invalid) {
-        return;
-    }
-
-    this.loading = true;
-    this.UsuariosService.register(this.RegistroFormulario.value)
-        .pipe(first())
-        .subscribe(
-            data => {
-                this.alertService.success('Registration successful', true);
-                this.router.navigate(['/login']);
-            },
-            error => {
-                this.alertService.error(error);
-                this.loading = false;
-            });
+    
   }
 
 }
