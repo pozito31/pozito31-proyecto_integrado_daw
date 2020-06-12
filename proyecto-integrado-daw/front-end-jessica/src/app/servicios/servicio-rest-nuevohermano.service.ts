@@ -20,7 +20,7 @@ export class ServicioRestNuevohermanoService {
   constructor(private http: HttpClient, private direcciones : DatosProtegidosService) { }
 
   Obtenernuevohermano(){
-    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano') 
+    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/nuevohermano') 
     .pipe(
       retry(3), // si ocurre un error lo volvemos a intentar hasta tres veces
       catchError(this.handleError) // Gestionar el error
@@ -28,19 +28,19 @@ export class ServicioRestNuevohermanoService {
   }
 
   Obtienenuevohermano(id_nuevohermano:number){
-    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano'+'/'+id_nuevohermano);
+    return this.http.get<datosDevueltos>('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/nuevohermano'+'/'+id_nuevohermano);
   }
 
   añadirNuevohermano(hermano:Nuevohermano): Observable<{}> {
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano', hermano, httpOptions);
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/nuevohermano', hermano, httpOptions);
   }
 
   editarNuevohermano(hermano:Nuevohermano): Observable<{}> {
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano', hermano, httpOptions);
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/nuevohermano', hermano, httpOptions);
   }
 
   borrarNuevohermano(id_nuevohermano:number):Observable<{}>{
-    return this.http.delete('http://pi.diiesmurgi.org/~jessica/REST_API/api/v1/nuevohermano/'+ id_nuevohermano);
+    return this.http.delete('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/nuevohermano/'+ id_nuevohermano);
   }
 
   private handleError(error: HttpErrorResponse) {
