@@ -14,7 +14,7 @@ import { LoginService } from '../../servicios/login.service';
 })
 export class LoginComponent implements OnInit {
   LoginFormulario: FormGroup;
-  constructor(private LoginService: LoginService) {}
+  constructor(private router: Router, private LoginService: LoginService) {}
 
  
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   get password() { return this.LoginFormulario.get('password') }
 
   onSubmit() {    
-   
+   this.router.navigate([ '/administracion' ]);
   }
 
 }
