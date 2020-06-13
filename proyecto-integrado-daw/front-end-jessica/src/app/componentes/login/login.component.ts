@@ -36,8 +36,7 @@ export class LoginComponent implements OnInit {
   get usuario() { return this.LoginFormulario.get('usuario') }
   get password() { return this.LoginFormulario.get('password') }
 
-  onSubmit() {
-   this.router.navigate([ '/componentes/tablero' ]);    
+  onSubmit() {   
    this.router.navigate([ '/administracion' ]);
   }
 
