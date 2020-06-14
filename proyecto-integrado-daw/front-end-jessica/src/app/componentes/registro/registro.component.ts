@@ -4,6 +4,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { LoginService } from '../../servicios/login.service';
 import { UsuariosService } from '../../servicios/usuarios.service';
+import { Usuarios } from '../../interfaces/usuarios';
+
 
 
 @Component({
@@ -48,7 +50,6 @@ export class RegistroComponent implements OnInit {
   get password() { return this.RegistroFormulario.get('password') }
 
   onSubmit() {    
-    
   }
 
 }
