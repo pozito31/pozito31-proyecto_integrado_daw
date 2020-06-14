@@ -39,7 +39,12 @@ export class LoginComponent implements OnInit {
   get password() { return this.LoginFormulario.get('password') }
 
   onSubmit() {
-  
+    if(this.LoginFormulario){
+      this.router.navigate(['/administracion']);
+    }else{
+      this.router.navigate(['/']);
+    }
+    
   }
 
 }

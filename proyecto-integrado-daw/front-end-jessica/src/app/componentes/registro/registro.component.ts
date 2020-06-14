@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { LoginService } from '../../servicios/login.service';
-import { UsuariosService } from '../../servicios/usuarios.service';
 import { Usuarios } from '../../interfaces/usuarios';
 
 
@@ -19,7 +18,6 @@ export class RegistroComponent implements OnInit {
   constructor(
     private router: Router,
     private LoginService: LoginService,
-    private usuariosService: UsuariosService,
     ) {}
 
   ngOnInit(): void {
