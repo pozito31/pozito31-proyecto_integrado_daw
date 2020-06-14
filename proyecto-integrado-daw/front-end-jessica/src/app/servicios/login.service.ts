@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Usuarios } from '../interfaces/usuarios';
+import { UserLogin, Usuarios } from '../interfaces/usuarios';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,9 +17,19 @@ const httpOptions = {
 })
 export class LoginService {
   
-  constructor(private http: HttpClient) {}
-  
-  login(UserLogin:Usuarios): Observable<{}>{
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest_api/api/v1/usuarios', UserLogin, httpOptions);
+
+  constructor(private http: HttpClient) {
+    
   }
+  
+
+ login(UserLogin:UserLogin): Observable<{}>{
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/login', UserLogin, httpOptions);
+  }
+  
+  register(usuario:Usuarios): Observable<{}>{
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/register', usuario, httpOptions);
+  }
+  
 }
+

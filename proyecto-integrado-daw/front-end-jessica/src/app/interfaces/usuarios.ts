@@ -11,3 +11,8 @@ export interface datosDevueltos  {
     status: string;
     data: Usuarios[];
 }
+
+export interface UserLogin  {
+    usuario: string;
+    password: string;
+}
