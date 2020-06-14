@@ -42,12 +42,26 @@ export class RegistroComponent implements OnInit {
     });
   }
 
-  get nombre() { return this.RegistroFormulario.get('nombre') }
-  get apellidos() { return this.RegistroFormulario.get('apellidos') }
-  get usuario() { return this.RegistroFormulario.get('usuario') }
-  get password() { return this.RegistroFormulario.get('password') }
+  get nombre() { return this.RegistroFormulario.get('nombre').value }
+  get apellidos() { return this.RegistroFormulario.get('apellidos').value }
+  get usuario() { return this.RegistroFormulario.get('usuario').value }
+  get password() { return this.RegistroFormulario.get('password').value }
 
-  onSubmit() {    
+  onSubmit() {   
+    let model: Usuarios = {
+      id_usuario: null,
+      nombre: this.nombre(),
+      apellidos: this.apellidos(),
+      fecha_alta: null,
+      usuario: this.usuario(),
+      password: this.password()
+    }
+
+ this.LoginService.register(model).subscribe((val) => {
+  console.log("usuario creado correctamente");
+  }, error=>{
+    console.log(error);
+  }) 
   }
 
 }
