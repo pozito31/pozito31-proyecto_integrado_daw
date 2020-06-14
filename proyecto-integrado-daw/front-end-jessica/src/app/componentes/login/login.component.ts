@@ -13,9 +13,18 @@ import { LoginService } from '../../servicios/login.service';
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent implements OnInit {
+  usuarios: Usuarios = {
+    id_usuario: 0,
+    nombre: "a",
+    apellidos: "a",
+    fecha_alta: "a",
+    usuario: "a",
+    password: "a"
+  };
+
   LoginFormulario: FormGroup;
   constructor(private router: Router, private LoginService: LoginService) {}
-
+  
  
 
   ngOnInit(): void {
@@ -36,7 +45,17 @@ export class LoginComponent implements OnInit {
   get usuario() { return this.LoginFormulario.get('usuario') }
   get password() { return this.LoginFormulario.get('password') }
 
-  onSubmit() {   
+  onSubmit() {
+    this.usuarios.usuario = this.LoginFormulario.get("usuario").value;
+    this.usuarios.password = this.LoginFormulario.get("password").value;
+
+    this.LoginService.login(this.usuarios).subscribe((val) => {
+      if(val){
+        this.router.navigate(['/administracion']);
+      }else{
+        this.router.navigate(['/']);
+      }
+    })
   }
 
 }
