@@ -3,26 +3,39 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Usuarios } from '../interfaces/usuarios';
+import { environment } from '../../environments/environment';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
-  })
-};
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  private currentUserSubject: BehaviorSubject<Usuarios>;
+  public currentUser: Observable<Usuarios>;
   
-
   constructor(private http: HttpClient) {
-    
+    this.currentUserSubject = new BehaviorSubject<Usuarios>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
   }
-  
-  login(usuarios: Usuarios): Observable<{}>{
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/login', usuarios, httpOptions);
+
+  public get currentUserValue(): Usuarios {
+    return this.currentUserSubject.value;
+}
+
+  login(usuario, password) {
+    return this.http.post<any>(`${environment.apiUrl}/usuarios/authenticate`, { usuario, password })
+        .pipe(map(usuarios => {
+            // store user details and jwt token in local storage to keep user logged in between page refreshes
+            localStorage.setItem('currentUser', JSON.stringify(usuarios));
+            this.currentUserSubject.next(usuarios);
+            return usuarios;
+        }));
+  }
+
+  logout() {
+    // remove user from local storage and set current user to null
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
   }
   
 }
