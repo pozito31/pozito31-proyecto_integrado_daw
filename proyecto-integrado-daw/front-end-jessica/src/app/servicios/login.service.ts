@@ -21,8 +21,8 @@ export class LoginService {
     
   }
   
-  login(UserLogin:Usuarios): Observable<{}>{
-    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/login', UserLogin, httpOptions);
+  login(usuarios: Usuarios): Observable<{}>{
+    return this.http.post('http://pi.diiesmurgi.org/~jessica/rest-api/api/v1/login', usuarios, httpOptions);
   }
   
 }
