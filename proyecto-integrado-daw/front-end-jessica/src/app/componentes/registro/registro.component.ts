@@ -42,19 +42,19 @@ export class RegistroComponent implements OnInit {
     });
   }
 
-  get nombre() { return this.RegistroFormulario.get('nombre').value }
-  get apellidos() { return this.RegistroFormulario.get('apellidos').value }
-  get usuario() { return this.RegistroFormulario.get('usuario').value }
-  get password() { return this.RegistroFormulario.get('password').value }
+  get nombre() { return this.RegistroFormulario.get('nombre') }
+  get apellidos() { return this.RegistroFormulario.get('apellidos') }
+  get usuario() { return this.RegistroFormulario.get('usuario') }
+  get password() { return this.RegistroFormulario.get('password') }
 
   onSubmit() {   
     let model: Usuarios = {
       id_usuario: null,
-      nombre: this.nombre(),
-      apellidos: this.apellidos(),
+      nombre: this.RegistroFormulario.get('nombre').value,
+      apellidos: this.RegistroFormulario.get('nombre').value,
       fecha_alta: null,
-      usuario: this.usuario(),
-      password: this.password()
+      usuario: this.RegistroFormulario.get('nombre').value,
+      password: this.RegistroFormulario.get('nombre').value
     }
 
  this.LoginService.register(model).subscribe((val) => {
