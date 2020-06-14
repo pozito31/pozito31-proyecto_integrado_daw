@@ -13,8 +13,6 @@ import { UsuariosService } from '../../servicios/usuarios.service';
 })
 export class RegistroComponent implements OnInit {
   RegistroFormulario: FormGroup;
-  loading = false;
-  submitted = false;
 
   constructor(
     private router: Router,
