@@ -51,10 +51,10 @@ export class RegistroComponent implements OnInit {
     let model: Usuarios = {
       id_usuario: null,
       nombre: this.RegistroFormulario.get('nombre').value,
-      apellidos: this.RegistroFormulario.get('nombre').value,
-      fecha_alta: null,
-      usuario: this.RegistroFormulario.get('nombre').value,
-      password: this.RegistroFormulario.get('nombre').value
+      apellidos: this.RegistroFormulario.get('apellidos').value,
+      fecha_alta: '2020-02-02',
+      usuario: this.RegistroFormulario.get('usuario').value,
+      password: this.RegistroFormulario.get('password').value
     }
 
  this.LoginService.register(model).subscribe((val) => {
