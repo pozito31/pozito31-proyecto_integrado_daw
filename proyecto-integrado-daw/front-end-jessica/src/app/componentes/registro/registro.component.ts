@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { LoginService } from '../../servicios/login.service';
-import { AlertService } from '../../servicios/alert.service';
 import { UsuariosService } from '../../servicios/usuarios.service';
 
 
@@ -21,13 +20,7 @@ export class RegistroComponent implements OnInit {
     private router: Router,
     private LoginService: LoginService,
     private usuariosService: UsuariosService,
-    private alertService: AlertService
-    ) {
-      // redirect to home if already logged in
-      if (this.LoginService.currentUserValue) {
-        this.router.navigate(['/']);
-      }
-    }
+    ) {}
 
   ngOnInit(): void {
     this.RegistroFormulario = new FormGroup({
@@ -57,27 +50,7 @@ export class RegistroComponent implements OnInit {
   get password() { return this.RegistroFormulario.get('password') }
 
   onSubmit() {    
-    this.submitted = true;
-
-    // reset alerts on submit
-    this.alertService.clear();
-
-    // stop here if form is invalid
-    if (this.RegistroFormulario.invalid) {
-        return;
-    }
-
-    this.loading = true;
-    this.usuariosService.register(this.RegistroFormulario.value)
-        .pipe(first())
-        .subscribe(
-            data => {
-              this.router.navigate(['/login']);
-            },
-            error => {
-              this.alertService.error(error);
-              this.loading = false;
-            });
+    
   }
 
 }
