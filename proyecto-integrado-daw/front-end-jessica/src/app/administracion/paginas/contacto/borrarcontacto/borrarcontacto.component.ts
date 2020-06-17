@@ -53,13 +53,6 @@ export class BorrarcontactoComponent implements OnInit {
     this.borrarContacto.nombre = this.ContactoFormulario.get("nombre").value;
     this.borrarContacto.mensaje = this.ContactoFormulario.get("mensaje").value;
     console.log(this.ContactoFormulario);
-    function borrar(){
-      if(confirm('¿Estas seguro de borrar los datos?')){
-        return true;
-      }else{
-        return false;
-      }
-    }
     this.ServicioRestContactoService.borrarContacto(this.borrarContacto.id_contacto).subscribe();
   }
 }
