@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "zapateria"
+    }
+  },
+  "defaultProject": "zapateria",
+  "cli": {
+    "analytics": "22439472-b6ff-4123-8173-89f4bcfcd2b7"
+  }
 }
