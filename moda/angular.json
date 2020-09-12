@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "moda"
+    }
+  },
+  "defaultProject": "moda",
+  "cli": {
+    "analytics": "09c801cc-8625-48b7-9087-2aeb681e899f"
+  }
 }
