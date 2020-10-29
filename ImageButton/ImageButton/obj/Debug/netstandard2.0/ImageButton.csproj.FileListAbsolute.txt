@@ -1,0 +1,14 @@
+C:\Users\jessica\source\repos\ImageButton\ImageButton\bin\Debug\netstandard2.0\ImageButton.deps.json
+C:\Users\jessica\source\repos\ImageButton\ImageButton\bin\Debug\netstandard2.0\ImageButton.dll
+C:\Users\jessica\source\repos\ImageButton\ImageButton\bin\Debug\netstandard2.0\ref\ImageButton.dll
+C:\Users\jessica\source\repos\ImageButton\ImageButton\bin\Debug\netstandard2.0\ImageButton.pdb
+C:\Users\jessica\source\repos\ImageButton\ImageButton\obj\Debug\netstandard2.0\ImageButton.csprojAssemblyReference.cache
+C:\Users\jessica\source\repos\ImageButton\ImageButton\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\jessica\source\repos\ImageButton\ImageButton\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\jessica\source\repos\ImageButton\ImageButton\obj\Debug\netstandard2.0\ImageButton.AssemblyInfoInputs.cache
+C:\Users\jessica\source\repos\ImageButton\ImageButton\obj\Debug\netstandard2.0\ImageButton.AssemblyInfo.cs
+C:\Users\jessica\source\repos\ImageButton\ImageButton\obj\Debug\netstandard2.0\ImageButton.csproj.CoreCompileInputs.cache
+C:\Users\jessica\source\repos\ImageButton\ImageButton\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\jessica\source\repos\ImageButton\ImageButton\obj\Debug\netstandard2.0\ImageButton.dll
+C:\Users\jessica\source\repos\ImageButton\ImageButton\obj\Debug\netstandard2.0\ref\ImageButton.dll
+C:\Users\jessica\source\repos\ImageButton\ImageButton\obj\Debug\netstandard2.0\ImageButton.pdb
